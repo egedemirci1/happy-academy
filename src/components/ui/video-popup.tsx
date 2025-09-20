@@ -91,25 +91,25 @@ export function VideoPopup({ videoSrc, thumbnailSrc, title, description }: Video
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-3xl"></div>
           
           {/* Branding */}
-          <div className="absolute bottom-6 left-6">
-            <div className="flex items-center gap-3 text-white">
-              <div className="w-4 h-4 bg-[#f7b500] rounded-full animate-pulse"></div>
-              <span className="text-sm font-semibold bg-black/30 px-3 py-1 rounded-full backdrop-blur-sm">Happy Academy</span>
+          <div className="absolute bottom-3 left-3 sm:bottom-6 sm:left-6">
+            <div className="flex items-center gap-2 sm:gap-3 text-white">
+              <div className="w-3 h-3 sm:w-4 sm:h-4 bg-[#f7b500] rounded-full animate-pulse"></div>
+              <span className="text-xs sm:text-sm font-semibold bg-black/30 px-2 py-1 sm:px-3 sm:py-1 rounded-full backdrop-blur-sm">Happy Academy</span>
             </div>
           </div>
           
           {/* HD Badge */}
-          <div className="absolute top-4 right-4">
-            <div className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-              <span className="text-white text-sm font-bold">HD</span>
+          <div className="absolute top-3 right-3 sm:top-4 sm:right-4">
+            <div className="w-6 h-6 sm:w-8 sm:h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+              <span className="text-white text-xs sm:text-sm font-bold">HD</span>
             </div>
           </div>
         </div>
         
         {/* Play Button Overlay - Always Visible */}
         <div className="absolute inset-0 flex items-center justify-center rounded-3xl">
-          <div className="bg-white/95 rounded-full p-6 shadow-2xl group-hover:scale-110 transition-transform duration-300">
-            <Play className="w-12 h-12 text-[#f7b500]" />
+          <div className="bg-white/95 rounded-full p-4 sm:p-6 shadow-2xl group-hover:scale-110 transition-transform duration-300">
+            <Play className="w-8 h-8 sm:w-12 sm:h-12 text-[#f7b500]" />
           </div>
         </div>
         
@@ -131,20 +131,20 @@ export function VideoPopup({ videoSrc, thumbnailSrc, title, description }: Video
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-hidden"
+              className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-hidden mx-2 sm:mx-0"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
-              <div className="flex items-center justify-between p-4 border-b">
+              <div className="flex items-center justify-between p-3 sm:p-4 border-b">
                 <div className="flex-1 text-center">
-                  <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
-                  <p className="text-sm text-gray-600">{description}</p>
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-900">{title}</h3>
+                  <p className="text-xs sm:text-sm text-gray-600">{description}</p>
                 </div>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-2 hover:bg-gray-100 rounded-full transition-colors ml-4"
+                  className="p-2 hover:bg-gray-100 rounded-full transition-colors ml-2 sm:ml-4"
                 >
-                  <X className="w-6 h-6 text-gray-600" />
+                  <X className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600" />
                 </button>
               </div>
 

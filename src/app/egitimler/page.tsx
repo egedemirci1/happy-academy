@@ -263,7 +263,7 @@ export default function EgitimlerPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-6xl md:text-8xl font-bold text-white mb-8 font-montserrat"
+              className="text-5xl md:text-7xl font-bold text-white mb-8 font-montserrat"
             >
               <span className="bg-gradient-to-r from-white via-[#f7b500] to-white bg-clip-text text-transparent">
                 Eğitimlerimiz
@@ -273,7 +273,7 @@ export default function EgitimlerPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-2xl md:text-3xl text-gray-300 mb-8 max-w-4xl mx-auto"
+              className="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto"
             >
               <span className="text-white font-semibold">Geleceğinizi şekillendirin</span> - 
               <span className="text-[#f7b500]"> 3 yaşından 80 yaşına</span> kadar herkes için özel tasarlanmış eğitim deneyimi

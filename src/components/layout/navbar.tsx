@@ -39,29 +39,16 @@ export function Navbar() {
           : 'bg-white/90'
       }`}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center h-16">
-          {/* Logo - Fixed Width */}
-          <div className="hidden lg:flex w-32 justify-start">
-            <Link href="/" className="flex items-center space-x-2">
-              <Image
-                src="/logo-happy-academy.png"
-                alt="Happy Academy Konya"
-                width={120}
-                height={36}
-                className="h-8 w-auto"
-              />
-            </Link>
-          </div>
-
-          {/* Mobile Logo */}
-          <Link href="/" className="lg:hidden flex items-center space-x-2">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
             <Image
               src="/logo-happy-academy.png"
               alt="Happy Academy Konya"
               width={120}
               height={36}
-              className="h-8 w-auto"
+              className="h-6 sm:h-8 w-auto"
             />
           </Link>
 
@@ -80,8 +67,8 @@ export function Navbar() {
             </div>
           </div>
 
-          {/* CTA Button - Fixed Width */}
-          <div className="hidden lg:flex w-32 justify-end">
+          {/* CTA Button - Desktop */}
+          <div className="hidden lg:flex">
             <Button
               asChild
               className="bg-[#f7b500] hover:bg-[#e6a300] text-black font-semibold"
@@ -97,10 +84,10 @@ export function Navbar() {
           <Button
             variant="ghost"
             size="sm"
-            className="lg:hidden text-gray-800 hover:text-[#f7b500]"
+            className="lg:hidden text-gray-800 hover:text-[#f7b500] flex-shrink-0"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMobileMenuOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
           </Button>
         </div>
 

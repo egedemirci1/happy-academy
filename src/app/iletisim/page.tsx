@@ -26,8 +26,8 @@ export default function IletisimPage() {
     {
       icon: Mail,
       title: 'E-posta',
-      content: 'info@happyacademykonya.com',
-      link: 'mailto:info@happyacademykonya.com',
+      content: 'info@happyacademy.com',
+      link: 'mailto:info@happyacademy.com',
       color: 'from-purple-500 to-purple-600'
     },
     {
@@ -46,9 +46,9 @@ export default function IletisimPage() {
 
 
   return (
-    <div className="h-screen pt-16">
+    <div className="min-h-screen pt-16">
       {/* Main Contact Section - Single Screen */}
-      <section className="h-[calc(100vh-4rem)] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+      <section className="min-h-[calc(100vh-4rem)] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-20">
           <div className="w-full h-full" style={{
@@ -66,8 +66,8 @@ export default function IletisimPage() {
         <div className="absolute top-10 left-10 w-32 h-32 bg-[#f7b500]/15 rounded-full blur-2xl"></div>
         <div className="absolute bottom-10 right-10 w-28 h-28 bg-[#f7b500]/20 rounded-full blur-xl"></div>
         
-        <div className="container mx-auto px-4 py-4 relative z-10 h-full flex items-center">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full">
+        <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-6 relative z-10 min-h-full flex items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 w-full">
             {/* Left Side - Contact Information */}
             <div className="flex flex-col justify-center space-y-4">
               <motion.div
@@ -76,16 +76,16 @@ export default function IletisimPage() {
                 transition={{ duration: 0.8 }}
                 className="text-center lg:text-left"
               >
-                <h1 className="text-2xl md:text-3xl font-bold text-white mb-3 font-montserrat">
+                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 font-montserrat">
                   İletişim
                 </h1>
-                <p className="text-base text-gray-300 mb-4 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-300 mb-4 leading-relaxed">
                   Bizimle iletişime geçin, sorularınızı sorun
                 </p>
               </motion.div>
 
               {/* Contact Cards */}
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 {contactInfo.map((info, index) => (
                   <motion.div
                     key={index}
@@ -95,16 +95,16 @@ export default function IletisimPage() {
                     className="group"
                   >
                     <Card className="bg-gray-700/80 border-gray-600 hover:border-[#f7b500] transition-all duration-300 backdrop-blur-sm hover:scale-105 h-full">
-                      <CardContent className="p-3 text-center h-full flex flex-col justify-center">
-                        <div className={`flex items-center justify-center w-10 h-10 bg-gradient-to-br ${info.color} rounded-lg mb-2 group-hover:scale-110 transition-transform duration-300 shadow-lg mx-auto`}>
-                          <info.icon className="h-5 w-5 text-white" />
+                      <CardContent className="p-3 sm:p-4 text-center h-full flex flex-col justify-center">
+                        <div className={`flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br ${info.color} rounded-lg mb-2 sm:mb-3 group-hover:scale-110 transition-transform duration-300 shadow-lg mx-auto`}>
+                          <info.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                         </div>
-                        <h3 className="text-sm font-semibold text-white mb-2 group-hover:text-[#f7b500] transition-colors duration-300">{info.title}</h3>
+                        <h3 className="text-sm sm:text-base font-semibold text-white mb-2 sm:mb-3 group-hover:text-[#f7b500] transition-colors duration-300">{info.title}</h3>
                         <a
                           href={info.link}
                           target={info.link.startsWith('http') ? '_blank' : undefined}
                           rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                          className="text-[#f7b500] hover:text-[#e6a300] transition-colors text-base font-medium block group-hover:scale-105 transition-transform duration-300"
+                          className="text-[#f7b500] hover:text-[#e6a300] transition-colors text-sm sm:text-base font-medium block group-hover:scale-105 transition-transform duration-300 break-all"
                           data-analytics={info.title === 'WhatsApp' ? 'whatsapp_click' : info.title === 'Telefon' ? 'phone_click' : undefined}
                         >
                           {info.content}
@@ -123,7 +123,7 @@ export default function IletisimPage() {
               >
                 <Card className="bg-gray-700/80 border-gray-600 backdrop-blur-sm h-full">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-base text-white flex items-center justify-center gap-2">
+                    <CardTitle className="text-sm sm:text-base text-white flex items-center justify-center gap-2">
                       <Clock className="h-4 w-4 text-[#f7b500]" />
                       Çalışma Saatleri
                     </CardTitle>
@@ -132,8 +132,8 @@ export default function IletisimPage() {
                     <div className="space-y-1">
                       {workingHours.map((schedule, index) => (
                         <div key={index} className="flex justify-between items-center py-1 border-b border-gray-600 last:border-b-0">
-                          <span className="text-gray-300 text-sm font-medium">{schedule.period}</span>
-                          <span className="text-[#f7b500] font-semibold text-sm">{schedule.hours}</span>
+                          <span className="text-gray-300 text-xs sm:text-sm font-medium">{schedule.period}</span>
+                          <span className="text-[#f7b500] font-semibold text-xs sm:text-sm">{schedule.hours}</span>
                         </div>
                       ))}
                     </div>
@@ -150,10 +150,10 @@ export default function IletisimPage() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-center lg:text-left"
               >
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 font-montserrat">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 font-montserrat">
                   <span className="text-[#f7b500]">Konumumuz</span>
                 </h2>
-                <p className="text-base text-gray-300 mb-4 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-300 mb-4 leading-relaxed">
                   Merkezi konumda, ulaşımı kolay bir bölgede yer almaktayız
                 </p>
               </motion.div>
@@ -165,17 +165,17 @@ export default function IletisimPage() {
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
                 <Card className="bg-gray-700/80 border-gray-600 backdrop-blur-sm h-full">
-                  <CardContent className="p-6 h-full flex items-center">
-                    <div className="flex items-start gap-4 w-full">
-                      <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-[#f7b500] to-[#e6a300] rounded-xl flex-shrink-0">
-                        <MapPin className="h-6 w-6 text-black" />
+                  <CardContent className="p-4 sm:p-6 h-full flex items-center">
+                    <div className="flex items-start gap-3 sm:gap-4 w-full">
+                      <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#f7b500] to-[#e6a300] rounded-xl flex-shrink-0">
+                        <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-black" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-xl font-semibold text-white mb-2">Happy Academy Konya</h3>
-                        <p className="text-gray-300 mb-4 leading-relaxed">
+                        <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">Happy Academy Konya</h3>
+                        <p className="text-gray-300 mb-4 leading-relaxed text-sm sm:text-base">
                           Feritpaşa Mahallesi İfa Sokak, Nene Hatun Parkı İçi 5/A, 42000 Selçuklu/Konya
                         </p>
-                        <p className="text-gray-400 text-sm">
+                        <p className="text-gray-400 text-xs sm:text-sm">
                           Merkezi konumda, ulaşımı kolay bir bölgede yer almaktayız.
                         </p>
                       </div>
@@ -214,25 +214,25 @@ export default function IletisimPage() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 1.0 }}
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <Button
                     asChild
-                    className="bg-green-500 hover:bg-green-600 text-white px-6 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                    className="bg-green-500 hover:bg-green-600 text-white px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                     data-analytics="whatsapp_click"
                   >
                     <a href="https://wa.me/903322350202" target="_blank" rel="noopener noreferrer">
-                      <MessageCircle className="h-5 w-5 mr-2" />
+                      <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2" />
                       WhatsApp'tan Yazın
                     </a>
                   </Button>
                   <Button
                     asChild
                     variant="outline"
-                    className="border-[#f7b500] text-[#f7b500] hover:bg-[#f7b500] hover:text-black px-6 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                    className="border-[#f7b500] text-[#f7b500] hover:bg-[#f7b500] hover:text-black px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                     data-analytics="phone_click"
                   >
                     <a href="tel:03322350202">
-                      <Phone className="h-5 w-5 mr-2" />
+                      <Phone className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2" />
                       Hemen Arayın
                     </a>
                   </Button>

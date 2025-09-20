@@ -301,18 +301,18 @@ export function HeroSlider() {
       </AnimatePresence>
 
       {/* Content */}
-      <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-24 relative z-10">
         <div className="text-center max-w-6xl mx-auto">
           <motion.div
             key={`icon-${currentSlide}`}
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-8"
+            className="mb-6 sm:mb-8"
           >
             <div className="flex justify-center">
-              <div className={`w-24 h-24 bg-gradient-to-r ${slides[currentSlide].color} rounded-full flex items-center justify-center shadow-2xl`}>
-                {slides[currentSlide].icon && React.createElement(slides[currentSlide].icon, { className: "w-14 h-14 text-white" })}
+              <div className={`w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-gradient-to-r ${slides[currentSlide].color} rounded-full flex items-center justify-center shadow-2xl`}>
+                {slides[currentSlide].icon && React.createElement(slides[currentSlide].icon, { className: "w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 text-white" })}
               </div>
             </div>
           </motion.div>
@@ -322,7 +322,7 @@ export function HeroSlider() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-7xl font-bold text-white mb-6 font-montserrat"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 font-montserrat leading-tight"
           >
             <span className="bg-gradient-to-r from-white via-[#f7b500] to-white bg-clip-text text-transparent">
               {slides[currentSlide].title}
@@ -334,7 +334,7 @@ export function HeroSlider() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-2xl md:text-3xl text-[#f7b500] mb-8 font-semibold"
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-[#f7b500] mb-6 sm:mb-8 font-semibold"
           >
             {slides[currentSlide].subtitle}
           </motion.h2>
@@ -344,7 +344,7 @@ export function HeroSlider() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-gray-300 mb-10 max-w-4xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 sm:mb-10 max-w-4xl mx-auto leading-relaxed px-2"
           >
             {slides[currentSlide].description}
           </motion.p>
@@ -355,11 +355,11 @@ export function HeroSlider() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="flex flex-wrap items-center justify-center gap-4 mb-12"
+            className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-8 sm:mb-12 px-2"
           >
             {slides[currentSlide].features.map((feature, idx) => (
-              <div key={idx} className="flex items-center gap-2 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full border border-[#f7b500]/20">
-                <span className="text-sm font-bold text-[#f7b500]">{feature}</span>
+              <div key={idx} className="flex items-center gap-1 sm:gap-2 bg-black/30 backdrop-blur-sm px-2 sm:px-4 py-1 sm:py-2 rounded-full border border-[#f7b500]/20">
+                <span className="text-xs sm:text-sm font-bold text-[#f7b500]">{feature}</span>
               </div>
             ))}
           </motion.div>
@@ -369,12 +369,12 @@ export function HeroSlider() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-6 justify-center"
+            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-4"
           >
             <Button
               asChild
               size="lg"
-              className="bg-gradient-to-r from-[#f7b500] to-[#e6a300] hover:from-[#e6a300] hover:to-[#f7b500] text-black font-bold px-10 py-5 text-lg rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105"
+              className="bg-gradient-to-r from-[#f7b500] to-[#e6a300] hover:from-[#e6a300] hover:to-[#f7b500] text-black font-bold px-6 sm:px-10 py-3 sm:py-5 text-sm sm:text-lg rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 w-full sm:w-auto"
               data-analytics="cta_click"
             >
               <Link href={slides[currentSlide].primaryButtonLink}>
@@ -386,7 +386,7 @@ export function HeroSlider() {
               asChild
               variant="outline"
               size="lg"
-              className="border-2 border-white text-white hover:bg-white hover:text-black font-bold px-10 py-5 text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+              className="border-2 border-white text-white hover:bg-white hover:text-black font-bold px-6 sm:px-10 py-3 sm:py-5 text-sm sm:text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 w-full sm:w-auto"
               data-analytics="whatsapp_click"
             >
               <Link href={slides[currentSlide].secondaryButtonLink} target="_blank">

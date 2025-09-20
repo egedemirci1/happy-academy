@@ -200,9 +200,9 @@ export default function Home() {
           />
           
           {/* Video Section */}
-          <div className="flex flex-col lg:flex-row gap-12 items-start mb-16">
-            <div className="flex-1 max-w-2xl">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl group hover:shadow-[#f7b500]/20 transition-all duration-500">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start mb-12 lg:mb-16">
+            <div className="flex-1 max-w-2xl mx-auto lg:mx-0">
+              <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl group hover:shadow-[#f7b500]/20 transition-all duration-500">
                 <VideoPopup
                   videoSrc="/Everyday skills in English (Free Course Trailer).mp4"
                   title="Happy Academy Tanıtım Videosu"
@@ -211,31 +211,31 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="flex-1 lg:pl-8">
-              <h3 className="text-3xl font-bold text-gray-800 mb-6">
+            <div className="flex-1 lg:pl-8 text-center lg:text-left">
+              <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 lg:mb-6">
                 Eğitimde <span className="text-[#f7b500] relative">
                   Farkımız
                   <div className="absolute -bottom-1 left-0 w-full h-1 bg-[#f7b500]/30 rounded-full"></div>
                 </span>
               </h3>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-600 mb-6 lg:mb-8 leading-relaxed px-4 lg:px-0">
                 Happy Academy olarak, öğrencilerimizin başarısı için sürekli kendimizi geliştiriyor, 
                 en modern eğitim tekniklerini kullanıyor ve her öğrencimize özel ilgi gösteriyoruz.
               </p>
-              <div className="flex items-center gap-6">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6">
                 <div className="flex -space-x-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#f7b500] to-[#e6a300] rounded-full flex items-center justify-center text-white font-bold shadow-lg">A</div>
-                  <div className="w-12 h-12 bg-gradient-to-br from-gray-400 to-gray-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg">B</div>
-                  <div className="w-12 h-12 bg-gradient-to-br from-gray-400 to-gray-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg">C</div>
-                  <div className="w-12 h-12 bg-gradient-to-br from-gray-400 to-gray-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg">+</div>
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#f7b500] to-[#e6a300] rounded-full flex items-center justify-center text-white font-bold shadow-lg text-sm sm:text-base">A</div>
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-gray-400 to-gray-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg text-sm sm:text-base">B</div>
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-gray-400 to-gray-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg text-sm sm:text-base">C</div>
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-gray-400 to-gray-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg text-sm sm:text-base">+</div>
                 </div>
-                <div className="flex flex-col">
-                  <span className="text-gray-800 font-bold text-lg">1000+</span>
-                  <span className="text-gray-600 text-sm">Mutlu Öğrenci</span>
+                <div className="flex flex-col items-center lg:items-start">
+                  <span className="text-gray-800 font-bold text-lg sm:text-xl">1000+</span>
+                  <span className="text-gray-600 text-sm sm:text-base">Mutlu Öğrenci</span>
                 </div>
                 <Link href="/hakkimizda" className="group">
                   <div className="flex items-center gap-2 bg-gradient-to-r from-[#f7b500] to-[#e6a300] hover:from-[#e6a300] hover:to-[#f7b500] text-black font-semibold px-4 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105">
-                    <span className="text-sm">Hakkımızda</span>
+                    <span className="text-sm sm:text-base">Hakkımızda</span>
                     <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
@@ -246,71 +246,71 @@ export default function Home() {
           </div>
           
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {whyChooseUs.map((item, index) => {
               const iconComponents = [
                 // Uzman Kadro - People/Team icon
                 <div key="team" className="flex items-center justify-center w-full h-full">
                   <div className="relative">
-                    <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
-                      <div className="w-4 h-4 bg-white rounded-full"></div>
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
+                      <div className="w-3 h-3 sm:w-4 sm:h-4 bg-white rounded-full"></div>
                     </div>
-                    <div className="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                      <div className="w-3 h-3 bg-white rounded-full"></div>
+                    <div className="absolute -top-1 -right-1 w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                      <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white rounded-full"></div>
                     </div>
-                    <div className="absolute -bottom-1 -left-1 w-6 h-6 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center">
-                      <div className="w-3 h-3 bg-white rounded-full"></div>
+                    <div className="absolute -bottom-1 -left-1 w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center">
+                      <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white rounded-full"></div>
                     </div>
                   </div>
                 </div>,
                 // Yoğun Pratik - Strength/Training icon
                 <div key="strength" className="flex items-center justify-center w-full h-full">
                   <div className="relative">
-                    <div className="w-12 h-8 bg-gradient-to-br from-orange-400 to-red-500 rounded-full relative">
+                    <div className="w-8 h-6 sm:w-12 sm:h-8 bg-gradient-to-br from-orange-400 to-red-500 rounded-full relative">
                       <div className="absolute inset-1 bg-gradient-to-br from-orange-300 to-orange-400 rounded-full"></div>
                       <div className="absolute top-1 left-2 w-1 h-2 bg-orange-600 rounded-full"></div>
                       <div className="absolute top-1 right-2 w-1 h-2 bg-orange-600 rounded-full"></div>
                     </div>
-                    <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full"></div>
+                    <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-2 h-2 sm:w-3 sm:h-3 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full"></div>
                   </div>
                 </div>,
                 // Deneme & Analiz - Chart/Analytics icon
                 <div key="chart" className="flex items-center justify-center w-full h-full">
-                  <div className="relative w-12 h-12">
-                    <div className="absolute bottom-0 left-0 w-2 h-4 bg-gradient-to-t from-blue-500 to-blue-400 rounded-t-sm"></div>
-                    <div className="absolute bottom-0 left-3 w-2 h-6 bg-gradient-to-t from-green-500 to-green-400 rounded-t-sm"></div>
-                    <div className="absolute bottom-0 left-6 w-2 h-8 bg-gradient-to-t from-yellow-500 to-yellow-400 rounded-t-sm"></div>
-                    <div className="absolute bottom-0 left-9 w-2 h-10 bg-gradient-to-t from-[#f7b500] to-[#e6a300] rounded-t-sm"></div>
+                  <div className="relative w-8 h-8 sm:w-12 sm:h-12">
+                    <div className="absolute bottom-0 left-0 w-1 h-2 sm:w-2 sm:h-4 bg-gradient-to-t from-blue-500 to-blue-400 rounded-t-sm"></div>
+                    <div className="absolute bottom-0 left-2 sm:left-3 w-1 h-3 sm:w-2 sm:h-6 bg-gradient-to-t from-green-500 to-green-400 rounded-t-sm"></div>
+                    <div className="absolute bottom-0 left-4 sm:left-6 w-1 h-4 sm:w-2 sm:h-8 bg-gradient-to-t from-yellow-500 to-yellow-400 rounded-t-sm"></div>
+                    <div className="absolute bottom-0 left-6 sm:left-9 w-1 h-5 sm:w-2 sm:h-10 bg-gradient-to-t from-[#f7b500] to-[#e6a300] rounded-t-sm"></div>
                     <div className="absolute top-0 right-0 w-1 h-1 bg-[#f7b500] rounded-full animate-pulse"></div>
                   </div>
                 </div>,
                 // Koçluk & Takip - Target/Goal icon
                 <div key="target" className="flex items-center justify-center w-full h-full">
                   <div className="relative">
-                    <div className="w-12 h-12 border-4 border-pink-400 rounded-full flex items-center justify-center">
-                      <div className="w-8 h-8 border-2 border-red-400 rounded-full flex items-center justify-center">
-                        <div className="w-4 h-4 bg-gradient-to-br from-[#f7b500] to-[#e6a300] rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 sm:w-12 sm:h-12 border-2 sm:border-4 border-pink-400 rounded-full flex items-center justify-center">
+                      <div className="w-5 h-5 sm:w-8 sm:h-8 border-1 sm:border-2 border-red-400 rounded-full flex items-center justify-center">
+                        <div className="w-2 h-2 sm:w-4 sm:h-4 bg-gradient-to-br from-[#f7b500] to-[#e6a300] rounded-full flex items-center justify-center">
                           <div className="w-1 h-1 bg-white rounded-full"></div>
                         </div>
                       </div>
                     </div>
-                    <div className="absolute -top-1 -right-1 w-4 h-1 bg-gradient-to-r from-[#f7b500] to-transparent transform rotate-45 rounded-full"></div>
+                    <div className="absolute -top-1 -right-1 w-2 h-1 sm:w-4 sm:h-1 bg-gradient-to-r from-[#f7b500] to-transparent transform rotate-45 rounded-full"></div>
                   </div>
                 </div>
               ];
               return (
-                <div key={item.id} className="text-center group p-6 rounded-2xl hover:bg-gray-50 transition-all duration-300">
-                  <div className="relative mb-6">
-                    <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                <div key={item.id} className="text-center group p-4 sm:p-6 rounded-2xl hover:bg-gray-50 transition-all duration-300">
+                  <div className="relative mb-4 sm:mb-6">
+                    <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                       {iconComponents[index]}
                     </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-white border-3 border-[#f7b500] rounded-full flex items-center justify-center shadow-lg">
-                      <span className="text-sm font-bold text-[#f7b500]">{index + 1}</span>
+                    <div className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-6 h-6 sm:w-8 sm:h-8 bg-white border-2 sm:border-3 border-[#f7b500] rounded-full flex items-center justify-center shadow-lg">
+                      <span className="text-xs sm:text-sm font-bold text-[#f7b500]">{index + 1}</span>
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-br from-[#f7b500]/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-[#f7b500] transition-colors duration-300">{item.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3 group-hover:text-[#f7b500] transition-colors duration-300">{item.title}</h3>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{item.description}</p>
               </div>
               );
             })}
@@ -320,7 +320,7 @@ export default function Home() {
 
 
       {/* Creative Blog Section */}
-      <section className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden">
+      <section className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden py-12 sm:py-16 lg:py-20">
         {/* Animated Background */}
         <div className="absolute inset-0">
           {/* Floating Geometric Shapes */}
@@ -334,22 +334,22 @@ export default function Home() {
           <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-gradient-to-l from-[#f7b500]/8 to-transparent rounded-full blur-2xl animate-float-delayed"></div>
         </div>
         
-        <div className="container relative z-10 h-screen flex flex-col justify-center">
+        <div className="container relative z-10 flex flex-col justify-center min-h-screen">
           {/* Header */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 sm:mb-12">
             <SectionTitle
               title="Eğitim Blogumuz"
               subtitle="Öğrenme yolculuğunuzda size rehberlik edecek içerikler"
-              className="mb-0 mt-8"
+              className="mb-0 mt-4 sm:mt-8"
               titleColor="text-white"
               subtitleColor="text-gray-300"
             />
           </div>
           
           {/* Creative Blog Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8 max-w-7xl mx-auto">
             {/* Left Side - 3 Posts Stack */}
-            <div className="space-y-4 flex flex-col justify-center">
+            <div className="space-y-3 sm:space-y-4 flex flex-col justify-center">
               {featuredBlogPosts.slice(0, 3).map((post, index) => {
                 const categoryInfo = blogCategories.find(cat => cat.id === post.category);
                 return (
@@ -358,34 +358,34 @@ export default function Home() {
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 + index * 0.2 }}
-                    className="relative group h-[160px]"
+                    className="relative group h-[140px] sm:h-[160px]"
                   >
                     <Link href={`/blog/${post.id}`} className="block h-full">
-                      <div className="relative overflow-hidden rounded-2xl bg-white p-5 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 border-l-4 border-[#f7b500] h-full flex flex-col">
-                        <div className="flex items-start gap-3 flex-1">
+                      <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-white p-3 sm:p-5 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 border-l-4 border-[#f7b500] h-full flex flex-col">
+                        <div className="flex items-start gap-2 sm:gap-3 flex-1">
                           {/* Category Icon */}
-                          <div className={`w-11 h-11 bg-gradient-to-br ${categoryInfo?.color} rounded-xl flex items-center justify-center flex-shrink-0`}>
-                            <span className="text-lg">{categoryInfo?.icon}</span>
+                          <div className={`w-8 h-8 sm:w-11 sm:h-11 bg-gradient-to-br ${categoryInfo?.color} rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0`}>
+                            <span className="text-sm sm:text-lg">{categoryInfo?.icon}</span>
                           </div>
                           
                           {/* Content */}
                           <div className="flex-1 flex flex-col">
-                            <h4 className="font-bold text-gray-800 mb-2 group-hover:text-[#f7b500] transition-colors duration-300 line-clamp-2 text-sm leading-tight">
+                            <h4 className="font-bold text-gray-800 mb-1 sm:mb-2 group-hover:text-[#f7b500] transition-colors duration-300 line-clamp-2 text-xs sm:text-sm leading-tight">
                               {post.title}
                             </h4>
-                            <p className="text-gray-600 text-sm line-clamp-2 mb-2 flex-1 leading-relaxed">
+                            <p className="text-gray-600 text-xs sm:text-sm line-clamp-2 mb-1 sm:mb-2 flex-1 leading-relaxed">
                               {post.excerpt}
                             </p>
                           </div>
                         </div>
                         
                         {/* Footer - Fixed at bottom */}
-                        <div className="flex items-center justify-between mt-3">
-                          <div className="flex items-center gap-1 text-sm text-gray-500">
-                            <Clock className="w-4 h-4" />
+                        <div className="flex items-center justify-between mt-2 sm:mt-3">
+                          <div className="flex items-center gap-1 text-xs sm:text-sm text-gray-500">
+                            <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
                             <span>{post.readTime}</span>
                           </div>
-                          <span className="text-[#f7b500] text-sm font-semibold">
+                          <span className="text-[#f7b500] text-xs sm:text-sm font-semibold">
                             Oku →
                           </span>
                         </div>
@@ -397,7 +397,7 @@ export default function Home() {
             </div>
             
             {/* Right Side - 3 Posts Stack */}
-            <div className="space-y-4 flex flex-col justify-center">
+            <div className="space-y-3 sm:space-y-4 flex flex-col justify-center">
               {featuredBlogPosts.slice(3, 6).map((post, index) => {
                 const categoryInfo = blogCategories.find(cat => cat.id === post.category);
                 return (
@@ -406,34 +406,34 @@ export default function Home() {
                     initial={{ opacity: 0, x: 50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.6 + index * 0.2 }}
-                    className="relative group h-[160px]"
+                    className="relative group h-[140px] sm:h-[160px]"
                   >
                     <Link href={`/blog/${post.id}`} className="block h-full">
-                      <div className="relative overflow-hidden rounded-2xl bg-white p-5 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 border-l-4 border-[#f7b500] h-full flex flex-col">
-                        <div className="flex items-start gap-3 flex-1">
+                      <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-white p-3 sm:p-5 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 border-l-4 border-[#f7b500] h-full flex flex-col">
+                        <div className="flex items-start gap-2 sm:gap-3 flex-1">
                           {/* Category Icon */}
-                          <div className={`w-11 h-11 bg-gradient-to-br ${categoryInfo?.color} rounded-xl flex items-center justify-center flex-shrink-0`}>
-                            <span className="text-lg">{categoryInfo?.icon}</span>
+                          <div className={`w-8 h-8 sm:w-11 sm:h-11 bg-gradient-to-br ${categoryInfo?.color} rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0`}>
+                            <span className="text-sm sm:text-lg">{categoryInfo?.icon}</span>
                           </div>
                           
                           {/* Content */}
                           <div className="flex-1 flex flex-col">
-                            <h4 className="font-bold text-gray-800 mb-2 group-hover:text-[#f7b500] transition-colors duration-300 line-clamp-2 text-sm leading-tight">
+                            <h4 className="font-bold text-gray-800 mb-1 sm:mb-2 group-hover:text-[#f7b500] transition-colors duration-300 line-clamp-2 text-xs sm:text-sm leading-tight">
                               {post.title}
                             </h4>
-                            <p className="text-gray-600 text-sm line-clamp-2 mb-2 flex-1 leading-relaxed">
+                            <p className="text-gray-600 text-xs sm:text-sm line-clamp-2 mb-1 sm:mb-2 flex-1 leading-relaxed">
                               {post.excerpt}
                             </p>
                           </div>
                         </div>
                         
                         {/* Footer - Fixed at bottom */}
-                        <div className="flex items-center justify-between mt-3">
-                          <div className="flex items-center gap-1 text-sm text-gray-500">
-                            <Clock className="w-4 h-4" />
+                        <div className="flex items-center justify-between mt-2 sm:mt-3">
+                          <div className="flex items-center gap-1 text-xs sm:text-sm text-gray-500">
+                            <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
                             <span>{post.readTime}</span>
                           </div>
-                          <span className="text-[#f7b500] text-sm font-semibold">
+                          <span className="text-[#f7b500] text-xs sm:text-sm font-semibold">
                             Oku →
                           </span>
                         </div>
@@ -450,15 +450,15 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2 }}
-            className="text-center mt-6"
+            className="text-center mt-4 sm:mt-6"
           >
-            <Link href="/blog" className="group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-[#f7b500] to-[#e6a300] text-black font-bold px-10 py-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:from-[#e6a300] group-hover:to-[#f7b500] overflow-hidden">
+            <Link href="/blog" className="group relative inline-flex items-center justify-center gap-2 sm:gap-3 bg-gradient-to-r from-[#f7b500] to-[#e6a300] text-black font-bold px-6 sm:px-10 py-3 sm:py-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:from-[#e6a300] group-hover:to-[#f7b500] overflow-hidden">
               {/* Background shine effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
               
-              <span className="text-base relative z-10">Tüm Yazıları Gör</span>
-              <div className="w-7 h-7 bg-black/10 rounded-full flex items-center justify-center group-hover:bg-black/20 transition-all duration-300 relative z-10">
-                <svg className="w-4 h-4 text-black group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <span className="text-sm sm:text-base relative z-10">Tüm Yazıları Gör</span>
+              <div className="w-5 h-5 sm:w-7 sm:h-7 bg-black/10 rounded-full flex items-center justify-center group-hover:bg-black/20 transition-all duration-300 relative z-10">
+                <svg className="w-3 h-3 sm:w-4 sm:h-4 text-black group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </div>

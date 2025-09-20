@@ -7,7 +7,13 @@ export default function HakkimizdaPage() {
   const scrollToNext = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const elementRect = element.getBoundingClientRect();
+      const absoluteElementTop = elementRect.top + window.pageYOffset;
+      const offset = sectionId === 'achievements' ? 60 : 80; // Achievements için daha az offset
+      window.scrollTo({
+        top: absoluteElementTop - offset,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -92,7 +98,7 @@ export default function HakkimizdaPage() {
   const teamMembers = [
     {
       name: 'Dr. Ayşe Yılmaz',
-      position: 'Kurucu & Genel Müdür',
+      position: 'Kurucu',
       experience: '15 yıl',
       specialization: 'İngilizce Eğitimi',
       bio: 'Cambridge Üniversitesi mezunu, 15 yıllık dil eğitimi deneyimi.',
@@ -158,18 +164,18 @@ export default function HakkimizdaPage() {
 
       {/* Hero Section */}
       <section id="hero" className="h-screen pt-16 relative z-10 flex flex-col">
-        <div className="container flex-1 flex flex-col justify-center">
+        <div className="container flex-1 flex flex-col">
           <motion.div
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-8 mt-4"
           >
             <div className="flex items-center justify-center gap-4 mb-6">
               <div className="p-3 bg-gradient-to-r from-[#f7b500] to-[#e6a300] rounded-full">
                 <GraduationCap className="h-8 w-8 text-white" />
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-800 font-montserrat">
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-800 font-montserrat">
                 <span className="bg-gradient-to-r from-[#f7b500] to-[#e6a300] bg-clip-text text-transparent">
                   Hakkımızda
                 </span>
@@ -184,26 +190,28 @@ export default function HakkimizdaPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto"
+            className="flex-1 flex items-center justify-center"
           >
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-[#f7b500]/20">
-              <div className="flex items-center gap-3 mb-4">
-                <Target className="h-6 w-6 text-[#f7b500]" />
-                <h2 className="text-2xl font-bold text-gray-800">Misyonumuz</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto -mt-8">
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 lg:p-8 shadow-lg border border-[#f7b500]/20">
+                <div className="flex items-center justify-center gap-3 mb-3 lg:mb-4">
+                  <Target className="h-5 w-5 lg:h-6 lg:w-6 text-[#f7b500]" />
+                  <h2 className="text-xl lg:text-2xl font-bold text-gray-800">Misyonumuz</h2>
+                </div>
+                <p className="text-sm lg:text-base text-gray-600 leading-relaxed text-justify">
+                  Öğrencilerimizin dil öğrenme ve sınav hazırlık süreçlerinde en yüksek başarıyı elde etmelerini sağlamak. Modern eğitim yöntemleri ve kişiselleştirilmiş yaklaşımımızla her öğrencinin potansiyelini ortaya çıkarıyoruz.
+                </p>
               </div>
-              <p className="text-gray-600 leading-relaxed">
-                Öğrencilerimizin dil öğrenme ve sınav hazırlık süreçlerinde en yüksek başarıyı elde etmelerini sağlamak. Modern eğitim yöntemleri ve kişiselleştirilmiş yaklaşımımızla her öğrencinin potansiyelini ortaya çıkarıyoruz.
-              </p>
-            </div>
 
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-[#f7b500]/20">
-              <div className="flex items-center gap-3 mb-4">
-                <Heart className="h-6 w-6 text-[#f7b500]" />
-                <h2 className="text-2xl font-bold text-gray-800">Vizyonumuz</h2>
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 lg:p-8 shadow-lg border border-[#f7b500]/20">
+                <div className="flex items-center justify-center gap-3 mb-3 lg:mb-4">
+                  <Heart className="h-5 w-5 lg:h-6 lg:w-6 text-[#f7b500]" />
+                  <h2 className="text-xl lg:text-2xl font-bold text-gray-800">Vizyonumuz</h2>
+                </div>
+                <p className="text-sm lg:text-base text-gray-600 leading-relaxed text-justify">
+                  Türkiye'nin en saygın dil eğitimi ve sınav hazırlık merkezlerinden biri olmak. Öğrencilerimizin akademik ve kişisel gelişimlerine katkı sağlayarak onları geleceğe hazırlıyoruz.
+                </p>
               </div>
-              <p className="text-gray-600 leading-relaxed">
-                Türkiye'nin en saygın dil eğitimi ve sınav hazırlık merkezlerinden biri olmak. Öğrencilerimizin akademik ve kişisel gelişimlerine katkı sağlayarak onları geleceğe hazırlıyoruz.
-              </p>
             </div>
           </motion.div>
         </div>
@@ -213,7 +221,7 @@ export default function HakkimizdaPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
-          className="flex justify-center pb-8"
+          className="flex justify-center pb-24"
         >
           <motion.button
             onClick={() => scrollToNext('achievements')}
@@ -228,20 +236,20 @@ export default function HakkimizdaPage() {
 
       {/* Achievements Section */}
       <section id="achievements" className="h-screen relative z-10 flex flex-col">
-        <div className="container flex-1 flex flex-col justify-center">
+        <div className="container flex-1 flex flex-col justify-between py-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-center mb-12"
+            className="text-center mb-6"
           >
-            <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="flex items-center justify-center gap-4 mb-4">
               <div className="p-3 bg-gradient-to-r from-[#f7b500] to-[#e6a300] rounded-full">
                 <Star className="h-8 w-8 text-white" />
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-800 font-montserrat">
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-800 font-montserrat whitespace-nowrap">
                 <span className="bg-gradient-to-r from-[#f7b500] to-[#e6a300] bg-clip-text text-transparent">
-                  Rakamlarla Başarımız
+                  Rakamlarla Biz
                 </span>
               </h1>
             </div>
@@ -250,29 +258,31 @@ export default function HakkimizdaPage() {
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {achievements.map((achievement, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                whileHover={{ 
-                  scale: 1.05,
-                  y: -5,
-                  transition: { duration: 0.3 }
-                }}
-                className="group cursor-pointer"
-              >
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-[#f7b500]/20 hover:border-[#f7b500]/40 text-center">
-                  <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${achievement.color} rounded-full mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <achievement.icon className="h-8 w-8 text-white" />
+          <div className="flex-1 flex items-center justify-center">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+              {achievements.map((achievement, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    y: -5,
+                    transition: { duration: 0.3 }
+                  }}
+                  className="group cursor-pointer"
+                >
+                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-5 lg:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-[#f7b500]/20 hover:border-[#f7b500]/40 text-center">
+                    <div className={`inline-flex items-center justify-center w-14 h-14 lg:w-20 lg:h-20 bg-gradient-to-r ${achievement.color} rounded-full mb-3 lg:mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                      <achievement.icon className="h-7 w-7 lg:h-10 lg:w-10 text-white" />
+                    </div>
+                    <h3 className="text-2xl lg:text-4xl font-bold text-gray-800 mb-1 lg:mb-2">{achievement.title}</h3>
+                    <p className="text-gray-600 font-medium text-sm lg:text-lg">{achievement.subtitle}</p>
                   </div>
-                  <h3 className="text-3xl font-bold text-gray-800 mb-2">{achievement.title}</h3>
-                  <p className="text-gray-600 font-medium">{achievement.subtitle}</p>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
         
@@ -281,7 +291,7 @@ export default function HakkimizdaPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.5 }}
-          className="flex justify-center pb-8"
+          className="flex justify-center pb-24"
         >
           <motion.button
             onClick={() => scrollToNext('team')}
@@ -296,18 +306,18 @@ export default function HakkimizdaPage() {
 
       {/* Team Section */}
       <section id="team" className="h-screen relative z-10 flex flex-col">
-        <div className="container flex-1 flex flex-col justify-center">
+        <div className="container flex-1 flex flex-col justify-between py-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-8"
           >
             <div className="flex items-center justify-center gap-4 mb-6">
               <div className="p-3 bg-gradient-to-r from-[#f7b500] to-[#e6a300] rounded-full">
                 <Users className="h-8 w-8 text-white" />
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-800 font-montserrat">
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-800 font-montserrat whitespace-nowrap">
                 <span className="bg-gradient-to-r from-[#f7b500] to-[#e6a300] bg-clip-text text-transparent">
                   Eğitmen Kadromuz
                 </span>
@@ -318,8 +328,9 @@ export default function HakkimizdaPage() {
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {teamMembers.map((member, index) => (
+          <div className="flex-1 flex items-center justify-center">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+              {teamMembers.map((member, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -332,20 +343,20 @@ export default function HakkimizdaPage() {
                 }}
                 className="group cursor-pointer"
               >
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-[#f7b500]/20 hover:border-[#f7b500]/40 text-center h-full">
-                  <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${member.color} rounded-full mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <Users className="h-8 w-8 text-white" />
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 lg:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-[#f7b500]/20 hover:border-[#f7b500]/40 text-center h-full max-w-sm mx-auto lg:max-w-none">
+                  <div className={`inline-flex items-center justify-center w-14 h-14 lg:w-20 lg:h-20 bg-gradient-to-r ${member.color} rounded-full mb-3 lg:mb-5 group-hover:scale-110 transition-transform duration-300`}>
+                    <Users className="h-7 w-7 lg:h-10 lg:w-10 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-800 mb-2">{member.name}</h3>
-                  <p className="text-[#f7b500] font-medium mb-3">{member.position}</p>
-                  <div className="space-y-1 text-sm text-gray-600 mb-3">
-                    <p><strong>Deneyim:</strong> {member.experience}</p>
+                  <h3 className="text-base lg:text-xl font-bold text-gray-800 mb-2 lg:mb-3">{member.name}</h3>
+                  <p className="text-sm lg:text-lg text-[#f7b500] font-medium mb-3 lg:mb-4">{member.position}</p>
+                  <div className="text-xs lg:text-base text-gray-600 mb-3 lg:mb-4">
                     <p><strong>Uzmanlık:</strong> {member.specialization}</p>
                   </div>
-                  <p className="text-gray-500 text-sm">{member.bio}</p>
+                  <p className="text-gray-500 text-xs lg:text-base">{member.bio}</p>
                 </div>
               </motion.div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
         
@@ -354,7 +365,7 @@ export default function HakkimizdaPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.8 }}
-          className="flex justify-center pb-8"
+          className="flex justify-center pb-24"
         >
           <motion.button
             onClick={() => scrollToNext('values')}
@@ -368,19 +379,19 @@ export default function HakkimizdaPage() {
       </section>
 
       {/* Values Section */}
-      <section id="values" className="h-screen relative z-10 flex flex-col">
-        <div className="container flex-1 flex flex-col justify-center">
+      <section id="values" className="h-screen relative z-20 flex flex-col">
+        <div className="container flex-1 flex flex-col justify-between py-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-8"
           >
             <div className="flex items-center justify-center gap-4 mb-6">
               <div className="p-3 bg-gradient-to-r from-[#f7b500] to-[#e6a300] rounded-full">
                 <Lightbulb className="h-8 w-8 text-white" />
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-800 font-montserrat">
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-800 font-montserrat">
                 <span className="bg-gradient-to-r from-[#f7b500] to-[#e6a300] bg-clip-text text-transparent">
                   Değerlerimiz
                 </span>
@@ -391,8 +402,9 @@ export default function HakkimizdaPage() {
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {values.map((value, index) => (
+          <div className="flex-1 flex items-center justify-center">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+              {values.map((value, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -405,15 +417,16 @@ export default function HakkimizdaPage() {
                 }}
                 className="group cursor-pointer"
               >
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-[#f7b500]/20 hover:border-[#f7b500]/40 text-center h-full">
-                  <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${value.color} rounded-full mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <value.icon className="h-8 w-8 text-white" />
+                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-5 lg:p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-[#f7b500]/20 hover:border-[#f7b500]/40 text-center h-full">
+                  <div className={`inline-flex items-center justify-center w-14 h-14 lg:w-16 lg:h-16 bg-gradient-to-r ${value.color} rounded-full mb-3 lg:mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <value.icon className="h-7 w-7 lg:h-8 lg:w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">{value.title}</h3>
-                  <p className="text-gray-600">{value.description}</p>
+                  <h3 className="text-lg lg:text-xl font-bold text-gray-800 mb-2 lg:mb-3">{value.title}</h3>
+                  <p className="text-sm lg:text-base text-gray-600">{value.description}</p>
                 </div>
               </motion.div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
         
@@ -422,7 +435,7 @@ export default function HakkimizdaPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 2 }}
-          className="flex justify-center pb-8"
+          className="flex justify-center pb-24"
         >
           <motion.button
             onClick={() => scrollToNext('hero')}
