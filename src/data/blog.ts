@@ -12,6 +12,14 @@ export interface BlogPost {
   featured?: boolean;
 }
 
+export interface BlogCategory {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  color: string;
+}
+
 export const blogCategories = [
   {
     id: 'egitim-ipuclari',
