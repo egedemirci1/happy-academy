@@ -64,10 +64,17 @@ export function LeadForm({
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value, type } = e.target;
+    const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
+      [name]: value
+    }));
+  };
+
+  const handleCheckboxChange = (checked: boolean) => {
+    setFormData(prev => ({
+      ...prev,
+      kvkk: checked
     }));
   };
 
@@ -202,7 +209,7 @@ export function LeadForm({
                 id="kvkk"
                 name="kvkk"
                 checked={formData.kvkk}
-                onChange={handleInputChange}
+                onCheckedChange={handleCheckboxChange}
                 className="mt-1"
               />
               <label htmlFor="kvkk" className="text-sm text-gray-300">
