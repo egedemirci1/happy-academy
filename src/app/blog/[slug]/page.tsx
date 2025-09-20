@@ -8,13 +8,14 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = blogPosts.find(p => p.id === params.slug);
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = await params;
+  const post = blogPosts.find(p => p.id === slug);
 
   if (!post) {
     notFound();
