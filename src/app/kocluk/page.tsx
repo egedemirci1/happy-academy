@@ -1,16 +1,11 @@
-import { Metadata } from 'next';
+'use client';
+
 import { SectionTitle } from '@/components/ui/section-title';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { LeadForm } from '@/components/ui/lead-form';
 import { CheckCircle, Target, Users, BarChart3, Calendar, MessageSquare, TrendingUp } from 'lucide-react';
-
-export const metadata: Metadata = {
-  title: 'Koçluk & Takip Sistemi - Kişiye Özel Plan + Haftalık Hedefler - Happy Academy Konya',
-  description: 'Koçluk & Takip Sistemi: Kişiye özel plan, haftalık hedefler, mentör görüşmeleri. Haftalık hedef planlama, veli bilgilendirme, ilerleme grafikleri.',
-  keywords: 'koçluk, takip sistemi, mentörlük, hedef planlama, öğrenci koçluğu, Konya',
-};
 
 export default function KoclukPage() {
   const coachingFeatures = [
