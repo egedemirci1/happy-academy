@@ -46,27 +46,28 @@ export default function IletisimPage() {
 
 
   return (
-    <div className="min-h-screen pt-16">
+    <div className="min-h-screen">
       {/* Main Contact Section - Single Screen */}
-      <section className="min-h-[calc(100vh-4rem)] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+      <section className="min-h-screen pt-20 sm:pt-24 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
         {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 opacity-40">
           <div className="w-full h-full" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='20' height='20' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 20 0 L 0 0 0 20' fill='none' stroke='%23f7b500' stroke-width='0.5' opacity='0.3'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23grid)'/%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='20' height='20' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 20 0 L 0 0 0 20' fill='none' stroke='%23f7b500' stroke-width='0.5' opacity='0.5'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23grid)'/%3E%3C/svg%3E")`,
             backgroundRepeat: 'repeat'
           }}></div>
         </div>
         
         {/* Decorative Elements */}
-        <div className="absolute top-20 left-20 w-24 h-24 border border-[#f7b500]/30 rotate-45 animate-spin-slow"></div>
-        <div className="absolute bottom-20 right-20 w-32 h-32 bg-[#f7b500]/10 rounded-full animate-pulse"></div>
-        <div className="absolute top-1/3 right-10 w-16 h-16 border border-[#f7b500]/25 rounded-full animate-bounce-slow"></div>
+        <div className="absolute top-20 left-20 w-24 h-24 border border-[#f7b500]/50 rotate-45 animate-spin-slow"></div>
+        <div className="absolute bottom-20 right-20 w-32 h-32 bg-[#f7b500]/20 rounded-full animate-pulse"></div>
+        <div className="absolute top-1/3 right-10 w-16 h-16 border border-[#f7b500]/40 rounded-full animate-bounce-slow"></div>
         
         {/* Yellow Light Effects */}
-        <div className="absolute top-10 left-10 w-32 h-32 bg-[#f7b500]/15 rounded-full blur-2xl"></div>
-        <div className="absolute bottom-10 right-10 w-28 h-28 bg-[#f7b500]/20 rounded-full blur-xl"></div>
+        <div className="absolute top-10 left-10 w-32 h-32 bg-[#f7b500]/25 rounded-full blur-2xl"></div>
+        <div className="absolute bottom-10 right-10 w-28 h-28 bg-[#f7b500]/30 rounded-full blur-xl"></div>
+        <div className="absolute top-1/2 left-1/2 w-40 h-40 bg-[#f7b500]/10 rounded-full blur-3xl"></div>
         
-        <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-6 relative z-10 min-h-full flex items-center">
+        <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 relative z-10 h-full flex items-center">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 w-full">
             {/* Left Side - Contact Information */}
             <div className="flex flex-col justify-center space-y-4">
@@ -246,3 +247,23 @@ export default function IletisimPage() {
     </div>
   );
 }
+
+<style jsx>{`
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  @keyframes bounce-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+  }
+  
+  .animate-bounce-slow {
+    animation: bounce-slow 3s ease-in-out infinite;
+  }
+`}</style>

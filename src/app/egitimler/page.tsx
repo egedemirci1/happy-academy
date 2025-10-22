@@ -259,25 +259,17 @@ export default function EgitimlerPage() {
         {/* Content */}
         <div className="container mx-auto px-4 py-16 relative z-10">
           <div className="text-center max-w-5xl mx-auto">
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-5xl md:text-7xl font-bold text-white mb-8 font-montserrat"
-            >
-              <span className="bg-gradient-to-r from-white via-[#f7b500] to-white bg-clip-text text-transparent">
-                Eğitimlerimiz
-              </span>
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto"
-            >
-              <span className="text-white font-semibold">Geleceğinizi şekillendirin</span> - 
-              <span className="text-[#f7b500]"> 3 yaşından 80 yaşına</span> kadar herkes için özel tasarlanmış eğitim deneyimi
-            </motion.p>
+            <SectionTitle
+              title="Eğitimlerimiz"
+              subtitle="Geleceğinizi şekillendirin - 3 yaşından 80 yaşına kadar herkes için özel tasarlanmış eğitim deneyimi"
+              icon={BookOpen}
+              iconSize="lg"
+              showIcon={true}
+              useAnimate={true}
+              titleColor="bg-gradient-to-r from-white via-[#f7b500] to-white bg-clip-text text-transparent"
+              subtitleColor="text-gray-300 text-xl md:text-2xl"
+              className="mb-8"
+            />
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

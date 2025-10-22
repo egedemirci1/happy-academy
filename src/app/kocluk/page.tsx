@@ -101,6 +101,9 @@ export default function KoclukPage() {
           <SectionTitle
             title="Koçluk & Takip Sistemi Nedir?"
             subtitle="Öğrencinizin başarısı için kapsamlı destek sistemi"
+            icon={Target}
+            iconSize="md"
+            showIcon={true}
             className="mb-16"
           />
           <div className="max-w-4xl mx-auto">

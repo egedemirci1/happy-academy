@@ -23,23 +23,10 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: 1,
-    title: "Yabancı Dil Eğitimleri",
-    subtitle: "Dünyayı Keşfetmeye Hazır mısınız?",
-    description: "İngilizce'den Korece'ye, 15+ dilde uzman eğitmenlerimizle akıcı konuşma becerisi kazanın. Sadece dil değil, kültürü de öğrenin!",
-    features: ["🚀 Hızlı Öğrenme", "🎯 Kişiye Özel", "🌍 Kültürel İçerik", "💬 Konuşma Odaklı"],
-    primaryButtonText: "Ücretsiz Seviye Tespiti",
-    primaryButtonLink: "#demo-section",
-    secondaryButtonText: "WhatsApp'tan Yazın",
-    secondaryButtonLink: "https://wa.me/903322350202",
-    icon: Globe,
-    color: 'from-blue-500 to-blue-600'
-  },
-  {
-    id: 2,
-    title: "LGS Hazırlık Eğitimleri",
-    subtitle: "Hedeflediğiniz Liseye Giriş Garantisi",
-    description: "LGS'de %100 başarı için özel stratejiler, deneme sınavları ve motivasyon koçluğu. Hayalinizdeki liseye girmenin yolu burada!",
-    features: ["📚 Uzman Kadro", "🎯 Strateji Odaklı", "📊 İlerleme Takibi", "🏆 Başarı Garantisi"],
+    title: "Eğitim Programlarımız",
+    subtitle: "Başarıya Giden Yolda Yanınızdayız",
+    description: "",
+    features: [],
     primaryButtonText: "Demo Ders Al",
     primaryButtonLink: "#demo-section",
     secondaryButtonText: "WhatsApp'tan Yazın",
@@ -92,7 +79,7 @@ export function HeroSlider() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black overflow-hidden">
+    <section className="relative min-h-screen pt-20 sm:pt-24 flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black overflow-hidden">
       {/* Ultra Crazy Dynamic Background */}
       <div className="absolute inset-0">
         {/* Animated Hexagonal Grid */}
@@ -302,99 +289,201 @@ export function HeroSlider() {
 
       {/* Content */}
       <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-24 relative z-10">
-        <div className="text-center max-w-6xl mx-auto">
-          <motion.div
-            key={`icon-${currentSlide}`}
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mb-6 sm:mb-8"
-          >
-            <div className="flex justify-center">
-              <div className={`w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-gradient-to-r ${slides[currentSlide].color} rounded-full flex items-center justify-center shadow-2xl`}>
-                {slides[currentSlide].icon && React.createElement(slides[currentSlide].icon, { className: "w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 text-white" })}
-              </div>
-            </div>
-          </motion.div>
-          
-          <motion.h1
-            key={`title-${currentSlide}`}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 font-montserrat leading-tight"
-          >
-            <span className="bg-gradient-to-r from-white via-[#f7b500] to-white bg-clip-text text-transparent">
-              {slides[currentSlide].title}
-            </span>
-          </motion.h1>
-          
-          <motion.h2
-            key={`subtitle-${currentSlide}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-[#f7b500] mb-6 sm:mb-8 font-semibold"
-          >
-            {slides[currentSlide].subtitle}
-          </motion.h2>
-          
-          <motion.p
-            key={`description-${currentSlide}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 sm:mb-10 max-w-4xl mx-auto leading-relaxed px-2"
-          >
-            {slides[currentSlide].description}
-          </motion.p>
-          
-          {/* Features */}
-          <motion.div
-            key={`features-${currentSlide}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-8 sm:mb-12 px-2"
-          >
-            {slides[currentSlide].features.map((feature, idx) => (
-              <div key={idx} className="flex items-center gap-1 sm:gap-2 bg-black/30 backdrop-blur-sm px-2 sm:px-4 py-1 sm:py-2 rounded-full border border-[#f7b500]/20">
-                <span className="text-xs sm:text-sm font-bold text-[#f7b500]">{feature}</span>
-              </div>
-            ))}
-          </motion.div>
-          
-          <motion.div
-            key={`buttons-${currentSlide}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-4"
-          >
-            <Button
-              asChild
-              size="lg"
-              className="bg-gradient-to-r from-[#f7b500] to-[#e6a300] hover:from-[#e6a300] hover:to-[#f7b500] text-black font-bold px-6 sm:px-10 py-3 sm:py-5 text-sm sm:text-lg rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 w-full sm:w-auto"
-              data-analytics="cta_click"
+        {currentSlide === 0 ? (
+          /* Split Layout for First Slide */
+          <div className="flex flex-col md:flex-row items-stretch justify-center gap-0 max-w-7xl mx-auto min-h-[600px]">
+            {/* Left Side - LGS Hazırlık */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="flex-1 flex flex-col items-center justify-center text-center p-6 sm:p-8 md:p-12"
             >
-              <Link href={slides[currentSlide].primaryButtonLink}>
-                {slides[currentSlide].primaryButtonText}
-              </Link>
-            </Button>
+              <div className="mb-6">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center shadow-2xl mx-auto">
+                  <BookOpen className="w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 text-white" />
+                </div>
+              </div>
+              
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 font-montserrat">
+                <span className="bg-gradient-to-r from-white via-[#f7b500] to-white bg-clip-text text-transparent">
+                  LGS Hazırlık Eğitimleri
+                </span>
+              </h2>
+              
+              <p className="text-base sm:text-lg md:text-xl text-[#f7b500] mb-4 font-semibold">
+                Hedeflediğiniz Liseye Giriş Garantisi
+              </p>
+              
+              <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-6 max-w-md leading-relaxed">
+                LGS'de %100 başarı için özel stratejiler, deneme sınavları ve motivasyon koçluğu.
+              </p>
+              
+              <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
+                {["📚 Uzman Kadro", "🎯 Strateji Odaklı", "📊 İlerleme Takibi", "🏆 Başarı Garantisi"].map((feature, idx) => (
+                  <div key={idx} className="bg-black/30 backdrop-blur-sm px-3 py-1 rounded-full border border-[#f7b500]/20">
+                    <span className="text-xs sm:text-sm font-bold text-[#f7b500]">{feature}</span>
+                  </div>
+                ))}
+              </div>
+              
+              <Button
+                asChild
+                size="lg"
+                className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-500 text-white font-bold px-6 py-3 text-sm sm:text-base rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105"
+              >
+                <Link href="/egitimler/lgs-hazirlik">
+                  Detaylı Bilgi
+                </Link>
+              </Button>
+            </motion.div>
             
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="border-2 border-white text-white hover:bg-white hover:text-black font-bold px-6 sm:px-10 py-3 sm:py-5 text-sm sm:text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 w-full sm:w-auto"
-              data-analytics="whatsapp_click"
+            {/* Divider Line */}
+            <div className="hidden md:block w-px bg-gradient-to-b from-transparent via-[#f7b500] to-transparent"></div>
+            <div className="md:hidden h-px w-full bg-gradient-to-r from-transparent via-[#f7b500] to-transparent my-8"></div>
+            
+            {/* Right Side - Yabancı Dil */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="flex-1 flex flex-col items-center justify-center text-center p-6 sm:p-8 md:p-12"
             >
-              <Link href={slides[currentSlide].secondaryButtonLink} target="_blank">
-                {slides[currentSlide].secondaryButtonText}
-              </Link>
-            </Button>
-          </motion.div>
-        </div>
+              <div className="mb-6">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-2xl mx-auto">
+                  <Globe className="w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 text-white" />
+                </div>
+              </div>
+              
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 font-montserrat">
+                <span className="bg-gradient-to-r from-white via-[#f7b500] to-white bg-clip-text text-transparent">
+                  Yabancı Dil Eğitimleri
+                </span>
+              </h2>
+              
+              <p className="text-base sm:text-lg md:text-xl text-[#f7b500] mb-4 font-semibold">
+                Dünyayı Keşfetmeye Hazır mısınız?
+              </p>
+              
+              <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-6 max-w-md leading-relaxed">
+                15+ dilde uzman eğitmenlerimizle akıcı konuşma becerisi kazanın. Sadece dil değil, kültürü de öğrenin!
+              </p>
+              
+              <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
+                {["🚀 Hızlı Öğrenme", "🎯 Kişiye Özel", "🌍 Kültürel İçerik", "💬 Konuşma Odaklı"].map((feature, idx) => (
+                  <div key={idx} className="bg-black/30 backdrop-blur-sm px-3 py-1 rounded-full border border-[#f7b500]/20">
+                    <span className="text-xs sm:text-sm font-bold text-[#f7b500]">{feature}</span>
+                  </div>
+                ))}
+              </div>
+              
+              <Button
+                asChild
+                size="lg"
+                className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 text-white font-bold px-6 py-3 text-sm sm:text-base rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105"
+              >
+                <Link href="/egitimler/yabanci-diller">
+                  Detaylı Bilgi
+                </Link>
+              </Button>
+            </motion.div>
+          </div>
+        ) : (
+          /* Normal Layout for Other Slides */
+          <div className="text-center max-w-6xl mx-auto">
+            <motion.div
+              key={`icon-${currentSlide}`}
+              initial={{ opacity: 0, y: -30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="mb-6 sm:mb-8"
+            >
+              <div className="flex justify-center">
+                <div className={`w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-gradient-to-r ${slides[currentSlide].color} rounded-full flex items-center justify-center shadow-2xl`}>
+                  {slides[currentSlide].icon && React.createElement(slides[currentSlide].icon, { className: "w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 text-white" })}
+                </div>
+              </div>
+            </motion.div>
+            
+            <motion.h1
+              key={`title-${currentSlide}`}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 font-montserrat leading-tight"
+            >
+              <span className="bg-gradient-to-r from-white via-[#f7b500] to-white bg-clip-text text-transparent">
+                {slides[currentSlide].title}
+              </span>
+            </motion.h1>
+            
+            <motion.h2
+              key={`subtitle-${currentSlide}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-[#f7b500] mb-6 sm:mb-8 font-semibold"
+            >
+              {slides[currentSlide].subtitle}
+            </motion.h2>
+            
+            <motion.p
+              key={`description-${currentSlide}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 sm:mb-10 max-w-4xl mx-auto leading-relaxed px-2"
+            >
+              {slides[currentSlide].description}
+            </motion.p>
+            
+            {/* Features */}
+            <motion.div
+              key={`features-${currentSlide}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-8 sm:mb-12 px-2"
+            >
+              {slides[currentSlide].features.map((feature, idx) => (
+                <div key={idx} className="flex items-center gap-1 sm:gap-2 bg-black/30 backdrop-blur-sm px-2 sm:px-4 py-1 sm:py-2 rounded-full border border-[#f7b500]/20">
+                  <span className="text-xs sm:text-sm font-bold text-[#f7b500]">{feature}</span>
+                </div>
+              ))}
+            </motion.div>
+            
+            <motion.div
+              key={`buttons-${currentSlide}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-4"
+            >
+              <Button
+                asChild
+                size="lg"
+                className="bg-gradient-to-r from-[#f7b500] to-[#e6a300] hover:from-[#e6a300] hover:to-[#f7b500] text-black font-bold px-6 sm:px-10 py-3 sm:py-5 text-sm sm:text-lg rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 w-full sm:w-auto"
+                data-analytics="cta_click"
+              >
+                <Link href={slides[currentSlide].primaryButtonLink}>
+                  {slides[currentSlide].primaryButtonText}
+                </Link>
+              </Button>
+              
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="border-2 border-white text-white hover:bg-white hover:text-black font-bold px-6 sm:px-10 py-3 sm:py-5 text-sm sm:text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 w-full sm:w-auto"
+                data-analytics="whatsapp_click"
+              >
+                <Link href={slides[currentSlide].secondaryButtonLink} target="_blank">
+                  {slides[currentSlide].secondaryButtonText}
+                </Link>
+              </Button>
+            </motion.div>
+          </div>
+        )}
       </div>
 
 

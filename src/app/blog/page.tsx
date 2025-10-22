@@ -16,7 +16,7 @@ export default function BlogPage() {
     : blogPosts.filter(post => post.category === selectedCategory);
 
   return (
-    <div className="min-h-screen pt-16 overflow-hidden">
+    <div className="min-h-screen pt-20 sm:pt-24 overflow-hidden">
       {/* Main Container */}
       <div className="h-full bg-gradient-to-br from-orange-50 via-yellow-50 to-amber-50 relative">
         {/* Animated Background Elements */}
@@ -68,21 +68,16 @@ export default function BlogPage() {
           {/* Header Section */}
           <div className="flex-shrink-0 px-4 sm:px-6 py-4 sm:py-6">
             <div className="max-w-7xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0, y: -30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="text-center mb-8"
-              >
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-800 mb-3 font-montserrat">
-                  <span className="bg-gradient-to-r from-[#f7b500] to-[#e6a300] bg-clip-text text-transparent">
-                    Eğitim Blogu
-                  </span>
-                </h1>
-                <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-6 px-4">
-                  Öğrenme yolculuğunuzda size rehberlik edecek içerikler
-                </p>
-              </motion.div>
+              <SectionTitle
+                title="Eğitim Blogu"
+                subtitle="Öğrenme yolculuğunuzda size rehberlik edecek içerikler"
+                icon={BookOpen}
+                iconSize="lg"
+                showIcon={true}
+                useAnimate={true}
+                titleColor="bg-gradient-to-r from-[#f7b500] to-[#e6a300] bg-clip-text text-transparent"
+                className="mb-8"
+              />
 
               {/* Categories Filter */}
               <motion.div

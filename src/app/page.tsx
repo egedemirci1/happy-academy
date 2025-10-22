@@ -21,7 +21,7 @@ export default function Home() {
 
       {/* Student Testimonials and Videos Section */}
       <section className="min-h-screen flex flex-col bg-white">
-        <div className="container mx-auto px-4 pt-16 pb-8 flex-1 flex flex-col">
+        <div className="container mx-auto px-4 pt-20 sm:pt-24 pb-8 flex-1 flex flex-col">
           <SectionTitle
             title="Öğrenci ve Veli Yorumları"
             subtitle="Başarı hikayelerimizi dinleyin"
@@ -30,7 +30,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 -mt-8">
             {/* Yetişkin Video */}
             <div className="text-center flex flex-col">
-              <div className="bg-gray-100 rounded-xl p-6 mb-4 flex-1 flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden min-h-[480px]">
+              <div className="bg-gray-100 rounded-xl p-4 sm:p-6 mb-4 flex-1 flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden min-h-[320px] sm:min-h-[480px]">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#f7b500] via-[#ffd700] to-[#f7b500]"></div>
                 <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#f7b500]/20 to-transparent rounded-bl-2xl"></div>
                 <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-[#f7b500]/20 to-transparent rounded-tr-2xl"></div>
@@ -65,7 +65,7 @@ export default function Home() {
 
             {/* Junior Video */}
             <div className="text-center flex flex-col">
-              <div className="bg-gray-100 rounded-xl p-6 mb-4 flex-1 flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden min-h-[480px]">
+              <div className="bg-gray-100 rounded-xl p-4 sm:p-6 mb-4 flex-1 flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden min-h-[320px] sm:min-h-[480px]">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#f7b500] via-[#ffd700] to-[#f7b500]"></div>
                 <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#f7b500]/20 to-transparent rounded-bl-2xl"></div>
                 <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-[#f7b500]/20 to-transparent rounded-tr-2xl"></div>
@@ -100,7 +100,7 @@ export default function Home() {
 
             {/* LGS Video */}
             <div className="text-center flex flex-col">
-              <div className="bg-gray-100 rounded-xl p-6 mb-4 flex-1 flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden min-h-[480px]">
+              <div className="bg-gray-100 rounded-xl p-4 sm:p-6 mb-4 flex-1 flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden min-h-[320px] sm:min-h-[480px]">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#f7b500] via-[#ffd700] to-[#f7b500]"></div>
                 <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#f7b500]/20 to-transparent rounded-bl-2xl"></div>
                 <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-[#f7b500]/20 to-transparent rounded-tr-2xl"></div>
@@ -340,9 +340,10 @@ export default function Home() {
             <SectionTitle
               title="Eğitim Blogumuz"
               subtitle="Öğrenme yolculuğunuzda size rehberlik edecek içerikler"
-              className="mb-0 mt-4 sm:mt-8"
+              className="mb-0 -mt-16 sm:-mt-20"
               titleColor="text-white"
               subtitleColor="text-gray-300"
+              useAnimate={true}
             />
           </div>
           
@@ -357,11 +358,11 @@ export default function Home() {
                     key={post.id}
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 + index * 0.2 }}
-                    className="relative group h-[140px] sm:h-[160px]"
+                    transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
+                    className="relative group h-[120px] sm:h-[140px] md:h-[160px]"
                   >
                     <Link href={`/blog/${post.id}`} className="block h-full">
-                      <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-white p-3 sm:p-5 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 border-l-4 border-[#f7b500] h-full flex flex-col">
+                      <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-white p-4 sm:p-5 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 border-l-4 border-[#f7b500] h-full flex flex-col">
                         <div className="flex items-start gap-2 sm:gap-3 flex-1">
                           {/* Category Icon */}
                           <div className={`w-8 h-8 sm:w-11 sm:h-11 bg-gradient-to-br ${categoryInfo?.color} rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0`}>
@@ -370,10 +371,10 @@ export default function Home() {
                           
                           {/* Content */}
                           <div className="flex-1 flex flex-col">
-                            <h4 className="font-bold text-gray-800 mb-1 sm:mb-2 group-hover:text-[#f7b500] transition-colors duration-300 line-clamp-2 text-xs sm:text-sm leading-tight">
+                            <h4 className="font-bold text-gray-800 mb-1 sm:mb-2 group-hover:text-[#f7b500] transition-colors duration-300 line-clamp-2 text-sm sm:text-sm leading-tight">
                               {post.title}
                             </h4>
-                            <p className="text-gray-600 text-xs sm:text-sm line-clamp-2 mb-1 sm:mb-2 flex-1 leading-relaxed">
+                            <p className="text-gray-600 text-sm sm:text-sm line-clamp-2 mb-1 sm:mb-2 flex-1 leading-relaxed">
                               {post.excerpt}
                             </p>
                           </div>
@@ -381,11 +382,11 @@ export default function Home() {
                         
                         {/* Footer - Fixed at bottom */}
                         <div className="flex items-center justify-between mt-2 sm:mt-3">
-                          <div className="flex items-center gap-1 text-xs sm:text-sm text-gray-500">
+                          <div className="flex items-center gap-1 text-sm sm:text-sm text-gray-500">
                             <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
                             <span>{post.readTime}</span>
                           </div>
-                          <span className="text-[#f7b500] text-xs sm:text-sm font-semibold">
+                          <span className="text-[#f7b500] text-sm sm:text-sm font-semibold">
                             Oku →
                           </span>
                         </div>
@@ -405,11 +406,11 @@ export default function Home() {
                     key={post.id}
                     initial={{ opacity: 0, x: 50 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6 + index * 0.2 }}
-                    className="relative group h-[140px] sm:h-[160px]"
+                    transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+                    className="relative group h-[120px] sm:h-[140px] md:h-[160px]"
                   >
                     <Link href={`/blog/${post.id}`} className="block h-full">
-                      <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-white p-3 sm:p-5 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 border-l-4 border-[#f7b500] h-full flex flex-col">
+                      <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-white p-4 sm:p-5 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 border-l-4 border-[#f7b500] h-full flex flex-col">
                         <div className="flex items-start gap-2 sm:gap-3 flex-1">
                           {/* Category Icon */}
                           <div className={`w-8 h-8 sm:w-11 sm:h-11 bg-gradient-to-br ${categoryInfo?.color} rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0`}>
@@ -418,10 +419,10 @@ export default function Home() {
                           
                           {/* Content */}
                           <div className="flex-1 flex flex-col">
-                            <h4 className="font-bold text-gray-800 mb-1 sm:mb-2 group-hover:text-[#f7b500] transition-colors duration-300 line-clamp-2 text-xs sm:text-sm leading-tight">
+                            <h4 className="font-bold text-gray-800 mb-1 sm:mb-2 group-hover:text-[#f7b500] transition-colors duration-300 line-clamp-2 text-sm sm:text-sm leading-tight">
                               {post.title}
                             </h4>
-                            <p className="text-gray-600 text-xs sm:text-sm line-clamp-2 mb-1 sm:mb-2 flex-1 leading-relaxed">
+                            <p className="text-gray-600 text-sm sm:text-sm line-clamp-2 mb-1 sm:mb-2 flex-1 leading-relaxed">
                               {post.excerpt}
                             </p>
                           </div>
@@ -429,11 +430,11 @@ export default function Home() {
                         
                         {/* Footer - Fixed at bottom */}
                         <div className="flex items-center justify-between mt-2 sm:mt-3">
-                          <div className="flex items-center gap-1 text-xs sm:text-sm text-gray-500">
+                          <div className="flex items-center gap-1 text-sm sm:text-sm text-gray-500">
                             <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
                             <span>{post.readTime}</span>
                           </div>
-                          <span className="text-[#f7b500] text-xs sm:text-sm font-semibold">
+                          <span className="text-[#f7b500] text-sm sm:text-sm font-semibold">
                             Oku →
                           </span>
                         </div>

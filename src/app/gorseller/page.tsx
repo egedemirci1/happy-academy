@@ -45,7 +45,7 @@ export default function GorsellerPage() {
       </div>
 
       {/* Gallery Section */}
-      <section id="gallery" className="min-h-screen pt-16 relative z-10 flex flex-col">
+      <section id="gallery" className="min-h-screen pt-20 sm:pt-24 relative z-10 flex flex-col">
         <div className="container flex-1 flex flex-col justify-between py-4">
           <motion.div
             initial={{ opacity: 0, y: -30 }}
