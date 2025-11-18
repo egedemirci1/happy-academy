@@ -19,16 +19,16 @@ export default function Home() {
       {/* Hero Section */}
       <HeroSlider />
 
-      {/* Student Testimonials and Videos Section */}
+      {/* Eğitim Kadrosu Section */}
       <section className="min-h-screen flex flex-col bg-white">
         <div className="container mx-auto px-4 pt-20 sm:pt-24 pb-8 flex-1 flex flex-col">
           <SectionTitle
-            title="Öğrenci ve Veli Yorumları"
-            subtitle="Başarı hikayelerimizi dinleyin"
+            title="Eğitim Kadromuz"
+            subtitle="Uzman eğitmenlerimizle tanışın"
             className="mb-32 mt-8"
           />
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 -mt-8">
-            {/* Yetişkin Video */}
+            {/* Kurucu - Kader Koçyiğit */}
             <div className="text-center flex flex-col">
               <div className="bg-gray-100 rounded-xl p-4 sm:p-6 mb-4 flex-1 flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden min-h-[320px] sm:min-h-[480px]">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#f7b500] via-[#ffd700] to-[#f7b500]"></div>
@@ -37,25 +37,19 @@ export default function Home() {
                 <div className="flex flex-col h-full">
                   <div className="flex-shrink-0">
                 <VideoPopup
-                  videoSrc="/Everyday skills in English (Free Course Trailer).mp4"
-                  title="İngilizce Öğrenme Hikayesi"
-                  description="Yetişkin öğrencimizin başarı hikayesi"
+                  videoSrc="/Eğitim Kadrosu-1.mp4"
+                  title="Kurucu - Kader Koçyiğit"
+                  description="Happy Academy'yi tanıtıyor"
                 />
                   </div>
                   <div className="flex-1 flex flex-col justify-between">
                     <div className="flex-shrink-0 text-center mt-6">
-                      <h3 className="text-xl font-semibold mb-3 text-[#f7b500] h-8 flex items-center justify-center">İngilizce Öğrenme Hikayesi</h3>
-                      <p className="text-gray-600 text-base mb-4">"A1 seviyesinden başlayarak 6 ay içinde B2 seviyesine ulaştım. Happy Academy'nin sistematik yaklaşımı sayesinde dil öğrenmek artık zor değil."</p>
+                      <h3 className="text-xl font-semibold mb-3 text-[#f7b500] h-8 flex items-center justify-center">Kurucu - Kader Koçyiğit</h3>
+                      <p className="text-gray-600 text-base mb-4">Happy Academy'nin kurucusu olarak eğitim felsefemizi ve öğrencilerimize sunduğumuz değerleri paylaşıyor.</p>
                     </div>
                     <div className="text-center mt-4 flex-shrink-0">
-                      <div className="flex items-center justify-center gap-3 text-sm font-medium">
-                        <span className="bg-gray-200 px-3 py-1 rounded-full text-gray-700">A1</span>
-                        <span className="text-gray-400">→</span>
-                        <span className="bg-[#f7b500] px-3 py-1 rounded-full text-black font-bold">B2</span>
-                        <span className="text-gray-500 text-xs">6 ay</span>
-                      </div>
-                      <div className="mt-2 text-xs text-gray-500">
-                        +45 net artış • %95 başarı oranı
+                      <div className="flex items-center justify-center gap-2 text-sm font-medium">
+                        <span className="bg-[#f7b500] px-4 py-2 rounded-full text-black font-bold">Kurucu</span>
                       </div>
                     </div>
                   </div>
@@ -63,7 +57,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Junior Video */}
+            {/* İngilizce Öğretmeni - Cometsi */}
             <div className="text-center flex flex-col">
               <div className="bg-gray-100 rounded-xl p-4 sm:p-6 mb-4 flex-1 flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden min-h-[320px] sm:min-h-[480px]">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#f7b500] via-[#ffd700] to-[#f7b500]"></div>
@@ -72,25 +66,19 @@ export default function Home() {
                 <div className="flex flex-col h-full">
                   <div className="flex-shrink-0">
                 <VideoPopup
-                  videoSrc="/Everyday skills in English (Free Course Trailer).mp4"
-                  title="Çocuğumun Gelişimi"
-                  description="Junior öğrencimizin gelişim süreci"
+                  videoSrc="/Eğitim Kadrosu-2.mp4"
+                  title="İngilizce Öğretmeni - Cometsi"
+                  description="Derste neler yaptığımızı ve neden bu kursu tercih etmeniz gerektiğini anlatıyor"
                 />
                   </div>
                   <div className="flex-1 flex flex-col justify-between">
                     <div className="flex-shrink-0 text-center mt-6">
-                      <h3 className="text-xl font-semibold mb-3 text-[#f7b500] h-8 flex items-center justify-center">Çocuğumun Gelişimi</h3>
-                      <p className="text-gray-600 text-base mb-4">"8 yaşındaki oğlum artık İngilizce konuşabiliyor. Oyunlarla öğrenme sistemi sayesinde derslerden hiç sıkılmıyor."</p>
+                      <h3 className="text-xl font-semibold mb-3 text-[#f7b500] h-8 flex items-center justify-center">İngilizce Öğretmeni - Cometsi</h3>
+                      <p className="text-gray-600 text-base mb-4">Derste neler yaptığımızı ve neden bu kursu tercih etmeniz gerektiğini detaylı bir şekilde açıklıyor.</p>
                     </div>
                     <div className="text-center mt-4 flex-shrink-0">
-                      <div className="flex items-center justify-center gap-3 text-sm font-medium">
-                        <span className="bg-gray-200 px-3 py-1 rounded-full text-gray-700">Başlangıç</span>
-                        <span className="text-gray-400">→</span>
-                        <span className="bg-[#f7b500] px-3 py-1 rounded-full text-black font-bold">Konuşuyor</span>
-                        <span className="text-gray-500 text-xs">4 ay</span>
-                      </div>
-                      <div className="mt-2 text-xs text-gray-500">
-                        120+ kelime • %100 devam oranı
+                      <div className="flex items-center justify-center gap-2 text-sm font-medium">
+                        <span className="bg-[#f7b500] px-4 py-2 rounded-full text-black font-bold">İngilizce Öğretmeni</span>
                       </div>
                     </div>
                   </div>
@@ -98,7 +86,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* LGS Video */}
+            {/* Matematik Öğretmeni - Gizem Yılmaz */}
             <div className="text-center flex flex-col">
               <div className="bg-gray-100 rounded-xl p-4 sm:p-6 mb-4 flex-1 flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden min-h-[320px] sm:min-h-[480px]">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#f7b500] via-[#ffd700] to-[#f7b500]"></div>
@@ -107,25 +95,19 @@ export default function Home() {
                 <div className="flex flex-col h-full">
                   <div className="flex-shrink-0">
                 <VideoPopup
-                  videoSrc="/Everyday skills in English (Free Course Trailer).mp4"
-                  title="LGS Başarı Hikayesi"
-                  description="LGS öğrencimizin başarı hikayesi"
+                  videoSrc="/Eğitim_Kadrosu-3.mp4"
+                  title="Matematik Öğretmeni - Gizem Yılmaz"
+                  description="Matematik eğitimi hakkında bilgi veriyor"
                 />
                   </div>
                   <div className="flex-1 flex flex-col justify-between">
                     <div className="flex-shrink-0 text-center mt-6">
-                      <h3 className="text-xl font-semibold mb-3 text-[#f7b500] h-8 flex items-center justify-center">LGS Başarı Hikayesi</h3>
-                      <p className="text-gray-600 text-base mb-4">"LGS'de hedeflediğim okula girdim. Happy Academy'nin birebir etüt sistemi ve deneme sınavları sayesinde başarılı oldum."</p>
+                      <h3 className="text-xl font-semibold mb-3 text-[#f7b500] h-8 flex items-center justify-center">Matematik Öğretmeni - Gizem Yılmaz</h3>
+                      <p className="text-gray-600 text-base mb-4">Matematik eğitimi ve öğretim yaklaşımımız hakkında değerli bilgiler paylaşıyor.</p>
                     </div>
                     <div className="text-center mt-4 flex-shrink-0">
-                      <div className="flex items-center justify-center gap-3 text-sm font-medium">
-                        <span className="bg-gray-200 px-3 py-1 rounded-full text-gray-700">350 Net</span>
-                        <span className="text-gray-400">→</span>
-                        <span className="bg-[#f7b500] px-3 py-1 rounded-full text-black font-bold">485 Net</span>
-                        <span className="text-gray-500 text-xs">8 ay</span>
-                      </div>
-                      <div className="mt-2 text-xs text-gray-500">
-                        +135 net artış • Hedef okula giriş
+                      <div className="flex items-center justify-center gap-2 text-sm font-medium">
+                        <span className="bg-[#f7b500] px-4 py-2 rounded-full text-black font-bold">Matematik Öğretmeni</span>
                       </div>
                     </div>
                   </div>
@@ -204,7 +186,7 @@ export default function Home() {
             <div className="flex-1 max-w-2xl mx-auto lg:mx-0">
               <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl group hover:shadow-[#f7b500]/20 transition-all duration-500">
                 <VideoPopup
-                  videoSrc="/Everyday skills in English (Free Course Trailer).mp4"
+                  videoSrc="/Happy-Academy-Tanıtım-Final.mp4"
                   title="Happy Academy Tanıtım Videosu"
                   description="Kurumumuzu daha yakından tanıyın"
                 />
