@@ -340,7 +340,8 @@ export default function Home() {
                     key={post.id}
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
                     className="relative group h-[120px] sm:h-[140px] md:h-[160px]"
                   >
                     <Link href={`/blog/${post.id}`} className="block h-full">
@@ -388,7 +389,8 @@ export default function Home() {
                     key={post.id}
                     initial={{ opacity: 0, x: 50 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
                     className="relative group h-[120px] sm:h-[140px] md:h-[160px]"
                   >
                     <Link href={`/blog/${post.id}`} className="block h-full">
@@ -432,7 +434,8 @@ export default function Home() {
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
             className="text-center mt-4 sm:mt-6"
           >
             <Link href="/blog" className="group relative inline-flex items-center justify-center gap-2 sm:gap-3 bg-gradient-to-r from-[#f7b500] to-[#e6a300] text-black font-bold px-6 sm:px-10 py-3 sm:py-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:from-[#e6a300] group-hover:to-[#f7b500] overflow-hidden">

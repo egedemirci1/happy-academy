@@ -28,39 +28,65 @@ export function VideoPopup({ videoSrc, thumbnailSrc, title, description }: Video
 
   useEffect(() => {
     const generateThumbnail = () => {
-      if (thumbnailVideoRef.current) {
+      if (thumbnailVideoRef.current && !thumbnailSrc) {
         const video = thumbnailVideoRef.current;
         
-        const handleLoadedData = () => {
-          video.currentTime = 3; // 3. saniyeye git
+        const handleLoadedMetadata = () => {
+          // Video metadata yüklendiğinde 1. saniyeye git
+          if (video.duration > 0) {
+            video.currentTime = Math.min(1, video.duration * 0.1); // Video'nun %10'una veya 1 saniyeye git
+          }
         };
 
         const handleSeeked = () => {
-          console.log('Thumbnail video seeked');
-          setThumbnailLoaded(true);
+          // Canvas kullanarak thumbnail oluştur
+          try {
+            const canvas = document.createElement('canvas');
+            canvas.width = video.videoWidth || 640;
+            canvas.height = video.videoHeight || 360;
+            const ctx = canvas.getContext('2d');
+            if (ctx) {
+              ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+              const thumbnail = canvas.toDataURL('image/jpeg', 0.8);
+              setGeneratedThumbnail(thumbnail);
+              setThumbnailLoaded(true);
+            }
+          } catch (error) {
+            console.log('Thumbnail generation failed, using video frame');
+            setThumbnailLoaded(true);
+          }
         };
 
         const handleCanPlay = () => {
-          video.currentTime = 3;
+          if (video.readyState >= 2) {
+            video.currentTime = Math.min(1, video.duration * 0.1);
+          }
         };
 
         // Event listeners
-        video.addEventListener('loadeddata', handleLoadedData);
+        video.addEventListener('loadedmetadata', handleLoadedMetadata);
         video.addEventListener('seeked', handleSeeked);
         video.addEventListener('canplay', handleCanPlay);
 
+        // Eğer video zaten yüklenmişse
+        if (video.readyState >= 2) {
+          handleLoadedMetadata();
+        }
+
         // Cleanup
         return () => {
-          video.removeEventListener('loadeddata', handleLoadedData);
+          video.removeEventListener('loadedmetadata', handleLoadedMetadata);
           video.removeEventListener('seeked', handleSeeked);
           video.removeEventListener('canplay', handleCanPlay);
         };
+      } else if (thumbnailSrc) {
+        setThumbnailLoaded(true);
       }
     };
 
     const timer = setTimeout(generateThumbnail, 200);
     return () => clearTimeout(timer);
-  }, [videoSrc]);
+  }, [videoSrc, thumbnailSrc]);
 
   // Video aspect ratio'sunu tespit et
   useEffect(() => {
@@ -109,9 +135,9 @@ export function VideoPopup({ videoSrc, thumbnailSrc, title, description }: Video
         onClick={() => setIsOpen(true)}
       >
         <div className="w-full h-full aspect-video bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center overflow-hidden relative rounded-3xl">
-          {thumbnailSrc ? (
+          {thumbnailSrc || generatedThumbnail ? (
             <img 
-              src={thumbnailSrc} 
+              src={thumbnailSrc || generatedThumbnail} 
               alt={title}
               className="w-full h-full object-cover rounded-3xl"
             />
@@ -123,7 +149,6 @@ export function VideoPopup({ videoSrc, thumbnailSrc, title, description }: Video
               muted
               playsInline
               preload="metadata"
-              poster=""
             />
           )}
           
@@ -206,6 +231,7 @@ export function VideoPopup({ videoSrc, thumbnailSrc, title, description }: Video
                         controls
                         autoPlay
                         src={videoSrc}
+                        poster={thumbnailSrc || undefined}
                       >
                         Tarayıcınız video oynatmayı desteklemiyor.
                       </video>
@@ -219,6 +245,7 @@ export function VideoPopup({ videoSrc, thumbnailSrc, title, description }: Video
                         controls
                         autoPlay
                         src={videoSrc}
+                        poster={thumbnailSrc || undefined}
                       >
                         Tarayıcınız video oynatmayı desteklemiyor.
                       </video>
