@@ -202,9 +202,9 @@ export default function GorsellerPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-center mb-2"
+            className="text-center mb-8 lg:mb-12"
           >
-            <div className="flex items-center justify-center gap-4 mb-2">
+            <div className="flex items-center justify-center gap-4 mb-4">
               <div className="p-3 bg-gradient-to-r from-[#f7b500] to-[#e6a300] rounded-full">
                 <Play className="h-8 w-8 text-white" />
               </div>
@@ -219,7 +219,7 @@ export default function GorsellerPage() {
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mt-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
             {[
               { src: '/video1.mp4', title: 'Ders İçi Video 1', description: 'Eğitim sürecimizden bir kare' },
               { src: '/video2.mp4', title: 'Ders İçi Video 2', description: 'Eğitim sürecimizden bir kare' },
