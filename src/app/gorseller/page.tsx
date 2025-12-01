@@ -122,7 +122,7 @@ export default function GorsellerPage() {
                     src={imageSrc}
                     alt={`Eğitim Ortamı ${index + 1}`}
                     fill
-                    className="object-contain group-hover:scale-105 transition-transform duration-300"
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -134,16 +134,18 @@ export default function GorsellerPage() {
           {/* Lightbox Modal */}
           {selectedImage && (
             <div
-              className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+              className="fixed inset-0 z-[9999] bg-black/90 flex items-center justify-center p-4"
               onClick={() => setSelectedImage(null)}
+              style={{ zIndex: 9999 }}
             >
               <button
                 onClick={() => setSelectedImage(null)}
-                className="absolute top-4 right-4 text-white hover:text-[#f7b500] transition-colors z-10"
+                className="absolute top-4 right-4 text-white hover:text-[#f7b500] transition-colors z-[10000]"
+                style={{ zIndex: 10000 }}
               >
                 <X className="w-8 h-8" />
               </button>
-              <div className="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center">
+              <div className="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center z-[9999]">
                 <Image
                   src={selectedImage}
                   alt="Büyük görsel"
@@ -151,6 +153,7 @@ export default function GorsellerPage() {
                   height={800}
                   className="max-w-full max-h-full object-contain rounded-lg"
                   onClick={(e) => e.stopPropagation()}
+                  style={{ zIndex: 9999 }}
                 />
               </div>
             </div>
