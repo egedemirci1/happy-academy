@@ -3,8 +3,9 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { SectionTitle } from '@/components/ui/section-title';
+import { VideoPopup } from '@/components/ui/video-popup';
 import { motion } from 'framer-motion';
-import { Camera, BookOpen, Sparkles, ChevronDown, X } from 'lucide-react';
+import { Camera, BookOpen, Sparkles, ChevronDown, X, Play } from 'lucide-react';
 import Image from 'next/image';
 
 export default function GorsellerPage() {
@@ -194,7 +195,7 @@ export default function GorsellerPage() {
         </motion.div>
       </section>
 
-      {/* Kurs Merkezi Görselleri Section */}
+      {/* Ders İçi Videolar Section */}
       <section id="activities" className="min-h-screen relative z-10 flex flex-col">
         <div className="container flex-1 flex flex-col justify-between py-4">
           <motion.div
@@ -205,21 +206,28 @@ export default function GorsellerPage() {
           >
             <div className="flex items-center justify-center gap-4 mb-6">
               <div className="p-3 bg-gradient-to-r from-[#f7b500] to-[#e6a300] rounded-full">
-                <Camera className="h-8 w-8 text-white" />
+                <Play className="h-8 w-8 text-white" />
               </div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-montserrat">
                 <span className="bg-gradient-to-r from-[#f7b500] to-[#e6a300] bg-clip-text text-transparent">
-                  Kurs Merkezinin Görselleri
+                  Ders İçi Videolarımız
                 </span>
               </h1>
             </div>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6 lg:mb-8 px-4">
-              Kurs merkezimizin farklı alanlarını ve atmosferini keşfedin
+              Sınıflarımızda gerçekleşen derslerden örnekler ve eğitim sürecimizden kareler
             </p>
           </motion.div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-            {Array.from({ length: 8 }).map((_, index) => (
+            {[
+              { src: '/video1.mp4', title: 'Ders İçi Video 1', description: 'Eğitim sürecimizden bir kare' },
+              { src: '/video2.mp4', title: 'Ders İçi Video 2', description: 'Eğitim sürecimizden bir kare' },
+              { src: '/video3.mp4', title: 'Ders İçi Video 3', description: 'Eğitim sürecimizden bir kare' },
+              { src: '/video4.mp4', title: 'Ders İçi Video 4', description: 'Eğitim sürecimizden bir kare' },
+              { src: '/video5.mp4', title: 'Ders İçi Video 5', description: 'Eğitim sürecimizden bir kare' },
+              { src: '/video6.mp4', title: 'Ders İçi Video 6', description: 'Eğitim sürecimizden bir kare' }
+            ].map((video, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -230,17 +238,14 @@ export default function GorsellerPage() {
                   scale: 1.05,
                   transition: { duration: 0.3 }
                 }}
-                className="group cursor-pointer"
+                className="group"
               >
                 <div className="bg-white/80 backdrop-blur-sm rounded-2xl h-40 lg:h-48 shadow-lg hover:shadow-2xl transition-all duration-300 border border-[#f7b500]/20 hover:border-[#f7b500]/40 overflow-hidden relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="p-3 lg:p-4 bg-gradient-to-r from-[#f7b500]/20 to-[#e6a300]/20 rounded-full w-12 h-12 lg:w-16 lg:h-16 mx-auto mb-3 lg:mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <Camera className="h-6 w-6 lg:h-8 lg:w-8 text-[#f7b500]" />
-                      </div>
-                      <span className="text-gray-600 font-medium text-sm lg:text-base">Kurs Merkezi {index + 1}</span>
-                    </div>
-                  </div>
+                  <VideoPopup
+                    videoSrc={video.src}
+                    title={video.title}
+                    description={video.description}
+                  />
                 </div>
               </motion.div>
             ))}
