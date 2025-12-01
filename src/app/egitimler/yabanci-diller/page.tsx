@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowLeft, Clock, Users, Award, BookOpen, Globe, Target, CheckCircle, Star, ChevronDown, Languages } from 'lucide-react';
+import { ArrowLeft, Clock, Users, Award, BookOpen, Globe, Target, CheckCircle, Star, ChevronDown, Languages, Calendar, TrendingUp } from 'lucide-react';
 import Link from 'next/link';
 
 export default function YabanciDillerPage() {
@@ -81,6 +81,18 @@ export default function YabanciDillerPage() {
       title: 'Sertifika Programı',
       description: 'Uluslararası geçerlilikte sertifikalar',
       color: 'from-orange-500 to-red-500'
+    },
+    {
+      icon: Calendar,
+      title: 'Esnek Zamanlama',
+      description: 'Size uygun saatlerde ders imkanı',
+      color: 'from-pink-500 to-rose-500'
+    },
+    {
+      icon: TrendingUp,
+      title: 'Hızlı İlerleme',
+      description: 'Etkili yöntemlerle kısa sürede sonuç',
+      color: 'from-yellow-500 to-amber-500'
     }
   ];
 
