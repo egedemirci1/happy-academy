@@ -40,6 +40,20 @@ export default function LGSHazirlikPage() {
       features: ['Haftalık Testler', 'Detaylı Analiz', 'Performans Takibi', 'Strateji Geliştirme'],
       duration: 'Sürekli',
       level: '8. Sınıf'
+    },
+    {
+      title: 'Birebir Destek Programı',
+      description: 'Kişiye özel yoğunlaştırılmış eğitim desteği',
+      features: ['Özel Ders', 'Esnek Saatler', 'Hedef Odaklı', 'Hızlı Sonuç'],
+      duration: 'Esnek',
+      level: '8. Sınıf'
+    },
+    {
+      title: 'Yaz Kampı Programı',
+      description: 'Yaz döneminde hızlandırılmış hazırlık programı',
+      features: ['Yoğun Eğitim', 'Günlük Dersler', 'Hızlı İlerleme', 'Eğlenceli Ortam'],
+      duration: '2-3 ay',
+      level: '8. Sınıf'
     }
   ];
 
