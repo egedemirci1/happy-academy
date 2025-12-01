@@ -110,25 +110,25 @@ export default function IngilizceEgitimPage() {
       </div>
 
       {/* Hero Section */}
-      <section id="hero" className="h-screen pt-16 relative z-10 flex flex-col">
-        <div className="container flex-1 flex flex-col justify-center">
+      <section id="hero" className="h-screen pt-20 sm:pt-24 relative z-10 flex flex-col">
+        <div className="container flex-1 flex flex-col justify-center px-4">
           <motion.div
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="p-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full">
-                <Globe className="h-8 w-8 text-white" />
+            <div className="flex items-center justify-center gap-2 sm:gap-4 mb-6 px-4">
+              <div className="p-2 sm:p-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex-shrink-0">
+                <Globe className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-800 font-montserrat">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-montserrat break-words">
                 <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
                   İngilizce Eğitimi
                 </span>
               </h1>
             </div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8 px-4">
               A1'den C2'ye kadar tüm seviyelerde İngilizce eğitimi. Konuşma, dinleme, okuma ve yazma becerilerini geliştirin.
             </p>
           </motion.div>
@@ -184,24 +184,24 @@ export default function IngilizceEgitimPage() {
 
       {/* Programs Section */}
       <section id="programs" className="h-screen relative z-10 flex flex-col">
-        <div className="container flex-1 flex flex-col justify-center">
+        <div className="container flex-1 flex flex-col justify-center px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-center mb-12"
           >
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="p-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full">
-                <BookOpen className="h-8 w-8 text-white" />
+            <div className="flex items-center justify-center gap-2 sm:gap-4 mb-6 px-4">
+              <div className="p-2 sm:p-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex-shrink-0">
+                <BookOpen className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-800 font-montserrat">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-montserrat break-words">
                 <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
                   Eğitim Programları
                 </span>
               </h1>
             </div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8 px-4">
               Size uygun programı seçin ve İngilizce öğrenme yolculuğunuza başlayın
             </p>
           </motion.div>

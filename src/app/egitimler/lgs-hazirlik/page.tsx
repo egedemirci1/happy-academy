@@ -129,25 +129,25 @@ export default function LGSHazirlikPage() {
       </div>
 
       {/* Hero Section */}
-      <section id="hero" className="h-screen pt-16 relative z-10 flex flex-col">
-        <div className="container flex-1 flex flex-col justify-center">
+      <section id="hero" className="h-screen pt-20 sm:pt-24 relative z-10 flex flex-col">
+        <div className="container flex-1 flex flex-col justify-center px-4">
           <motion.div
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="p-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-full">
-                <Trophy className="h-8 w-8 text-white" />
+            <div className="flex items-center justify-center gap-2 sm:gap-4 mb-6 px-4">
+              <div className="p-2 sm:p-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex-shrink-0">
+                <Trophy className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-800 font-montserrat">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-montserrat break-words">
                 <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
                   LGS Hazırlık Eğitimleri
                 </span>
               </h1>
             </div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8 px-4">
               LGS'de hedeflediğiniz okula girmek için profesyonel destek. Konu tekrarları, deneme sınavları ve birebir etüt sistemi.
             </p>
           </motion.div>
@@ -203,24 +203,24 @@ export default function LGSHazirlikPage() {
 
       {/* Programs Section */}
       <section id="programs" className="h-screen relative z-10 flex flex-col">
-        <div className="container flex-1 flex flex-col justify-center">
+        <div className="container flex-1 flex flex-col justify-center px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-center mb-12"
           >
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="p-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-full">
-                <BookOpen className="h-8 w-8 text-white" />
+            <div className="flex items-center justify-center gap-2 sm:gap-4 mb-6 px-4">
+              <div className="p-2 sm:p-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex-shrink-0">
+                <BookOpen className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-800 font-montserrat">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-montserrat break-words">
                 <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
                   Hazırlık Programları
                 </span>
               </h1>
             </div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8 px-4">
               Size uygun programı seçin ve LGS hedefinize odaklanın
             </p>
           </motion.div>
@@ -239,14 +239,14 @@ export default function LGSHazirlikPage() {
                 }}
                 className="group cursor-pointer"
               >
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-orange-500/20 hover:border-orange-500/40 h-full">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full">
-                      <Star className="h-5 w-5 text-white" />
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-orange-500/20 hover:border-orange-500/40 h-full">
+                  <div className="flex items-center gap-2 sm:gap-3 mb-4">
+                    <div className="p-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex-shrink-0">
+                      <Star className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                     </div>
-                    <h3 className="text-lg font-bold text-gray-800">{program.title}</h3>
+                    <h3 className="text-base sm:text-lg font-bold text-gray-800 break-words">{program.title}</h3>
                   </div>
-                  <p className="text-gray-600 mb-4 text-sm">{program.description}</p>
+                  <p className="text-gray-600 mb-4 text-xs sm:text-sm break-words">{program.description}</p>
                   
                   <div className="space-y-2 mb-4">
                     {program.features.map((feature, idx) => (

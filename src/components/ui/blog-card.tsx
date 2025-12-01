@@ -47,11 +47,11 @@ export function BlogCard({ post, categoryInfo }: BlogCardProps) {
         <Card className="h-full bg-white border-gray-200 hover:border-[#f7b500] transition-all duration-300 shadow-lg hover:shadow-xl group cursor-pointer overflow-hidden">
           <CardContent className="p-0 h-full flex flex-col">
             {/* Larger Header */}
-            <div className={`relative px-6 py-4 bg-gradient-to-r ${categoryInfo.color} text-white`}>
+            <div className={`relative px-4 sm:px-6 py-3 sm:py-4 bg-gradient-to-r ${categoryInfo.color} text-white`}>
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <span className="text-2xl">{categoryInfo.icon}</span>
-                  <span className="font-semibold text-sm">{categoryInfo.name}</span>
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <span className="text-xl sm:text-2xl">{categoryInfo.icon}</span>
+                  <span className="font-semibold text-xs sm:text-sm break-words">{categoryInfo.name}</span>
                 </div>
                 <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
                   <span className="text-white text-sm">📝</span>
@@ -61,11 +61,11 @@ export function BlogCard({ post, categoryInfo }: BlogCardProps) {
 
             {/* Content Area - Larger */}
             <div className="p-6 flex-1 flex flex-col">
-              <h3 className="text-xl font-bold text-gray-800 mb-4 group-hover:text-[#f7b500] transition-colors duration-300 leading-tight">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-4 group-hover:text-[#f7b500] transition-colors duration-300 leading-tight break-words">
                 {post.title}
               </h3>
               
-              <p className="text-gray-600 text-base leading-relaxed mb-4 line-clamp-3 flex-1">
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4 line-clamp-3 flex-1 break-words">
                 {post.excerpt}
               </p>
 

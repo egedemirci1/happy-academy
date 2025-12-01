@@ -116,7 +116,7 @@ const educationPrograms = [
 
 export default function EgitimlerPage() {
   return (
-    <div className="min-h-screen pt-16">
+    <div className="min-h-screen pt-20 sm:pt-24">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
         {/* Rich Static Background */}
@@ -317,7 +317,7 @@ export default function EgitimlerPage() {
         
         <div className="container relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 font-montserrat">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-8 font-montserrat break-words px-4">
               Hemen Başlayın!
             </h2>
             <p className="text-xl md:text-2xl text-gray-300 mb-12">

@@ -16,7 +16,7 @@ export default function BlogPage() {
     : blogPosts.filter(post => post.category === selectedCategory);
 
   return (
-    <div className="min-h-screen pt-20 sm:pt-24 overflow-hidden">
+    <div className="min-h-screen pt-24 sm:pt-28 overflow-hidden">
       {/* Main Container */}
       <div className="h-full bg-gradient-to-br from-orange-50 via-yellow-50 to-amber-50 relative">
         {/* Animated Background Elements */}
@@ -131,8 +131,8 @@ export default function BlogPage() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="mb-8"
               >
-                <div className="text-center">
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-2 font-montserrat">
+                <div className="text-center px-4">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-2 font-montserrat break-words">
                     {selectedCategory === 'all' ? 'Tüm Blog Yazıları' : blogCategories.find(c => c.id === selectedCategory)?.name || 'Blog Yazıları'}
                   </h2>
                   <div className="flex items-center justify-center gap-2 sm:gap-4 text-gray-600 text-sm sm:text-base">

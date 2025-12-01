@@ -51,12 +51,12 @@ export function SectionTitle({
             <Icon className={`${getIconSize()} text-white`} />
           </div>
         )}
-        <h2 className={`text-3xl md:text-4xl font-bold font-montserrat ${titleColor}`}>
+        <h2 className={`text-2xl sm:text-3xl md:text-4xl font-bold font-montserrat break-words ${titleColor}`}>
           {title}
         </h2>
       </div>
       {subtitle && (
-        <p className={`text-lg max-w-2xl mx-auto ${subtitleColor}`}>
+        <p className={`text-base sm:text-lg max-w-2xl mx-auto px-4 ${subtitleColor}`}>
           {subtitle}
         </p>
       )}
