@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { SectionTitle } from '@/components/ui/section-title';
 import { motion } from 'framer-motion';
 import { Camera, BookOpen, Sparkles, ChevronDown, X } from 'lucide-react';
@@ -8,6 +9,11 @@ import Image from 'next/image';
 
 export default function GorsellerPage() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const scrollToNext = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -131,32 +137,42 @@ export default function GorsellerPage() {
             ))}
           </div>
           
-          {/* Lightbox Modal */}
-          {selectedImage && (
+          {/* Lightbox Modal - Portal ile body'ye render et */}
+          {mounted && selectedImage && createPortal(
             <div
-              className="fixed inset-0 z-[9999] bg-black/90 flex items-center justify-center p-4"
+              className="fixed inset-0 bg-black/90 flex items-center justify-center p-4"
               onClick={() => setSelectedImage(null)}
-              style={{ zIndex: 9999 }}
+              style={{ 
+                zIndex: 99999,
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0
+              }}
             >
               <button
                 onClick={() => setSelectedImage(null)}
-                className="absolute top-4 right-4 text-white hover:text-[#f7b500] transition-colors z-[10000]"
-                style={{ zIndex: 10000 }}
+                className="absolute top-4 right-4 text-white hover:text-[#f7b500] transition-colors bg-black/50 rounded-full p-2"
+                style={{ zIndex: 100000 }}
               >
                 <X className="w-8 h-8" />
               </button>
-              <div className="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center z-[9999]">
+              <div 
+                className="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center"
+                onClick={(e) => e.stopPropagation()}
+                style={{ zIndex: 99999 }}
+              >
                 <Image
                   src={selectedImage}
                   alt="Büyük görsel"
                   width={1200}
                   height={800}
                   className="max-w-full max-h-full object-contain rounded-lg"
-                  onClick={(e) => e.stopPropagation()}
-                  style={{ zIndex: 9999 }}
                 />
               </div>
-            </div>
+            </div>,
+            document.body
           )}
         </div>
         
