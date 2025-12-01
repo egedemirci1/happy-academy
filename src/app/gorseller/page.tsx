@@ -1,17 +1,35 @@
 'use client';
 
+import { useState } from 'react';
 import { SectionTitle } from '@/components/ui/section-title';
 import { motion } from 'framer-motion';
-import { Camera, BookOpen, Sparkles, ChevronDown } from 'lucide-react';
+import { Camera, BookOpen, Sparkles, ChevronDown, X } from 'lucide-react';
 import Image from 'next/image';
 
 export default function GorsellerPage() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   const scrollToNext = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const educationImages = [
+    '/IMG_20250928_123029.jpg',
+    '/IMG_20250928_131259.jpg',
+    '/IMG_20250928_144943.jpg',
+    '/IMG_20250928_153802.jpg',
+    '/IMG_20250928_154702.jpg',
+    '/kedi.jpg',
+    '/IMG_20250928_112444.jpg',
+    '/hocalarımız.jpg',
+    '/egitim-ortamii.jpg',
+    '/egitim-ortami3.jpg',
+    '/egitim-ortami2.jpg',
+    '/sınav.jpg'
+  ];
 
   return (
     <div className="bg-gradient-to-br from-orange-50 via-yellow-50 to-amber-50">
@@ -85,20 +103,7 @@ export default function GorsellerPage() {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
             {/* Eğitim Ortamı Görselleri */}
-            {[
-              '/IMG_20250928_123029.jpg',
-              '/IMG_20250928_131259.jpg',
-              '/IMG_20250928_144943.jpg',
-              '/IMG_20250928_153802.jpg',
-              '/IMG_20250928_154702.jpg',
-              '/kedi.jpg',
-              '/IMG_20250928_112444.jpg',
-              '/hocalarımız.jpg',
-              '/egitim-ortamii.jpg',
-              '/egitim-ortami3.jpg',
-              '/egitim-ortami2.jpg',
-              '/sınav.jpg'
-            ].map((imageSrc, index) => (
+            {educationImages.map((imageSrc, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -110,13 +115,14 @@ export default function GorsellerPage() {
                   transition: { duration: 0.3 }
                 }}
                 className="group cursor-pointer"
+                onClick={() => setSelectedImage(imageSrc)}
               >
                 <div className="bg-white/80 backdrop-blur-sm rounded-2xl h-40 lg:h-48 shadow-lg hover:shadow-2xl transition-all duration-300 border border-[#f7b500]/20 hover:border-[#f7b500]/40 overflow-hidden relative">
                   <Image
                     src={imageSrc}
                     alt={`Eğitim Ortamı ${index + 1}`}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="object-contain group-hover:scale-105 transition-transform duration-300"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -124,6 +130,31 @@ export default function GorsellerPage() {
               </motion.div>
             ))}
           </div>
+          
+          {/* Lightbox Modal */}
+          {selectedImage && (
+            <div
+              className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+              onClick={() => setSelectedImage(null)}
+            >
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-4 right-4 text-white hover:text-[#f7b500] transition-colors z-10"
+              >
+                <X className="w-8 h-8" />
+              </button>
+              <div className="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center">
+                <Image
+                  src={selectedImage}
+                  alt="Büyük görsel"
+                  width={1200}
+                  height={800}
+                  className="max-w-full max-h-full object-contain rounded-lg"
+                  onClick={(e) => e.stopPropagation()}
+                />
+              </div>
+            </div>
+          )}
         </div>
         
         {/* Scroll Arrow */}

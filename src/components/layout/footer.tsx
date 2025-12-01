@@ -43,7 +43,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-gray-600 text-sm leading-relaxed mb-6">
-              Başarıya Açılan Kapınız
+              Her yaştan öğrenciye özel eğitim çözümleriyle geleceğinizi şekillendirin
             </p>
           </div>
 
