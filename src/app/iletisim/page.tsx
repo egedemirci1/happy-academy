@@ -74,7 +74,7 @@ export default function IletisimPage() {
                   İletişim
                 </h1>
                 <p className="text-sm sm:text-base text-gray-300 mb-4 leading-relaxed">
-                  Bizimle iletişime geçin, sorularınızı sorun
+                  Tüm sorularınızın cevabı için bizimle iletişime geçebilirsiniz
                 </p>
               </div>
 
@@ -136,7 +136,7 @@ export default function IletisimPage() {
                   <span className="text-[#f7b500]">Konumumuz</span>
                 </h2>
                 <p className="text-sm sm:text-base text-gray-300 mb-4 leading-relaxed">
-                  Merkezi konumda, ulaşımı kolay bir bölgede yer almaktayız
+                  Selçuklu ilçesinde, kolay ulaşılabilir bir noktada hizmet veriyoruz
                 </p>
               </div>
 
@@ -154,7 +154,7 @@ export default function IletisimPage() {
                           Feritpaşa Mahallesi İfa Sokak, Nene Hatun Parkı İçi 5/A, 42000 Selçuklu/Konya
                         </p>
                         <p className="text-gray-400 text-xs sm:text-sm">
-                          Merkezi konumda, ulaşımı kolay bir bölgede yer almaktayız.
+                          Nene Hatun Parkı içinde, ferah ve modern bir eğitim ortamı
                         </p>
                       </div>
                     </div>

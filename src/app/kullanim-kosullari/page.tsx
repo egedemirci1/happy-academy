@@ -69,7 +69,7 @@ export default function KullanimKosullariPage() {
                   <div className="bg-gray-600 p-4 rounded-lg">
                     <p className="text-gray-300"><strong>E-posta:</strong> info@happyacademykonya.com</p>
                     <p className="text-gray-300"><strong>Telefon:</strong> 0332 235 02 02</p>
-                    <p className="text-gray-300"><strong>Adres:</strong> Nişantaş Mah. [örnek], Selçuklu / Konya</p>
+                    <p className="text-gray-300"><strong>Adres:</strong> Feritpaşa Mah. İfa Sokak, Nene Hatun Parkı İçi 5/A, Selçuklu/Konya</p>
                   </div>
                 </div>
               </CardContent>
