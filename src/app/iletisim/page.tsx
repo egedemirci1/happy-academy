@@ -1,11 +1,9 @@
 'use client';
 
-import { Metadata } from 'next';
 import { SectionTitle } from '@/components/ui/section-title';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Phone, Mail, MapPin, Clock, Instagram, MessageCircle } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 export default function IletisimPage() {
   const contactInfo = [
@@ -57,45 +55,37 @@ export default function IletisimPage() {
           }}></div>
         </div>
         
-        {/* Decorative Elements */}
-        <div className="absolute top-20 left-20 w-24 h-24 border border-[#f7b500]/50 rotate-45 animate-spin-slow"></div>
-        <div className="absolute bottom-20 right-20 w-32 h-32 bg-[#f7b500]/20 rounded-full animate-pulse"></div>
-        <div className="absolute top-1/3 right-10 w-16 h-16 border border-[#f7b500]/40 rounded-full animate-bounce-slow"></div>
+        {/* Static Decorative Elements */}
+        <div className="absolute top-20 left-20 w-24 h-24 border border-[#f7b500]/30 rotate-45 pointer-events-none"></div>
+        <div className="absolute bottom-20 right-20 w-32 h-32 bg-[#f7b500]/15 rounded-full pointer-events-none"></div>
+        <div className="absolute top-1/3 right-10 w-16 h-16 border border-[#f7b500]/25 rounded-full pointer-events-none"></div>
         
-        {/* Yellow Light Effects */}
-        <div className="absolute top-10 left-10 w-32 h-32 bg-[#f7b500]/25 rounded-full blur-2xl"></div>
-        <div className="absolute bottom-10 right-10 w-28 h-28 bg-[#f7b500]/30 rounded-full blur-xl"></div>
-        <div className="absolute top-1/2 left-1/2 w-40 h-40 bg-[#f7b500]/10 rounded-full blur-3xl"></div>
+        {/* Static Yellow Light Effects */}
+        <div className="absolute top-10 left-10 w-32 h-32 bg-[#f7b500]/20 rounded-full blur-2xl pointer-events-none"></div>
+        <div className="absolute bottom-10 right-10 w-28 h-28 bg-[#f7b500]/25 rounded-full blur-xl pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 w-40 h-40 bg-[#f7b500]/8 rounded-full blur-3xl pointer-events-none"></div>
         
         <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 relative z-10 h-full flex items-center">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 w-full">
             {/* Left Side - Contact Information */}
             <div className="flex flex-col justify-center space-y-4">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                className="text-center lg:text-left"
-              >
+              <div className="text-center lg:text-left">
                 <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 font-montserrat">
                   İletişim
                 </h1>
                 <p className="text-sm sm:text-base text-gray-300 mb-4 leading-relaxed">
                   Bizimle iletişime geçin, sorularınızı sorun
                 </p>
-              </motion.div>
+              </div>
 
               {/* Contact Cards */}
               <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 {contactInfo.map((info, index) => (
-                  <motion.div
+                  <div
                     key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
                     className="group"
                   >
-                    <Card className="bg-gray-700/80 border-gray-600 hover:border-[#f7b500] transition-all duration-300 backdrop-blur-sm hover:scale-105 h-full">
+                    <Card className="bg-gray-700/90 border-gray-600 hover:border-[#f7b500] transition-all duration-300 hover:scale-105 h-full">
                       <CardContent className="p-3 sm:p-4 text-center h-full flex flex-col justify-center">
                         <div className={`flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br ${info.color} rounded-lg mb-2 sm:mb-3 group-hover:scale-110 transition-transform duration-300 shadow-lg mx-auto`}>
                           <info.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
@@ -112,17 +102,13 @@ export default function IletisimPage() {
                         </a>
                       </CardContent>
                     </Card>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
 
               {/* Working Hours */}
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-              >
-                <Card className="bg-gray-700/80 border-gray-600 backdrop-blur-sm h-full">
+              <div>
+                <Card className="bg-gray-700/80 border-gray-600 h-full">
                   <CardHeader className="pb-2">
                     <CardTitle className="text-sm sm:text-base text-white flex items-center justify-center gap-2">
                       <Clock className="h-4 w-4 text-[#f7b500]" />
@@ -140,32 +126,23 @@ export default function IletisimPage() {
                     </div>
                   </CardContent>
                 </Card>
-              </motion.div>
+              </div>
             </div>
 
             {/* Right Side - Google Maps */}
             <div className="flex flex-col justify-center space-y-4">
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-center lg:text-left"
-              >
+              <div className="text-center lg:text-left">
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 font-montserrat">
                   <span className="text-[#f7b500]">Konumumuz</span>
                 </h2>
                 <p className="text-sm sm:text-base text-gray-300 mb-4 leading-relaxed">
                   Merkezi konumda, ulaşımı kolay bir bölgede yer almaktayız
                 </p>
-              </motion.div>
+              </div>
 
               {/* Address Card */}
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-              >
-                <Card className="bg-gray-700/80 border-gray-600 backdrop-blur-sm h-full">
+              <div>
+                <Card className="bg-gray-700/80 border-gray-600 h-full">
                   <CardContent className="p-4 sm:p-6 h-full flex items-center">
                     <div className="flex items-start gap-3 sm:gap-4 w-full">
                       <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#f7b500] to-[#e6a300] rounded-xl flex-shrink-0">
@@ -183,15 +160,10 @@ export default function IletisimPage() {
                     </div>
                   </CardContent>
                 </Card>
-              </motion.div>
+              </div>
 
               {/* Google Maps Embed */}
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-                className="h-full"
-              >
+              <div className="h-full">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-[#f7b500]/30 h-full">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.123456789!2d32.4847!3d37.8667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDUyJzAwLjIiTiAzMsKwMjknMDQuOSJF!5e0!3m2!1str!2str!4v1234567890123!5m2!1str!2str"
@@ -207,14 +179,10 @@ export default function IletisimPage() {
                   {/* Overlay Effect */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none rounded-2xl"></div>
                 </div>
-              </motion.div>
+              </div>
 
               {/* Quick Actions */}
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 1.0 }}
-              >
+              <div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <Button
                     asChild
@@ -238,7 +206,7 @@ export default function IletisimPage() {
                     </a>
                   </Button>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>
@@ -247,23 +215,3 @@ export default function IletisimPage() {
     </div>
   );
 }
-
-<style jsx>{`
-  @keyframes spin-slow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-  
-  @keyframes bounce-slow {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-  
-  .animate-spin-slow {
-    animation: spin-slow 8s linear infinite;
-  }
-  
-  .animate-bounce-slow {
-    animation: bounce-slow 3s ease-in-out infinite;
-  }
-`}</style>
