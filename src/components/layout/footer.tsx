@@ -9,15 +9,14 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   const programLinks = [
-    { title: 'Yabancı Diller', href: '/yabanci-diller' },
-    { title: 'Sınav Hazırlık', href: '/sinav-hazirlik' },
-    { title: 'Çocuk & Genç', href: '/cocuk-genclik' },
-    { title: 'Koçluk', href: '/kocluk' }
+    { title: 'İngilizce Eğitimi', href: '/egitimler/ingilizce' },
+    { title: 'Yabancı Dil Eğitimleri', href: '/egitimler/yabanci-diller' },
+    { title: 'LGS Hazırlık', href: '/egitimler/lgs-hazirlik' },
+    { title: 'Branş Dersleri & Koçluk', href: '/egitimler/lgs-hazirlik' }
   ];
 
   const companyLinks = [
     { title: 'Hakkımızda', href: '/hakkimizda' },
-    { title: 'Ücretler', href: '/ucretler' },
     { title: 'Blog', href: '/blog' },
     { title: 'İletişim', href: '/iletisim' }
   ];
