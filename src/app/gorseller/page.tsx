@@ -90,7 +90,14 @@ export default function GorsellerPage() {
               '/IMG_20250928_131259.jpg',
               '/IMG_20250928_144943.jpg',
               '/IMG_20250928_153802.jpg',
-              '/IMG_20250928_154702.jpg'
+              '/IMG_20250928_154702.jpg',
+              '/kedi.jpg',
+              '/IMG_20250928_112444.jpg',
+              '/hocalarımız.jpg',
+              '/egitim-ortamii.jpg',
+              '/egitim-ortami3.jpg',
+              '/egitim-ortami2.jpg',
+              '/sınav.jpg'
             ].map((imageSrc, index) => (
               <motion.div
                 key={index}

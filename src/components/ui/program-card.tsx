@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './card';
 import { Badge } from './badge';
 import { Button } from './button';
@@ -32,14 +31,7 @@ export function ProgramCard({
 }: ProgramCardProps) {
   const Icon = iconMap[iconName as keyof typeof iconMap] || Globe;
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-      whileHover={{ y: -5 }}
-      className="h-full"
-    >
+    <div className="h-full">
       <Card className="h-full bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 hover:border-[#f7b500] transition-all duration-500 shadow-2xl hover:shadow-[#f7b500]/20 hover:shadow-2xl group relative overflow-hidden">
         {/* Card Glow Effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#f7b500]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -78,6 +70,6 @@ export function ProgramCard({
           </Button>
         </CardContent>
       </Card>
-    </motion.div>
+    </div>
   );
 }

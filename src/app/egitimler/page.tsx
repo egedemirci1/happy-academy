@@ -1,9 +1,8 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { SectionTitle } from '@/components/ui/section-title';
 import Link from 'next/link';
-import { Clock, Users, Star, Award, BookOpen, Globe, Target, Brain, ArrowRight } from 'lucide-react';
+import { BookOpen, Globe, Brain, Target, ArrowRight } from 'lucide-react';
 
 const educationPrograms = [
   {
@@ -120,137 +119,68 @@ export default function EgitimlerPage() {
     <div className="min-h-screen pt-16">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
-        {/* Crazy Background */}
-        <div className="absolute inset-0">
-          {/* Animated Grid */}
-          <div className="absolute inset-0 opacity-20">
+        {/* Rich Static Background */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Enhanced Static Grid */}
+          <div className="absolute inset-0 opacity-15">
             <div className="w-full h-full" style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='16' height='16' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 16 0 L 0 0 0 16' fill='none' stroke='%23f7b500' stroke-width='1' opacity='0.4'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='80' height='80' fill='url(%23grid)'/%3E%3C/svg%3E")`,
               backgroundRepeat: 'repeat'
             }}></div>
           </div>
           
-          {/* Floating Shapes */}
-          <motion.div 
-            className="absolute top-20 left-20 w-40 h-40 border-2 border-[#f7b500]/30 rotate-45"
-            animate={{ 
-              rotate: [45, 225, 45],
-              scale: [1, 1.3, 1]
-            }}
-            transition={{ 
-              duration: 10,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-          <motion.div 
-            className="absolute top-40 right-32 w-32 h-32 bg-[#f7b500]/20 rounded-full"
-            animate={{ 
-              y: [-30, 30, -30],
-              x: [-15, 15, -15]
-            }}
-            transition={{ 
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-          <motion.div 
-            className="absolute bottom-32 left-16 w-48 h-48 border border-[#f7b500]/25 rounded-full"
-            animate={{ 
-              scale: [1, 1.4, 1],
-              opacity: [0.3, 0.8, 0.3]
-            }}
-            transition={{ 
-              duration: 12,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
+          {/* Static Geometric Shapes */}
+          <div className="absolute top-20 left-20 w-40 h-40 border-2 border-[#f7b500]/25 rotate-45 pointer-events-none"></div>
+          <div className="absolute top-40 right-32 w-32 h-32 bg-[#f7b500]/15 rounded-full pointer-events-none"></div>
+          <div className="absolute bottom-32 left-16 w-48 h-48 border border-[#f7b500]/20 rounded-full pointer-events-none"></div>
+          <div className="absolute top-1/2 right-1/4 w-24 h-24 border-2 border-[#f7b500]/20 rotate-12 pointer-events-none"></div>
+          <div className="absolute bottom-1/3 right-1/3 w-36 h-36 bg-[#f7b500]/10 rounded-full pointer-events-none"></div>
           
-          {/* Floating Icons */}
-          <motion.div 
-            className="absolute top-1/4 left-1/3 text-[#f7b500]/20"
-            animate={{ 
-              y: [-40, 40, -40],
-              rotate: [0, 360]
-            }}
-            transition={{ 
-              duration: 15,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-          >
+          {/* Static Icons */}
+          <div className="absolute top-1/4 left-1/3 text-[#f7b500]/15 pointer-events-none">
             <BookOpen className="w-20 h-20" />
-          </motion.div>
-          
-          <motion.div 
-            className="absolute top-1/3 right-1/4 text-[#f7b500]/15"
-            animate={{ 
-              x: [-25, 25, -25],
-              y: [-20, 20, -20]
-            }}
-            transition={{ 
-              duration: 11,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          >
+          </div>
+          <div className="absolute top-1/3 right-1/4 text-[#f7b500]/12 pointer-events-none">
             <Globe className="w-24 h-24" />
-          </motion.div>
-          
-          <motion.div 
-            className="absolute bottom-1/4 left-1/2 text-[#f7b500]/10"
-            animate={{ 
-              rotate: [0, 180, 360],
-              scale: [1, 1.6, 1]
-            }}
-            transition={{ 
-              duration: 18,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-          >
+          </div>
+          <div className="absolute bottom-1/4 left-1/2 text-[#f7b500]/10 pointer-events-none">
             <Brain className="w-28 h-28" />
-          </motion.div>
+          </div>
+          <div className="absolute top-1/2 left-1/4 text-[#f7b500]/8 pointer-events-none">
+            <Target className="w-16 h-16" />
+          </div>
           
-          {/* Gradient Orbs */}
-          <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-gradient-to-r from-[#f7b500]/15 to-transparent rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-60 h-60 bg-gradient-to-l from-[#f7b500]/20 to-transparent rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-gradient-to-br from-[#f7b500]/12 to-transparent rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+          {/* Multiple Gradient Orbs */}
+          <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-gradient-to-r from-[#f7b500]/12 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-60 h-60 bg-gradient-to-l from-[#f7b500]/15 to-transparent rounded-full blur-2xl pointer-events-none"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-gradient-to-br from-[#f7b500]/10 to-transparent rounded-full blur-xl pointer-events-none"></div>
+          <div className="absolute top-1/6 right-1/6 w-48 h-48 bg-gradient-to-tl from-[#f7b500]/8 to-transparent rounded-full blur-2xl pointer-events-none"></div>
+          <div className="absolute bottom-1/6 left-1/6 w-56 h-56 bg-gradient-to-br from-[#f7b500]/10 to-transparent rounded-full blur-2xl pointer-events-none"></div>
           
-          {/* Floating Particles */}
+          {/* Static Particles */}
           {[
-            { left: 15, top: 20 },
-            { left: 85, top: 30 },
-            { left: 25, top: 70 },
-            { left: 75, top: 80 },
-            { left: 45, top: 15 },
-            { left: 90, top: 60 },
-            { left: 10, top: 50 },
-            { left: 60, top: 90 },
-            { left: 35, top: 40 },
-            { left: 80, top: 10 },
-            { left: 20, top: 85 },
-            { left: 70, top: 25 }
+            { left: 15, top: 20, size: 'w-3 h-3' },
+            { left: 85, top: 30, size: 'w-2 h-2' },
+            { left: 25, top: 70, size: 'w-4 h-4' },
+            { left: 75, top: 80, size: 'w-2 h-2' },
+            { left: 45, top: 15, size: 'w-3 h-3' },
+            { left: 90, top: 60, size: 'w-2 h-2' },
+            { left: 10, top: 50, size: 'w-3 h-3' },
+            { left: 60, top: 90, size: 'w-2 h-2' },
+            { left: 35, top: 40, size: 'w-4 h-4' },
+            { left: 80, top: 10, size: 'w-2 h-2' },
+            { left: 20, top: 85, size: 'w-3 h-3' },
+            { left: 70, top: 25, size: 'w-2 h-2' },
+            { left: 50, top: 55, size: 'w-3 h-3' },
+            { left: 30, top: 10, size: 'w-2 h-2' },
+            { left: 95, top: 75, size: 'w-3 h-3' }
           ].map((position, i) => (
-            <motion.div
+            <div
               key={i}
-              className="absolute w-3 h-3 bg-[#f7b500]/50 rounded-full"
+              className={`absolute ${position.size} bg-[#f7b500]/40 rounded-full pointer-events-none`}
               style={{
                 left: `${position.left}%`,
                 top: `${position.top}%`,
-              }}
-              animate={{
-                y: [-25, 25, -25],
-                opacity: [0.4, 1, 0.4],
-                scale: [0.6, 1.2, 0.6]
-              }}
-              transition={{
-                duration: 5 + i * 0.4,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: i * 0.2
               }}
             />
           ))}
@@ -261,60 +191,45 @@ export default function EgitimlerPage() {
           <div className="text-center max-w-5xl mx-auto">
             <SectionTitle
               title="Eğitimlerimiz"
-              subtitle="Geleceğinizi şekillendirin - 3 yaşından 80 yaşına kadar herkes için özel tasarlanmış eğitim deneyimi"
+              subtitle="3 yaşından 80 yaşına kadar herkes için özel tasarlanmış, geleceğinizi şekillendiren eğitim deneyimi"
               icon={BookOpen}
               iconSize="lg"
               showIcon={true}
-              useAnimate={true}
               titleColor="bg-gradient-to-r from-white via-[#f7b500] to-white bg-clip-text text-transparent"
               subtitleColor="text-gray-300 text-xl md:text-2xl"
               className="mb-8"
             />
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-wrap items-center justify-center gap-6 text-[#f7b500]"
-            >
-              <div className="flex items-center gap-2 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
+            <div className="flex flex-wrap items-center justify-center gap-6 text-[#f7b500]">
+              <div className="flex items-center gap-2 bg-black/40 px-4 py-2 rounded-full">
                 <span className="text-2xl">🚀</span>
                 <span className="text-lg font-bold">İnovatif Metodlar</span>
               </div>
-              <div className="flex items-center gap-2 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
+              <div className="flex items-center gap-2 bg-black/40 px-4 py-2 rounded-full">
                 <span className="text-2xl">🎯</span>
                 <span className="text-lg font-bold">Kişiye Özel Plan</span>
               </div>
-              <div className="flex items-center gap-2 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
+              <div className="flex items-center gap-2 bg-black/40 px-4 py-2 rounded-full">
                 <span className="text-2xl">🏆</span>
                 <span className="text-lg font-bold">%100 Başarı Garantisi</span>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
         
         {/* Scroll Down Arrow */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="absolute bottom-20 left-0 right-0 flex justify-center z-20"
-        >
+        <div className="absolute bottom-20 left-0 right-0 flex justify-center z-20">
           <Link
             href="#education-programs"
             className="group flex flex-col items-center gap-3 text-white hover:text-[#f7b500] transition-colors duration-300"
           >
             <span className="text-sm font-medium">Eğitimlerimizi Görüntüleyin</span>
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="w-8 h-8 border-2 border-current rounded-full flex items-center justify-center group-hover:border-[#f7b500] transition-colors duration-300"
-            >
+            <div className="w-8 h-8 border-2 border-current rounded-full flex items-center justify-center group-hover:border-[#f7b500] transition-colors duration-300">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
-            </motion.div>
+            </div>
           </Link>
-        </motion.div>
+        </div>
       </section>
 
       {/* Education Programs - Compact Grid */}
@@ -330,13 +245,8 @@ export default function EgitimlerPage() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {educationPrograms.map((program, index) => (
-              <motion.div
+              <div
                 key={program.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -10 }}
                 className="group"
               >
                 <div className={`bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border-l-4 ${program.color.replace('from-', 'border-').replace(' to-', '')} relative overflow-hidden h-full flex flex-col`}>
@@ -392,7 +302,7 @@ export default function EgitimlerPage() {
                     </Link>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -407,28 +317,13 @@ export default function EgitimlerPage() {
         
         <div className="container relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-4xl md:text-6xl font-bold text-white mb-8 font-montserrat"
-            >
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 font-montserrat">
               Hemen Başlayın!
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-xl md:text-2xl text-gray-300 mb-12"
-            >
+            </h2>
+            <p className="text-xl md:text-2xl text-gray-300 mb-12">
               Size en uygun programı bulalım ve eğitim yolculuğunuza başlayalım
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-6 justify-center items-center"
-            >
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <div className="relative">
                 <Link 
                   href="/hakkimizda" 
@@ -453,7 +348,7 @@ export default function EgitimlerPage() {
                   </svg>
                 </Link>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>

@@ -1,6 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import { LucideIcon } from 'lucide-react';
 
 interface SectionTitleProps {
@@ -47,14 +44,7 @@ export function SectionTitle({
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      {...(useAnimate 
-        ? { animate: { opacity: 1, y: 0 }, transition: { duration: 0.6 } }
-        : { whileInView: { opacity: 1, y: 0 }, transition: { duration: 0.6 }, viewport: { once: true } }
-      )}
-      className={`${centered ? 'text-center' : ''} ${className}`}
-    >
+    <div className={`${centered ? 'text-center' : ''} ${className}`}>
       <div className="flex items-center justify-center gap-4 mb-6">
         {showIcon && Icon && (
           <div className={`${getIconContainerSize()} bg-gradient-to-r from-[#f7b500] to-[#e6a300] rounded-full`}>
@@ -70,6 +60,6 @@ export function SectionTitle({
           {subtitle}
         </p>
       )}
-    </motion.div>
+    </div>
   );
 }

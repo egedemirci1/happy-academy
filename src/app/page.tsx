@@ -10,7 +10,6 @@ import { FeaturedBlogCard } from '@/components/ui/featured-blog-card';
 import { programs, testimonials, whyChooseUs } from '@/data/programs';
 import { featuredBlogPosts, blogCategories } from '@/data/blog';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { Clock } from 'lucide-react';
 
 export default function Home() {
@@ -336,12 +335,8 @@ export default function Home() {
               {featuredBlogPosts.slice(0, 3).map((post, index) => {
                 const categoryInfo = blogCategories.find(cat => cat.id === post.category);
                 return (
-                  <motion.div
+                  <div
                     key={post.id}
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
                     className="relative group h-[120px] sm:h-[140px] md:h-[160px]"
                   >
                     <Link href={`/blog/${post.id}`} className="block h-full">
@@ -375,7 +370,7 @@ export default function Home() {
                         </div>
                       </div>
                     </Link>
-                  </motion.div>
+                  </div>
                 );
               })}
             </div>
@@ -385,12 +380,8 @@ export default function Home() {
               {featuredBlogPosts.slice(3, 6).map((post, index) => {
                 const categoryInfo = blogCategories.find(cat => cat.id === post.category);
                 return (
-                  <motion.div
+                  <div
                     key={post.id}
-                    initial={{ opacity: 0, x: 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
                     className="relative group h-[120px] sm:h-[140px] md:h-[160px]"
                   >
                     <Link href={`/blog/${post.id}`} className="block h-full">
@@ -424,20 +415,14 @@ export default function Home() {
                         </div>
                       </div>
                     </Link>
-                  </motion.div>
+                  </div>
                 );
               })}
             </div>
           </div>
           
           {/* CTA Button */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-            className="text-center mt-4 sm:mt-6"
-          >
+          <div className="text-center mt-4 sm:mt-6">
             <Link href="/blog" className="group relative inline-flex items-center justify-center gap-2 sm:gap-3 bg-gradient-to-r from-[#f7b500] to-[#e6a300] text-black font-bold px-6 sm:px-10 py-3 sm:py-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:from-[#e6a300] group-hover:to-[#f7b500] overflow-hidden">
               {/* Background shine effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
@@ -449,7 +434,7 @@ export default function Home() {
                 </svg>
               </div>
             </Link>
-          </motion.div>
+          </div>
         </div>
       </section>
 

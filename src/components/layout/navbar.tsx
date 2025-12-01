@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '../ui/button';
@@ -29,13 +28,10 @@ export function Navbar() {
   ];
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-lg' 
+          ? 'bg-white/95 border-b border-gray-200 shadow-lg' 
           : 'bg-white/90'
       }`}
     >
@@ -97,12 +93,7 @@ export function Navbar() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white rounded-lg mt-2 mb-4 border border-gray-200 shadow-lg"
-          >
+          <div className="lg:hidden bg-white rounded-lg mt-2 mb-4 border border-gray-200 shadow-lg">
             <div className="py-4 space-y-2">
               {menuItems.map((item) => (
                 <Link
@@ -126,9 +117,9 @@ export function Navbar() {
                 </Button>
               </div>
             </div>
-          </motion.div>
+          </div>
         )}
       </div>
-    </motion.nav>
+    </nav>
   );
 }
