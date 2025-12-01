@@ -74,7 +74,7 @@ export function Navbar() {
               className="bg-[#f7b500] hover:bg-[#e6a300] text-black font-semibold"
               data-analytics="cta_click"
             >
-              <Link href="#demo-section">
+              <Link href="/iletisim">
                 Ücretsiz Seviye Tespiti
               </Link>
             </Button>
@@ -111,7 +111,7 @@ export function Navbar() {
                   className="w-full bg-[#f7b500] hover:bg-[#e6a300] text-black font-semibold"
                   data-analytics="cta_click"
                 >
-                  <Link href="#demo-section" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link href="/iletisim" onClick={() => setIsMobileMenuOpen(false)}>
                     Ücretsiz Seviye Tespiti
                   </Link>
                 </Button>
