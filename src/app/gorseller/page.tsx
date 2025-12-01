@@ -196,15 +196,15 @@ export default function GorsellerPage() {
       </section>
 
       {/* Ders İçi Videolar Section */}
-      <section id="activities" className="min-h-screen relative z-10 flex flex-col">
-        <div className="container flex-1 flex flex-col justify-between py-4">
+      <section id="activities" className="min-h-screen relative z-10 flex flex-col pt-8">
+        <div className="container flex-1 flex flex-col">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-center mb-4"
+            className="text-center mb-2"
           >
-            <div className="flex items-center justify-center gap-4 mb-3">
+            <div className="flex items-center justify-center gap-4 mb-2">
               <div className="p-3 bg-gradient-to-r from-[#f7b500] to-[#e6a300] rounded-full">
                 <Play className="h-8 w-8 text-white" />
               </div>
@@ -214,12 +214,12 @@ export default function GorsellerPage() {
                 </span>
               </h1>
             </div>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-2 px-4">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-0 px-4">
               Sınıflarımızda gerçekleşen derslerden örnekler ve eğitim sürecimizden kareler
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mt-2">
             {[
               { src: '/video1.mp4', title: 'Ders İçi Video 1', description: 'Eğitim sürecimizden bir kare' },
               { src: '/video2.mp4', title: 'Ders İçi Video 2', description: 'Eğitim sürecimizden bir kare' },
