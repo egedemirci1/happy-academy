@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowLeft, Clock, Users, Award, BookOpen, Target, CheckCircle, Star, ChevronDown, Brain, Trophy } from 'lucide-react';
+import { ArrowLeft, Clock, Users, Award, BookOpen, Target, CheckCircle, Star, ChevronDown, Brain, Trophy, BarChart, FileText } from 'lucide-react';
 import Link from 'next/link';
 
 export default function LGSHazirlikPage() {
@@ -67,6 +67,18 @@ export default function LGSHazirlikPage() {
       title: 'Test Teknikleri',
       description: 'Sınav stratejileri ve teknikleri',
       color: 'from-blue-500 to-cyan-500'
+    },
+    {
+      icon: BarChart,
+      title: 'Performans Takibi',
+      description: 'Detaylı analiz ve ilerleme raporları',
+      color: 'from-pink-500 to-rose-500'
+    },
+    {
+      icon: FileText,
+      title: 'Konu Anlatımları',
+      description: 'Kapsamlı ders notları ve materyaller',
+      color: 'from-yellow-500 to-amber-500'
     }
   ];
 
