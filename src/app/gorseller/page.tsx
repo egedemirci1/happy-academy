@@ -202,7 +202,7 @@ export default function GorsellerPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-center mb-8 lg:mb-12"
+            className="text-center mb-4 lg:mb-6"
           >
             <div className="flex items-center justify-center gap-4 mb-6">
               <div className="p-3 bg-gradient-to-r from-[#f7b500] to-[#e6a300] rounded-full">
@@ -214,7 +214,7 @@ export default function GorsellerPage() {
                 </span>
               </h1>
             </div>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6 lg:mb-8 px-4">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-4 lg:mb-6 px-4">
               Sınıflarımızda gerçekleşen derslerden örnekler ve eğitim sürecimizden kareler
             </p>
           </motion.div>
