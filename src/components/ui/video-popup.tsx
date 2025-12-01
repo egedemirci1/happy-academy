@@ -27,37 +27,46 @@ export function VideoPopup({ videoSrc, thumbnailSrc, title, description }: Video
   }, []);
 
   useEffect(() => {
+    let isMounted = true;
+    
     const generateThumbnail = () => {
+      if (!isMounted) return;
+      
       if (thumbnailVideoRef.current && !thumbnailSrc) {
         const video = thumbnailVideoRef.current;
         
         const handleLoadedMetadata = () => {
+          if (!isMounted || !video) return;
           // Video metadata yüklendiğinde 1. saniyeye git
           if (video.duration > 0) {
-            video.currentTime = Math.min(1, video.duration * 0.1); // Video'nun %10'una veya 1 saniyeye git
+            video.currentTime = Math.min(1, video.duration * 0.1);
           }
         };
 
         const handleSeeked = () => {
+          if (!isMounted || !video) return;
           // Canvas kullanarak thumbnail oluştur
           try {
             const canvas = document.createElement('canvas');
             canvas.width = video.videoWidth || 640;
             canvas.height = video.videoHeight || 360;
             const ctx = canvas.getContext('2d');
-            if (ctx) {
+            if (ctx && isMounted) {
               ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
               const thumbnail = canvas.toDataURL('image/jpeg', 0.8);
               setGeneratedThumbnail(thumbnail);
               setThumbnailLoaded(true);
             }
           } catch (error) {
-            console.log('Thumbnail generation failed, using video frame');
-            setThumbnailLoaded(true);
+            if (isMounted) {
+              console.log('Thumbnail generation failed, using video frame');
+              setThumbnailLoaded(true);
+            }
           }
         };
 
         const handleCanPlay = () => {
+          if (!isMounted || !video) return;
           if (video.readyState >= 2) {
             video.currentTime = Math.min(1, video.duration * 0.1);
           }
@@ -75,49 +84,74 @@ export function VideoPopup({ videoSrc, thumbnailSrc, title, description }: Video
 
         // Cleanup
         return () => {
-          video.removeEventListener('loadedmetadata', handleLoadedMetadata);
-          video.removeEventListener('seeked', handleSeeked);
-          video.removeEventListener('canplay', handleCanPlay);
+          if (video) {
+            video.removeEventListener('loadedmetadata', handleLoadedMetadata);
+            video.removeEventListener('seeked', handleSeeked);
+            video.removeEventListener('canplay', handleCanPlay);
+          }
         };
-      } else if (thumbnailSrc) {
+      } else if (thumbnailSrc && isMounted) {
         setThumbnailLoaded(true);
       }
     };
 
-    const timer = setTimeout(generateThumbnail, 200);
-    return () => clearTimeout(timer);
+    const timer = setTimeout(() => {
+      if (isMounted) {
+        generateThumbnail();
+      }
+    }, 200);
+    
+    return () => {
+      isMounted = false;
+      clearTimeout(timer);
+    };
   }, [videoSrc, thumbnailSrc]);
 
   // Video aspect ratio'sunu tespit et
   useEffect(() => {
+    if (!isOpen) return;
+    
+    let isMounted = true;
+    
     const checkVideoDimensions = () => {
-      if (popupVideoRef.current) {
-        const video = popupVideoRef.current;
-        const handleLoadedMetadata = () => {
-          if (video.videoWidth && video.videoHeight) {
-            const aspectRatio = video.videoWidth / video.videoHeight;
-            setVideoAspectRatio(aspectRatio);
-          }
-        };
-        
-        video.addEventListener('loadedmetadata', handleLoadedMetadata);
-        
-        // Eğer metadata zaten yüklüyse
-        if (video.readyState >= 1 && video.videoWidth && video.videoHeight) {
+      if (!isMounted || !popupVideoRef.current) return;
+      
+      const video = popupVideoRef.current;
+      const handleLoadedMetadata = () => {
+        if (!isMounted || !video) return;
+        if (video.videoWidth && video.videoHeight) {
           const aspectRatio = video.videoWidth / video.videoHeight;
           setVideoAspectRatio(aspectRatio);
         }
-        
-        return () => {
-          video.removeEventListener('loadedmetadata', handleLoadedMetadata);
-        };
+      };
+      
+      video.addEventListener('loadedmetadata', handleLoadedMetadata);
+      
+      // Eğer metadata zaten yüklüyse
+      if (video.readyState >= 1 && video.videoWidth && video.videoHeight) {
+        const aspectRatio = video.videoWidth / video.videoHeight;
+        if (isMounted) {
+          setVideoAspectRatio(aspectRatio);
+        }
       }
+      
+      return () => {
+        if (video) {
+          video.removeEventListener('loadedmetadata', handleLoadedMetadata);
+        }
+      };
     };
 
-    if (isOpen) {
-      const timer = setTimeout(checkVideoDimensions, 100);
-      return () => clearTimeout(timer);
-    }
+    const timer = setTimeout(() => {
+      if (isMounted) {
+        checkVideoDimensions();
+      }
+    }, 100);
+    
+    return () => {
+      isMounted = false;
+      clearTimeout(timer);
+    };
   }, [isOpen, videoSrc]);
 
   return (
