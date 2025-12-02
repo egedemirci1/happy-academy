@@ -16,7 +16,7 @@ export default function BlogPage() {
     : blogPosts.filter(post => post.category === selectedCategory);
 
   return (
-    <div className="min-h-screen pt-24 sm:pt-28 overflow-hidden">
+    <div className="min-h-screen pt-20 sm:pt-24 overflow-hidden">
       {/* Main Container */}
       <div className="h-full bg-gradient-to-br from-orange-50 via-yellow-50 to-amber-50 relative">
         {/* Animated Background Elements */}
