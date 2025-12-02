@@ -183,7 +183,7 @@ export function VideoPopup({ videoSrc, thumbnailSrc, title, description }: Video
               src={videoSrc}
               muted
               playsInline
-              preload="none"
+              preload="metadata"
             />
           )}
           
