@@ -10,9 +10,10 @@ interface VideoPopupProps {
   thumbnailSrc?: string;
   title: string;
   description: string;
+  lazy?: boolean;
 }
 
-export function VideoPopup({ videoSrc, thumbnailSrc, title, description }: VideoPopupProps) {
+export function VideoPopup({ videoSrc, thumbnailSrc, title, description, lazy = true }: VideoPopupProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [thumbnailLoaded, setThumbnailLoaded] = useState(false);
   const [generatedThumbnail, setGeneratedThumbnail] = useState<string>('');
@@ -32,43 +33,38 @@ export function VideoPopup({ videoSrc, thumbnailSrc, title, description }: Video
     const generateThumbnail = () => {
       if (!isMounted) return;
       
+      // Lazy loading aktifse thumbnail generation'ı atla
+      if (lazy) {
+        setThumbnailLoaded(true);
+        return;
+      }
+      
+      // Thumbnail generation'ı devre dışı bırak, sadece poster kullan
+      if (thumbnailSrc && isMounted) {
+        setThumbnailLoaded(true);
+        return;
+      }
+      
       if (thumbnailVideoRef.current && !thumbnailSrc) {
         const video = thumbnailVideoRef.current;
         
         const handleLoadedMetadata = () => {
           if (!isMounted || !video) return;
-          // Video metadata yüklendiğinde 1. saniyeye git
-          if (video.duration > 0) {
-            video.currentTime = Math.min(1, video.duration * 0.1);
-          }
+          // Thumbnail generation'ı sadece gerektiğinde yap
+          setThumbnailLoaded(true);
         };
 
         const handleSeeked = () => {
-          if (!isMounted || !video) return;
-          // Canvas kullanarak thumbnail oluştur
-          try {
-            const canvas = document.createElement('canvas');
-            canvas.width = video.videoWidth || 640;
-            canvas.height = video.videoHeight || 360;
-            const ctx = canvas.getContext('2d');
-            if (ctx && isMounted) {
-              ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-              const thumbnail = canvas.toDataURL('image/jpeg', 0.8);
-              setGeneratedThumbnail(thumbnail);
-              setThumbnailLoaded(true);
-            }
-          } catch (error) {
-            if (isMounted) {
-              console.log('Thumbnail generation failed, using video frame');
-              setThumbnailLoaded(true);
-            }
+          // Thumbnail generation'ı devre dışı bırak
+          if (isMounted) {
+            setThumbnailLoaded(true);
           }
         };
 
         const handleCanPlay = () => {
-          if (!isMounted || !video) return;
-          if (video.readyState >= 2) {
-            video.currentTime = Math.min(1, video.duration * 0.1);
+          // Otomatik thumbnail generation'ı devre dışı bırak
+          if (isMounted) {
+            setThumbnailLoaded(true);
           }
         };
 
@@ -99,13 +95,13 @@ export function VideoPopup({ videoSrc, thumbnailSrc, title, description }: Video
       if (isMounted) {
         generateThumbnail();
       }
-    }, 200);
+    }, lazy ? 500 : 200);
     
     return () => {
       isMounted = false;
       clearTimeout(timer);
     };
-  }, [videoSrc, thumbnailSrc]);
+  }, [videoSrc, thumbnailSrc, lazy]);
 
   // Video aspect ratio'sunu tespit et
   useEffect(() => {
@@ -161,6 +157,7 @@ export function VideoPopup({ videoSrc, thumbnailSrc, title, description }: Video
         ref={videoRef}
         className="hidden"
         src={videoSrc}
+        preload="none"
       />
 
       {/* Video Thumbnail */}
@@ -182,7 +179,7 @@ export function VideoPopup({ videoSrc, thumbnailSrc, title, description }: Video
               src={videoSrc}
               muted
               playsInline
-              preload="metadata"
+              preload="none"
             />
           )}
           
@@ -264,6 +261,7 @@ export function VideoPopup({ videoSrc, thumbnailSrc, title, description }: Video
                         className="max-h-[calc(90vh-100px)] w-auto h-full object-contain"
                         controls
                         autoPlay
+                        preload="auto"
                         src={videoSrc}
                         poster={thumbnailSrc || undefined}
                       >
@@ -278,6 +276,7 @@ export function VideoPopup({ videoSrc, thumbnailSrc, title, description }: Video
                         className="absolute inset-0 w-full h-full object-contain"
                         controls
                         autoPlay
+                        preload="auto"
                         src={videoSrc}
                         poster={thumbnailSrc || undefined}
                       >

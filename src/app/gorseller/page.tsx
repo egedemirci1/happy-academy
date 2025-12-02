@@ -72,24 +72,24 @@ export default function GorsellerPage() {
 
       {/* Gallery Section */}
       <section id="gallery" className="min-h-screen pt-20 sm:pt-24 relative z-10 flex flex-col">
-        <div className="container flex-1 flex flex-col justify-between py-4 px-4">
+        <div className="container flex-1 flex flex-col justify-between py-4">
           <motion.div
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center mb-8 lg:mb-16"
           >
-            <div className="flex items-center justify-center gap-2 sm:gap-4 mb-6 px-4">
-              <div className="p-2 sm:p-3 bg-gradient-to-r from-[#f7b500] to-[#e6a300] rounded-full flex-shrink-0">
-                <Camera className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="p-3 bg-gradient-to-r from-[#f7b500] to-[#e6a300] rounded-full">
+                <Camera className="h-8 w-8 text-white" />
               </div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-montserrat break-words">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-montserrat">
                 <span className="bg-gradient-to-r from-[#f7b500] to-[#e6a300] bg-clip-text text-transparent">
                   Görsellerimiz
                 </span>
               </h1>
             </div>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4 break-words">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
               Happy Academy'deki eğitim ortamımızı ve öğrenci başarılarımızı keşfedin
             </p>
           </motion.div>
@@ -131,6 +131,8 @@ export default function GorsellerPage() {
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    loading="lazy"
+                    quality={75}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
@@ -197,24 +199,24 @@ export default function GorsellerPage() {
 
       {/* Ders İçi Videolar Section */}
       <section id="activities" className="min-h-screen relative z-10 flex flex-col pt-8">
-        <div className="container flex-1 flex flex-col px-4">
+        <div className="container flex-1 flex flex-col">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-center mb-8 lg:mb-12"
           >
-            <div className="flex items-center justify-center gap-2 sm:gap-4 mb-4 px-4">
-              <div className="p-2 sm:p-3 bg-gradient-to-r from-[#f7b500] to-[#e6a300] rounded-full flex-shrink-0">
-                <Play className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <div className="p-3 bg-gradient-to-r from-[#f7b500] to-[#e6a300] rounded-full">
+                <Play className="h-8 w-8 text-white" />
               </div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-montserrat break-words">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-montserrat">
                 <span className="bg-gradient-to-r from-[#f7b500] to-[#e6a300] bg-clip-text text-transparent">
                   Ders İçi Videolarımız
                 </span>
               </h1>
             </div>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-0 px-4 break-words">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-0 px-4">
               Sınıflarımızda gerçekleşen derslerden örnekler ve eğitim sürecimizden kareler
             </p>
           </motion.div>
