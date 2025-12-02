@@ -162,7 +162,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="min-h-screen flex items-center bg-white relative overflow-hidden">
+      <section className="min-h-screen flex items-center bg-white relative overflow-hidden pb-12 sm:pb-16">
         {/* Background Elements */}
         <div className="absolute top-20 right-10 w-40 h-40 bg-gradient-to-br from-[#f7b500]/10 to-transparent rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 left-10 w-32 h-32 bg-gradient-to-tr from-[#f7b500]/15 to-transparent rounded-full blur-2xl"></div>
@@ -317,7 +317,7 @@ export default function Home() {
         
         <div className="container relative z-10 flex flex-col justify-center min-h-screen">
           {/* Header */}
-          <div className="text-center mb-8 sm:mb-12 -mt-16 sm:-mt-20">
+          <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-montserrat text-white mb-4">
               Eğitim Blogumuz
             </h2>
