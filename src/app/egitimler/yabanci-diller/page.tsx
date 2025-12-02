@@ -129,7 +129,7 @@ export default function YabanciDillerPage() {
       </div>
 
       {/* Hero Section */}
-      <section id="hero" className="h-screen pt-20 sm:pt-24 relative z-10 flex flex-col">
+      <section id="hero" className="min-h-screen pt-20 sm:pt-24 relative z-10 flex flex-col">
         <div className="container flex-1 flex flex-col justify-center">
           <motion.div
             initial={{ opacity: 0, y: -30 }}
@@ -202,7 +202,7 @@ export default function YabanciDillerPage() {
       </section>
 
       {/* Programs Section */}
-      <section id="programs" className="h-screen relative z-10 flex flex-col">
+      <section id="programs" className="min-h-screen relative z-10 flex flex-col">
         <div className="container flex-1 flex flex-col justify-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
