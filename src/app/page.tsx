@@ -315,7 +315,7 @@ export default function Home() {
           <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-gradient-to-l from-[#f7b500]/8 to-transparent rounded-full blur-2xl animate-float-delayed"></div>
         </div>
         
-        <div className="container mx-auto px-4 sm:px-6 relative z-10 flex flex-col justify-center min-h-screen">
+        <div className="container relative z-10 flex flex-col justify-center min-h-screen">
           {/* Header */}
           <div className="text-center mb-8 sm:mb-12">
             <SectionTitle
@@ -340,31 +340,31 @@ export default function Home() {
                     className="relative group h-[120px] sm:h-[140px] md:h-[160px]"
                   >
                     <Link href={`/blog/${post.id}`} className="block h-full">
-                      <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-white p-3 sm:p-4 md:p-5 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 border-l-4 border-[#f7b500] h-full flex flex-col">
-                        <div className="flex items-start gap-2 sm:gap-3 flex-1 min-h-0">
+                      <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-white p-4 sm:p-5 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 border-l-4 border-[#f7b500] h-full flex flex-col">
+                        <div className="flex items-start gap-2 sm:gap-3 flex-1">
                           {/* Category Icon */}
-                          <div className={`w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 bg-gradient-to-br ${categoryInfo?.color} rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0`}>
-                            <span className="text-xs sm:text-base md:text-lg">{categoryInfo?.icon}</span>
+                          <div className={`w-8 h-8 sm:w-11 sm:h-11 bg-gradient-to-br ${categoryInfo?.color} rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0`}>
+                            <span className="text-sm sm:text-lg">{categoryInfo?.icon}</span>
                           </div>
                           
                           {/* Content */}
-                          <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
-                            <h4 className="font-bold text-gray-800 mb-1 sm:mb-2 group-hover:text-[#f7b500] transition-colors duration-300 line-clamp-2 text-xs sm:text-sm md:text-base leading-tight break-words">
+                          <div className="flex-1 flex flex-col">
+                            <h4 className="font-bold text-gray-800 mb-1 sm:mb-2 group-hover:text-[#f7b500] transition-colors duration-300 line-clamp-2 text-sm sm:text-sm leading-tight">
                               {post.title}
                             </h4>
-                            <p className="text-gray-600 text-xs sm:text-sm line-clamp-2 mb-1 sm:mb-2 flex-1 leading-relaxed break-words">
+                            <p className="text-gray-600 text-sm sm:text-sm line-clamp-2 mb-1 sm:mb-2 flex-1 leading-relaxed">
                               {post.excerpt}
                             </p>
                           </div>
                         </div>
                         
                         {/* Footer - Fixed at bottom */}
-                        <div className="flex items-center justify-between mt-2 sm:mt-3 flex-shrink-0">
-                          <div className="flex items-center gap-1 text-xs sm:text-sm text-gray-500">
-                            <Clock className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
-                            <span className="whitespace-nowrap">{post.readTime}</span>
+                        <div className="flex items-center justify-between mt-2 sm:mt-3">
+                          <div className="flex items-center gap-1 text-sm sm:text-sm text-gray-500">
+                            <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
+                            <span>{post.readTime}</span>
                           </div>
-                          <span className="text-[#f7b500] text-xs sm:text-sm font-semibold whitespace-nowrap">
+                          <span className="text-[#f7b500] text-sm sm:text-sm font-semibold">
                             Oku →
                           </span>
                         </div>
