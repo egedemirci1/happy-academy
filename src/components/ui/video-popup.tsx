@@ -33,38 +33,49 @@ export function VideoPopup({ videoSrc, thumbnailSrc, title, description, lazy = 
     const generateThumbnail = () => {
       if (!isMounted) return;
       
-      // Lazy loading aktifse thumbnail generation'ı atla
-      if (lazy) {
-        setThumbnailLoaded(true);
-        return;
-      }
-      
-      // Thumbnail generation'ı devre dışı bırak, sadece poster kullan
+      // Thumbnail source varsa direkt kullan
       if (thumbnailSrc && isMounted) {
         setThumbnailLoaded(true);
         return;
       }
       
+      // Thumbnail generation için video kullan
       if (thumbnailVideoRef.current && !thumbnailSrc) {
         const video = thumbnailVideoRef.current;
         
         const handleLoadedMetadata = () => {
           if (!isMounted || !video) return;
-          // Thumbnail generation'ı sadece gerektiğinde yap
-          setThumbnailLoaded(true);
+          // Video metadata yüklendiğinde 1. saniyeye git
+          if (video.duration > 0) {
+            video.currentTime = Math.min(1, video.duration * 0.1);
+          }
         };
 
         const handleSeeked = () => {
-          // Thumbnail generation'ı devre dışı bırak
-          if (isMounted) {
-            setThumbnailLoaded(true);
+          if (!isMounted || !video) return;
+          // Canvas kullanarak thumbnail oluştur
+          try {
+            const canvas = document.createElement('canvas');
+            canvas.width = video.videoWidth || 640;
+            canvas.height = video.videoHeight || 360;
+            const ctx = canvas.getContext('2d');
+            if (ctx && isMounted) {
+              ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+              const thumbnail = canvas.toDataURL('image/jpeg', 0.6);
+              setGeneratedThumbnail(thumbnail);
+              setThumbnailLoaded(true);
+            }
+          } catch (error) {
+            if (isMounted) {
+              setThumbnailLoaded(true);
+            }
           }
         };
 
         const handleCanPlay = () => {
-          // Otomatik thumbnail generation'ı devre dışı bırak
-          if (isMounted) {
-            setThumbnailLoaded(true);
+          if (!isMounted || !video) return;
+          if (video.readyState >= 2) {
+            video.currentTime = Math.min(1, video.duration * 0.1);
           }
         };
 
@@ -86,8 +97,6 @@ export function VideoPopup({ videoSrc, thumbnailSrc, title, description, lazy = 
             video.removeEventListener('canplay', handleCanPlay);
           }
         };
-      } else if (thumbnailSrc && isMounted) {
-        setThumbnailLoaded(true);
       }
     };
 
@@ -95,7 +104,7 @@ export function VideoPopup({ videoSrc, thumbnailSrc, title, description, lazy = 
       if (isMounted) {
         generateThumbnail();
       }
-    }, lazy ? 500 : 200);
+    }, lazy ? 1000 : 300);
     
     return () => {
       isMounted = false;
