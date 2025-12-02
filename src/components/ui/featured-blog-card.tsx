@@ -27,11 +27,11 @@ export function FeaturedBlogCard({ post, categoryInfo }: FeaturedBlogCardProps) 
         <Card className="h-full bg-white border-gray-200 hover:border-[#f7b500] transition-all duration-500 shadow-2xl hover:shadow-3xl group cursor-pointer overflow-hidden">
           <CardContent className="p-0 h-full flex flex-col">
             {/* Large Header */}
-            <div className={`relative px-6 py-4 bg-gradient-to-r ${categoryInfo.color} text-white`}>
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <span className="text-3xl">{categoryInfo.icon}</span>
-                  <span className="font-bold text-base">{categoryInfo.name}</span>
+            <div className={`relative px-4 sm:px-6 py-3 sm:py-4 bg-gradient-to-r ${categoryInfo.color} text-white`}>
+              <div className="flex items-center justify-between mb-3 sm:mb-4">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <span className="text-2xl sm:text-3xl">{categoryInfo.icon}</span>
+                  <span className="font-bold text-sm sm:text-base break-words">{categoryInfo.name}</span>
                 </div>
                 <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
                   <span className="text-white text-sm">📝</span>
@@ -47,21 +47,21 @@ export function FeaturedBlogCard({ post, categoryInfo }: FeaturedBlogCardProps) 
             </div>
 
             {/* Content Area */}
-            <div className="p-6 flex-1 flex flex-col">
-              <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-[#f7b500] transition-colors duration-300 leading-tight">
+            <div className="p-4 sm:p-6 flex-1 flex flex-col">
+              <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-2 sm:mb-3 group-hover:text-[#f7b500] transition-colors duration-300 leading-tight break-words">
                 {post.title}
               </h3>
               
-              <p className="text-gray-600 text-base leading-relaxed mb-4 line-clamp-3 flex-1">
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-3 sm:mb-4 line-clamp-2 sm:line-clamp-3 flex-1 break-words">
                 {post.excerpt}
               </p>
 
               {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
                 {post.tags.slice(0, 3).map((tag, index) => (
                   <span
                     key={index}
-                    className="text-sm bg-gray-100 text-gray-600 px-3 py-1 rounded-full hover:bg-[#f7b500]/10 hover:text-[#f7b500] transition-colors duration-300"
+                    className="text-xs sm:text-sm bg-gray-100 text-gray-600 px-2 sm:px-3 py-1 rounded-full hover:bg-[#f7b500]/10 hover:text-[#f7b500] transition-colors duration-300"
                   >
                     #{tag}
                   </span>
@@ -70,11 +70,11 @@ export function FeaturedBlogCard({ post, categoryInfo }: FeaturedBlogCardProps) 
 
               {/* Footer */}
               <div className="flex items-center justify-between mt-auto">
-                <div className="flex items-center gap-2 text-sm text-gray-500">
-                  <Clock className="w-4 h-4" />
+                <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm text-gray-500">
+                  <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
                   <span>{post.readTime}</span>
                 </div>
-                <span className="text-[#f7b500] font-bold text-base group-hover:text-[#e6a300] transition-colors duration-300">
+                <span className="text-[#f7b500] font-bold text-sm sm:text-base group-hover:text-[#e6a300] transition-colors duration-300">
                   Devamını Oku →
                 </span>
               </div>

@@ -171,12 +171,12 @@ export default function LGSHazirlikPage() {
                 }}
                 className="group cursor-pointer"
               >
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-orange-500/20 hover:border-orange-500/40 text-center">
-                  <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${feature.color} rounded-full mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <feature.icon className="h-8 w-8 text-white" />
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-orange-500/20 hover:border-orange-500/40 text-center">
+                  <div className={`inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-r ${feature.color} rounded-full mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <feature.icon className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.description}</p>
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-2 sm:mb-3 break-words">{feature.title}</h3>
+                  <p className="text-sm sm:text-base text-gray-600 break-words">{feature.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -248,23 +248,23 @@ export default function LGSHazirlikPage() {
                   </div>
                   <p className="text-gray-600 mb-4 text-xs sm:text-sm break-words">{program.description}</p>
                   
-                  <div className="space-y-2 mb-4">
+                  <div className="space-y-1 sm:space-y-2 mb-4">
                     {program.features.map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-green-500" />
-                        <span className="text-sm text-gray-600">{feature}</span>
+                        <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 text-green-500 flex-shrink-0" />
+                        <span className="text-xs sm:text-sm text-gray-600 break-words">{feature}</span>
                       </div>
                     ))}
                   </div>
                   
-                  <div className="flex items-center justify-between text-sm text-gray-500">
+                  <div className="flex items-center justify-between text-xs sm:text-sm text-gray-500">
                     <div className="flex items-center gap-1">
-                      <Clock className="h-4 w-4" />
-                      <span>{program.duration}</span>
+                      <Clock className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
+                      <span className="break-words">{program.duration}</span>
                     </div>
                     <div className="flex items-center gap-1">
-                      <Target className="h-4 w-4" />
-                      <span>{program.level}</span>
+                      <Target className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
+                      <span className="break-words">{program.level}</span>
                     </div>
                   </div>
                 </div>
