@@ -317,16 +317,13 @@ export default function Home() {
         
         <div className="container relative z-10 flex flex-col justify-center min-h-screen">
           {/* Header */}
-          <div className="text-center mb-8 sm:mb-12">
-            <SectionTitle
-              title="Eğitim Blogumuz"
-              subtitle="Öğrenme yolculuğunuzda size rehberlik edecek içerikler"
-              className="mb-0 -mt-16 sm:-mt-20"
-              titleColor="text-white"
-              subtitleColor="text-gray-300"
-              useAnimate={true}
-              noPadding={true}
-            />
+          <div className="text-center mb-8 sm:mb-12 -mt-16 sm:-mt-20">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-montserrat text-white mb-4">
+              Eğitim Blogumuz
+            </h2>
+            <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto">
+              Öğrenme yolculuğunuzda size rehberlik edecek içerikler
+            </p>
           </div>
           
           {/* Creative Blog Grid */}
