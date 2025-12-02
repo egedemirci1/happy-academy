@@ -315,9 +315,9 @@ export default function Home() {
           <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-gradient-to-l from-[#f7b500]/8 to-transparent rounded-full blur-2xl animate-float-delayed"></div>
         </div>
         
-        <div className="container relative z-10 flex flex-col justify-center min-h-screen">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10 flex flex-col justify-center min-h-screen">
           {/* Header */}
-          <div className="text-center mb-8 sm:mb-12 px-4">
+          <div className="text-center mb-8 sm:mb-12">
             <SectionTitle
               title="Eğitim Blogumuz"
               subtitle="Öğrenme yolculuğunuzda size rehberlik edecek içerikler"
