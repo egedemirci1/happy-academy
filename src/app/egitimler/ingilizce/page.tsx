@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowLeft, Clock, Users, Award, BookOpen, Globe, Target, CheckCircle, Star, ChevronDown } from 'lucide-react';
+import { ArrowLeft, Clock, Users, Award, BookOpen, Globe, Target, CheckCircle, Star, ChevronDown, Calendar, TrendingUp } from 'lucide-react';
 import Link from 'next/link';
 
 export default function IngilizceEgitimPage() {
@@ -47,6 +47,13 @@ export default function IngilizceEgitimPage() {
       features: ['Kişisel Plan', 'Esnek Zaman', 'Hızlı İlerleme', 'Özel Materyaller'],
       duration: 'Esnek',
       level: 'Tüm Seviyeler'
+    },
+    {
+      title: 'İş İngilizcesi',
+      description: 'Profesyonel iş hayatı için İngilizce',
+      features: ['İş Terimleri', 'Sunum Becerileri', 'E-posta Yazımı', 'Toplantı Dili'],
+      duration: '3-6 ay',
+      level: 'Orta-İleri'
     }
   ];
 
@@ -74,6 +81,18 @@ export default function IngilizceEgitimPage() {
       title: 'Sertifika Programı',
       description: 'Uluslararası geçerlilikte sertifikalar',
       color: 'from-orange-500 to-red-500'
+    },
+    {
+      icon: Calendar,
+      title: 'Esnek Zamanlama',
+      description: 'Size uygun saatlerde ders imkanı',
+      color: 'from-pink-500 to-rose-500'
+    },
+    {
+      icon: TrendingUp,
+      title: 'Hızlı İlerleme',
+      description: 'Etkili yöntemlerle kısa sürede sonuç',
+      color: 'from-yellow-500 to-amber-500'
     }
   ];
 
