@@ -10,10 +10,9 @@ interface VideoPopupProps {
   thumbnailSrc?: string;
   title: string;
   description: string;
-  lazy?: boolean;
 }
 
-export function VideoPopup({ videoSrc, thumbnailSrc, title, description, lazy = true }: VideoPopupProps) {
+export function VideoPopup({ videoSrc, thumbnailSrc, title, description }: VideoPopupProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [thumbnailLoaded, setThumbnailLoaded] = useState(false);
   const [generatedThumbnail, setGeneratedThumbnail] = useState<string>('');
@@ -33,13 +32,6 @@ export function VideoPopup({ videoSrc, thumbnailSrc, title, description, lazy = 
     const generateThumbnail = () => {
       if (!isMounted) return;
       
-      // Thumbnail source varsa direkt kullan
-      if (thumbnailSrc && isMounted) {
-        setThumbnailLoaded(true);
-        return;
-      }
-      
-      // Thumbnail generation için video kullan
       if (thumbnailVideoRef.current && !thumbnailSrc) {
         const video = thumbnailVideoRef.current;
         
@@ -61,12 +53,13 @@ export function VideoPopup({ videoSrc, thumbnailSrc, title, description, lazy = 
             const ctx = canvas.getContext('2d');
             if (ctx && isMounted) {
               ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-              const thumbnail = canvas.toDataURL('image/jpeg', 0.6);
+              const thumbnail = canvas.toDataURL('image/jpeg', 0.7);
               setGeneratedThumbnail(thumbnail);
               setThumbnailLoaded(true);
             }
           } catch (error) {
             if (isMounted) {
+              console.log('Thumbnail generation failed, using video frame');
               setThumbnailLoaded(true);
             }
           }
@@ -97,6 +90,8 @@ export function VideoPopup({ videoSrc, thumbnailSrc, title, description, lazy = 
             video.removeEventListener('canplay', handleCanPlay);
           }
         };
+      } else if (thumbnailSrc && isMounted) {
+        setThumbnailLoaded(true);
       }
     };
 
@@ -104,13 +99,13 @@ export function VideoPopup({ videoSrc, thumbnailSrc, title, description, lazy = 
       if (isMounted) {
         generateThumbnail();
       }
-    }, lazy ? 1000 : 300);
+    }, 200);
     
     return () => {
       isMounted = false;
       clearTimeout(timer);
     };
-  }, [videoSrc, thumbnailSrc, lazy]);
+  }, [videoSrc, thumbnailSrc]);
 
   // Video aspect ratio'sunu tespit et
   useEffect(() => {
