@@ -11,6 +11,7 @@ interface SectionTitleProps {
   iconSize?: 'sm' | 'md' | 'lg';
   showIcon?: boolean;
   useAnimate?: boolean;
+  noPadding?: boolean;
 }
 
 export function SectionTitle({ 
@@ -23,13 +24,14 @@ export function SectionTitle({
   icon: Icon,
   iconSize = 'md',
   showIcon = false,
-  useAnimate = false
+  useAnimate = false,
+  noPadding = false
 }: SectionTitleProps) {
   const getIconSize = () => {
     switch (iconSize) {
       case 'sm': return 'h-5 w-5 sm:h-6 sm:w-6';
       case 'md': return 'h-6 w-6 sm:h-8 sm:w-8';
-      case 'lg': return 'h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10';
+      case 'lg': return 'h-7 w-7 sm:h-9 sm:w-9 md:h-10 md:w-10';
       default: return 'h-6 w-6 sm:h-8 sm:w-8';
     }
   };
@@ -51,12 +53,12 @@ export function SectionTitle({
             <Icon className={`${getIconSize()} text-white`} />
           </div>
         )}
-        <h2 className={`text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold font-montserrat break-words ${titleColor}`}>
+        <h2 className={`text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold font-montserrat ${titleColor}`}>
           {title}
         </h2>
       </div>
       {subtitle && (
-        <p className={`text-base sm:text-lg max-w-2xl mx-auto px-4 ${subtitleColor}`}>
+        <p className={`text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-4 ${subtitleColor}`}>
           {subtitle}
         </p>
       )}
