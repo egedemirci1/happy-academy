@@ -317,7 +317,7 @@ export default function Home() {
         
         <div className="container relative z-10 flex flex-col justify-center min-h-screen">
           {/* Header */}
-          <div className="text-center mb-8 sm:mb-12">
+          <div className="text-center mb-8 sm:mb-12 px-4">
             <SectionTitle
               title="Eğitim Blogumuz"
               subtitle="Öğrenme yolculuğunuzda size rehberlik edecek içerikler"
