@@ -1,8 +1,7 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, memo } from 'react';
 import { createPortal } from 'react-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 import { X, Play } from 'lucide-react';
 
 interface VideoPopupProps {
@@ -12,289 +11,293 @@ interface VideoPopupProps {
   description: string;
 }
 
-export function VideoPopup({ videoSrc, thumbnailSrc, title, description }: VideoPopupProps) {
+function VideoPopupComponent({ videoSrc, thumbnailSrc, title, description }: VideoPopupProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [thumbnailLoaded, setThumbnailLoaded] = useState(false);
-  const [generatedThumbnail, setGeneratedThumbnail] = useState<string>('');
   const [videoAspectRatio, setVideoAspectRatio] = useState<number | null>(null);
   const [mounted, setMounted] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [autoThumbnail, setAutoThumbnail] = useState<string>('');
   const thumbnailVideoRef = useRef<HTMLVideoElement>(null);
   const popupVideoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     setMounted(true);
+    return () => setMounted(false);
   }, []);
 
+  // Otomatik thumbnail oluştur - sadece thumbnail yoksa
   useEffect(() => {
-    let isMounted = true;
+    if (thumbnailSrc) {
+      setAutoThumbnail(thumbnailSrc);
+      return;
+    }
     
+    if (autoThumbnail) return;
+    
+    let isMounted = true;
+    const video = thumbnailVideoRef.current;
+    if (!video) return;
+
     const generateThumbnail = () => {
-      if (!isMounted) return;
+      if (!isMounted || !video) return;
       
-      if (thumbnailVideoRef.current && !thumbnailSrc) {
-        const video = thumbnailVideoRef.current;
+      try {
+        const canvas = document.createElement('canvas');
+        // Video'nun gerçek boyutunu kullan veya HD
+        const width = video.videoWidth || 1280;
+        const height = video.videoHeight || 720;
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
         
-        const handleLoadedMetadata = () => {
-          if (!isMounted || !video) return;
-          // Video metadata yüklendiğinde 1. saniyeye git
-          if (video.duration > 0) {
-            video.currentTime = Math.min(1, video.duration * 0.1);
+        if (ctx && video.videoWidth > 0 && video.videoHeight > 0) {
+          ctx.drawImage(video, 0, 0, width, height);
+          const thumbnail = canvas.toDataURL('image/jpeg', 0.85);
+          if (isMounted) {
+            setAutoThumbnail(thumbnail);
           }
-        };
-
-        const handleSeeked = () => {
-          if (!isMounted || !video) return;
-          // Canvas kullanarak thumbnail oluştur
-          try {
-            const canvas = document.createElement('canvas');
-            canvas.width = video.videoWidth || 640;
-            canvas.height = video.videoHeight || 360;
-            const ctx = canvas.getContext('2d');
-            if (ctx && isMounted) {
-              ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-              const thumbnail = canvas.toDataURL('image/jpeg', 0.7);
-              setGeneratedThumbnail(thumbnail);
-              setThumbnailLoaded(true);
-            }
-          } catch (error) {
-            if (isMounted) {
-              console.log('Thumbnail generation failed, using video frame');
-              setThumbnailLoaded(true);
-            }
-          }
-        };
-
-        const handleCanPlay = () => {
-          if (!isMounted || !video) return;
-          if (video.readyState >= 2) {
-            video.currentTime = Math.min(1, video.duration * 0.1);
-          }
-        };
-
-        // Event listeners
-        video.addEventListener('loadedmetadata', handleLoadedMetadata);
-        video.addEventListener('seeked', handleSeeked);
-        video.addEventListener('canplay', handleCanPlay);
-
-        // Eğer video zaten yüklenmişse
-        if (video.readyState >= 2) {
-          handleLoadedMetadata();
         }
-
-        // Cleanup
-        return () => {
-          if (video) {
-            video.removeEventListener('loadedmetadata', handleLoadedMetadata);
-            video.removeEventListener('seeked', handleSeeked);
-            video.removeEventListener('canplay', handleCanPlay);
-          }
-        };
-      } else if (thumbnailSrc && isMounted) {
-        setThumbnailLoaded(true);
+      } catch (error) {
+        console.error('Thumbnail oluşturulamadı:', error);
       }
     };
 
-    const timer = setTimeout(() => {
-      if (isMounted) {
-        generateThumbnail();
+    const handleLoadedData = () => {
+      if (!isMounted || autoThumbnail) return;
+      
+      // Video data yüklendi, hemen thumbnail oluştur
+      if (video.readyState >= 2) {
+        // 1-2 saniye arası güzel bir frame
+        const targetTime = Math.max(1, Math.min(2, video.duration * 0.1));
+        video.currentTime = targetTime;
       }
-    }, 200);
+    };
+
+    const handleSeeked = () => {
+      if (!isMounted || autoThumbnail) return;
+      
+      // Frame render için 2 kez bekle
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          if (isMounted) {
+            generateThumbnail();
+          }
+        });
+      });
+    };
     
+    const handleError = (e: Event) => {
+      console.error('Video yükleme hatası:', videoSrc, e);
+    };
+
+    video.addEventListener('loadeddata', handleLoadedData);
+    video.addEventListener('seeked', handleSeeked);
+    video.addEventListener('error', handleError);
+    
+    // Video yüklemeyi manuel başlat
+    video.load();
+    
+    // Eğer video zaten yüklüyse
+    if (video.readyState >= 2) {
+      handleLoadedData();
+    }
+
     return () => {
       isMounted = false;
-      clearTimeout(timer);
+      video.removeEventListener('loadeddata', handleLoadedData);
+      video.removeEventListener('seeked', handleSeeked);
+      video.removeEventListener('error', handleError);
     };
-  }, [videoSrc, thumbnailSrc]);
+  }, [thumbnailSrc, videoSrc]);
 
-  // Video aspect ratio'sunu tespit et
+  // Video aspect ratio'sunu tespit et - sadece açıldığında
   useEffect(() => {
-    if (!isOpen) return;
+    if (!isOpen || !popupVideoRef.current) return;
     
-    let isMounted = true;
-    
-    const checkVideoDimensions = () => {
-      if (!isMounted || !popupVideoRef.current) return;
-      
-      const video = popupVideoRef.current;
-      const handleLoadedMetadata = () => {
-        if (!isMounted || !video) return;
-        if (video.videoWidth && video.videoHeight) {
-          const aspectRatio = video.videoWidth / video.videoHeight;
-          setVideoAspectRatio(aspectRatio);
-        }
-      };
-      
-      video.addEventListener('loadedmetadata', handleLoadedMetadata);
-      
-      // Eğer metadata zaten yüklüyse
-      if (video.readyState >= 1 && video.videoWidth && video.videoHeight) {
-        const aspectRatio = video.videoWidth / video.videoHeight;
-        if (isMounted) {
-          setVideoAspectRatio(aspectRatio);
-        }
+    const video = popupVideoRef.current;
+    const handleLoadedMetadata = () => {
+      if (video.videoWidth && video.videoHeight) {
+        setVideoAspectRatio(video.videoWidth / video.videoHeight);
       }
-      
-      return () => {
-        if (video) {
-          video.removeEventListener('loadedmetadata', handleLoadedMetadata);
-        }
-      };
     };
-
-    const timer = setTimeout(() => {
-      if (isMounted) {
-        checkVideoDimensions();
-      }
-    }, 100);
+    
+    video.addEventListener('loadedmetadata', handleLoadedMetadata);
+    
+    if (video.readyState >= 1 && video.videoWidth && video.videoHeight) {
+      setVideoAspectRatio(video.videoWidth / video.videoHeight);
+    }
     
     return () => {
-      isMounted = false;
-      clearTimeout(timer);
+      video.removeEventListener('loadedmetadata', handleLoadedMetadata);
+      video.pause();
+      video.src = '';
+      video.load();
     };
-  }, [isOpen, videoSrc]);
+  }, [isOpen]);
+
+  const handleClose = () => {
+    if (popupVideoRef.current) {
+      popupVideoRef.current.pause();
+      popupVideoRef.current.currentTime = 0;
+    }
+    setIsOpen(false);
+  };
+
+  // Thumbnail display image
+  const displayThumbnail = thumbnailSrc || autoThumbnail;
 
   return (
     <>
-      {/* Hidden video for popup */}
-      <video
-        ref={videoRef}
-        className="hidden"
-        src={videoSrc}
-        preload="none"
-      />
+      {/* Hidden video for thumbnail generation */}
+      {!thumbnailSrc && (
+        <video
+          ref={thumbnailVideoRef}
+          className="hidden"
+          src={videoSrc}
+          muted
+          playsInline
+          preload="auto"
+          crossOrigin="anonymous"
+        />
+      )}
 
       {/* Video Thumbnail */}
       <div 
         className="relative cursor-pointer group w-full h-full"
         onClick={() => setIsOpen(true)}
       >
-        <div className="w-full h-full aspect-video bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center overflow-hidden relative rounded-3xl">
-          {thumbnailSrc || generatedThumbnail ? (
+        <div className="w-full h-full aspect-video overflow-hidden relative rounded-3xl bg-gray-900">
+          {displayThumbnail ? (
+            // Video'dan çekilen veya manuel thumbnail
             <img 
-              src={thumbnailSrc || generatedThumbnail} 
+              src={displayThumbnail} 
               alt={title}
               className="w-full h-full object-cover rounded-3xl"
             />
           ) : (
-            <video
-              ref={thumbnailVideoRef}
-              className="w-full h-full object-cover rounded-3xl"
-              src={videoSrc}
-              muted
-              playsInline
-              preload="metadata"
-            />
+            // Güzel placeholder - thumbnail yüklenene kadar
+            <div className="w-full h-full bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 flex items-center justify-center relative overflow-hidden">
+              {/* Decorative background */}
+              <div className="absolute inset-0 opacity-30">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-[#f7b500]/30 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/20 rounded-full blur-2xl"></div>
+              </div>
+              {/* Loading indicator - subtle */}
+              <div className="relative z-10">
+                <div className="w-12 h-12 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
+              </div>
+            </div>
           )}
           
-          {/* Background overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-3xl"></div>
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 rounded-3xl"></div>
           
-          {/* Branding */}
-          <div className="absolute bottom-3 left-3 sm:bottom-6 sm:left-6">
-            <div className="flex items-center gap-2 sm:gap-3 text-white">
-              <div className="w-3 h-3 sm:w-4 sm:h-4 bg-[#f7b500] rounded-full animate-pulse"></div>
-              <span className="text-xs sm:text-sm font-semibold bg-black/30 px-2 py-1 sm:px-3 sm:py-1 rounded-full backdrop-blur-sm">Happy Academy</span>
+          {/* Title at bottom with text */}
+          <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 z-10">
+            <h4 className="text-white text-sm sm:text-base font-bold drop-shadow-lg mb-1">
+              {title}
+            </h4>
+            <p className="text-white/80 text-xs drop-shadow-md line-clamp-1">
+              {description}
+            </p>
+          </div>
+          
+          {/* Branding - Top left */}
+          <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10">
+            <div className="flex items-center gap-1.5 text-white">
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#f7b500] rounded-full"></div>
+              <span className="text-xs font-semibold bg-black/30 px-2 py-0.5 rounded-full backdrop-blur-sm">Happy Academy</span>
             </div>
           </div>
           
-          {/* HD Badge */}
-          <div className="absolute top-3 right-3 sm:top-4 sm:right-4">
-            <div className="w-6 h-6 sm:w-8 sm:h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-              <span className="text-white text-xs sm:text-sm font-bold">HD</span>
+          {/* HD Badge - Top right */}
+          <div className="absolute top-2 right-2 sm:top-3 sm:right-3 z-10">
+            <div className="bg-black/30 backdrop-blur-sm px-2 py-0.5 rounded">
+              <span className="text-white text-xs font-bold">HD</span>
             </div>
           </div>
         </div>
         
-        {/* Play Button Overlay - Always Visible */}
-        <div className="absolute inset-0 flex items-center justify-center rounded-3xl">
-          <div className="bg-white/95 rounded-full p-4 sm:p-6 shadow-2xl group-hover:scale-110 transition-transform duration-300">
-            <Play className="w-8 h-8 sm:w-12 sm:h-12 text-[#f7b500]" />
+        {/* Play Button - KÜÇÜK */}
+        <div className="absolute inset-0 flex items-center justify-center rounded-3xl z-20">
+          <div className="bg-white/90 rounded-full p-3 sm:p-4 shadow-xl group-hover:scale-110 group-hover:bg-white transition-all duration-300">
+            <Play className="w-6 h-6 sm:w-8 sm:h-8 text-[#f7b500] fill-[#f7b500]" />
           </div>
         </div>
         
         {/* Hover Effect */}
-        <div className="absolute inset-0 bg-black/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div className="absolute inset-0 bg-black/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       </div>
 
-      {/* Popup Modal - Portal ile body'ye render et */}
-      {mounted && createPortal(
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/80 z-[99999] flex items-center justify-center p-4"
-              onClick={() => setIsOpen(false)}
-              style={{ position: 'fixed', zIndex: 99999 }}
-            >
-              <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.8, opacity: 0 }}
-                className={`bg-white rounded-lg overflow-hidden mx-2 sm:mx-0 ${
-                  videoAspectRatio && videoAspectRatio < 1 
-                    ? 'max-w-md w-full' // Dikey videolar için daha dar
-                    : 'max-w-4xl w-full' // Yatay videolar için geniş
-                } max-h-[90vh] flex flex-col`}
-                onClick={(e) => e.stopPropagation()}
-                style={{ position: 'relative', zIndex: 100000 }}
+      {/* Popup Modal - Sadece açıldığında render et */}
+      {mounted && isOpen && createPortal(
+        <div
+          className="fixed inset-0 bg-black/80 z-[99999] flex items-center justify-center p-4 transition-opacity duration-200"
+          onClick={handleClose}
+          style={{ position: 'fixed', zIndex: 99999 }}
+        >
+          <div
+            className={`bg-white rounded-lg overflow-hidden mx-2 sm:mx-0 ${
+              videoAspectRatio && videoAspectRatio < 1 
+                ? 'max-w-md w-full'
+                : 'max-w-4xl w-full'
+            } max-h-[90vh] flex flex-col transition-all duration-200`}
+            onClick={(e) => e.stopPropagation()}
+            style={{ position: 'relative', zIndex: 100000 }}
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between p-3 sm:p-4 border-b flex-shrink-0">
+              <div className="flex-1 text-center">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900">{title}</h3>
+                <p className="text-xs sm:text-sm text-gray-600">{description}</p>
+              </div>
+              <button
+                onClick={handleClose}
+                className="p-2 hover:bg-gray-100 rounded-full transition-colors ml-2 sm:ml-4"
+                aria-label="Kapat"
               >
-                {/* Header */}
-                <div className="flex items-center justify-between p-3 sm:p-4 border-b flex-shrink-0">
-                  <div className="flex-1 text-center">
-                    <h3 className="text-base sm:text-lg font-semibold text-gray-900">{title}</h3>
-                    <p className="text-xs sm:text-sm text-gray-600">{description}</p>
-                  </div>
-                  <button
-                    onClick={() => setIsOpen(false)}
-                    className="p-2 hover:bg-gray-100 rounded-full transition-colors ml-2 sm:ml-4"
-                  >
-                    <X className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600" />
-                  </button>
-                </div>
+                <X className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600" />
+              </button>
+            </div>
 
-                {/* Video */}
-                <div className="relative w-full flex-1 flex items-center justify-center bg-black">
-                  {videoAspectRatio && videoAspectRatio < 1 ? (
-                    // Dikey video için özel layout
-                    <div className="w-full h-full flex items-center justify-center p-4">
-                      <video
-                        ref={popupVideoRef}
-                        className="max-h-[calc(90vh-100px)] w-auto h-full object-contain"
-                        controls
-                        autoPlay
-                        preload="auto"
-                        src={videoSrc}
-                        poster={thumbnailSrc || undefined}
-                      >
-                        Tarayıcınız video oynatmayı desteklemiyor.
-                      </video>
-                    </div>
-                  ) : (
-                    // Yatay video için standart layout
-                    <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                      <video
-                        ref={popupVideoRef}
-                        className="absolute inset-0 w-full h-full object-contain"
-                        controls
-                        autoPlay
-                        preload="auto"
-                        src={videoSrc}
-                        poster={thumbnailSrc || undefined}
-                      >
-                        Tarayıcınız video oynatmayı desteklemiyor.
-                      </video>
-                    </div>
-                  )}
+            {/* Video - Sadece modal açıkken yüklenir */}
+            <div className="relative w-full flex-1 flex items-center justify-center bg-black">
+              {videoAspectRatio && videoAspectRatio < 1 ? (
+                <div className="w-full h-full flex items-center justify-center p-4">
+                  <video
+                    ref={popupVideoRef}
+                    className="max-h-[calc(90vh-100px)] w-auto h-full object-contain"
+                    controls
+                    autoPlay
+                    preload="metadata"
+                    src={videoSrc}
+                    poster={thumbnailSrc}
+                  >
+                    Tarayıcınız video oynatmayı desteklemiyor.
+                  </video>
                 </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>,
+              ) : (
+                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                  <video
+                    ref={popupVideoRef}
+                    className="absolute inset-0 w-full h-full object-contain"
+                    controls
+                    autoPlay
+                    preload="metadata"
+                    src={videoSrc}
+                    poster={thumbnailSrc}
+                  >
+                    Tarayıcınız video oynatmayı desteklemiyor.
+                  </video>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>,
         document.body
       )}
     </>
   );
 }
+
+// Memo ile export et - gereksiz re-render'ları önle
+export const VideoPopup = memo(VideoPopupComponent);

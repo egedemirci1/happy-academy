@@ -33,6 +33,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: [
+      { url: "/sekme.png" },
+      { url: "/sekme.png", sizes: "32x32", type: "image/png" },
+      { url: "/sekme.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [
+      { url: "/sekme.png" },
+    ],
+    shortcut: ["/sekme.png"],
+  },
   openGraph: {
     title: "Happy Academy Konya - Dil ve Sınav Başarısı İçin Doğru Adres",
     description: "A1–C1 yabancı dil, LGS & YDT hazırlık, Junior (3–6), 5–8. sınıf akademik destek, koçluk ve deneme programları.",

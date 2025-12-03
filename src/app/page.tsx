@@ -6,9 +6,8 @@ import { ProgramCard } from '@/components/ui/program-card';
 import { TestimonialSlider } from '@/components/ui/testimonial-slider';
 import { VideoPopup } from '@/components/ui/video-popup';
 import { BlogCard } from '@/components/ui/blog-card';
-import { FeaturedBlogCard } from '@/components/ui/featured-blog-card';
 import { programs, testimonials, whyChooseUs } from '@/data/programs';
-import { featuredBlogPosts, blogCategories } from '@/data/blog';
+import { featuredBlogPosts, blogCategories } from '@/data/blog-featured';
 import Link from 'next/link';
 import { Clock } from 'lucide-react';
 

@@ -1,9 +1,8 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { Card, CardContent } from './card';
 import { Star } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 
 interface Testimonial {
   id: string;
@@ -17,7 +16,7 @@ interface TestimonialSliderProps {
   testimonials: Testimonial[];
 }
 
-export function TestimonialSlider({ testimonials }: TestimonialSliderProps) {
+function TestimonialSliderComponent({ testimonials }: TestimonialSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -31,7 +30,9 @@ export function TestimonialSlider({ testimonials }: TestimonialSliderProps) {
       );
     }, 3000);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+    };
   }, [testimonials.length, isHovered]);
 
   // Görünür testimonial'ları hesapla (3 tane)
@@ -52,13 +53,10 @@ export function TestimonialSlider({ testimonials }: TestimonialSliderProps) {
     >
       <div className="flex gap-4 overflow-hidden justify-center">
         {getVisibleTestimonials().map((testimonial, index) => (
-          <motion.div
+          <div
             key={`${testimonial.id}-${currentIndex}-${index}`}
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
-            transition={{ duration: 0.5 }}
-            className="flex-shrink-0 w-80 max-w-sm"
+            className="flex-shrink-0 w-80 max-w-sm transition-all duration-500 opacity-100"
+            style={{ transitionDelay: `${index * 100}ms` }}
           >
             <Card className="bg-white border-gray-200 h-full shadow-lg hover:shadow-xl transition-shadow duration-300">
               <CardContent className="p-6 flex flex-col h-full">
@@ -95,7 +93,7 @@ export function TestimonialSlider({ testimonials }: TestimonialSliderProps) {
                 </div>
               </CardContent>
             </Card>
-          </motion.div>
+          </div>
         ))}
       </div>
       
@@ -108,9 +106,13 @@ export function TestimonialSlider({ testimonials }: TestimonialSliderProps) {
             className={`w-3 h-3 rounded-full transition-colors duration-300 ${
               index === currentIndex ? 'bg-[#f7b500]' : 'bg-gray-300'
             }`}
+            aria-label={`Yorum ${index + 1}`}
           />
         ))}
       </div>
     </div>
   );
 }
+
+// Memo ile export et
+export const TestimonialSlider = memo(TestimonialSliderComponent);

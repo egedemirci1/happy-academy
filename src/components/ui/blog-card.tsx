@@ -1,8 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { memo } from 'react';
 import { Card, CardContent } from './card';
-import { Badge } from './badge';
 import Link from 'next/link';
 import { Clock } from 'lucide-react';
 
@@ -24,25 +23,9 @@ interface BlogCardProps {
   };
 }
 
-export function BlogCard({ post, categoryInfo }: BlogCardProps) {
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('tr-TR', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric'
-    });
-  };
-
+function BlogCardComponent({ post, categoryInfo }: BlogCardProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-      whileHover={{ y: -5 }}
-      className="h-full"
-    >
+    <div className="h-full">
       <Link href={`/blog/${post.id}`}>
         <Card className="h-full bg-white border-gray-200 hover:border-[#f7b500] transition-all duration-300 shadow-lg hover:shadow-xl group cursor-pointer overflow-hidden">
           <CardContent className="p-0 h-full flex flex-col">
@@ -95,6 +78,9 @@ export function BlogCard({ post, categoryInfo }: BlogCardProps) {
           </CardContent>
         </Card>
       </Link>
-    </motion.div>
+    </div>
   );
 }
+
+// Memo ile export et
+export const BlogCard = memo(BlogCardComponent);

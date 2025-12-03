@@ -60,15 +60,15 @@ export default function CocukGenclikPage() {
   ];
 
   return (
-    <div className="min-h-screen pt-20 sm:pt-24">
+    <div className="min-h-screen pt-16">
       {/* Hero Section */}
       <section className="section-padding bg-gradient-primary">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-6 font-montserrat break-words px-4">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 font-montserrat">
               Çocuk & Genç
             </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 px-4 break-words">
+            <p className="text-xl md:text-2xl text-gray-300 mb-8">
               Junior Class (3–6 yaş) + 5–8. Sınıf Akademik Destek
             </p>
             <div className="flex flex-wrap justify-center gap-2 mb-8">

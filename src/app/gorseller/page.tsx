@@ -24,18 +24,18 @@ export default function GorsellerPage() {
   };
 
   const educationImages = [
-    '/IMG_20250928_123029.jpg',
-    '/IMG_20250928_131259.jpg',
-    '/IMG_20250928_144943.jpg',
-    '/IMG_20250928_153802.jpg',
-    '/IMG_20250928_154702.jpg',
-    '/kedi.jpg',
-    '/IMG_20250928_112444.jpg',
-    '/hocalarımız.jpg',
-    '/egitim-ortamii.jpg',
-    '/egitim-ortami3.jpg',
-    '/egitim-ortami2.jpg',
-    '/sınav.jpg'
+    '/IMG_20250928_123029.webp',
+    '/IMG_20250928_131259.webp',
+    '/IMG_20250928_144943.webp',
+    '/IMG_20250928_153802.webp',
+    '/IMG_20250928_154702.webp',
+    '/kedi.webp',
+    '/IMG_20250928_112444.webp',
+    '/hocalarımız.webp',
+    '/egitim-ortamii.webp',
+    '/egitim-ortami3.webp',
+    '/egitim-ortami2.webp',
+    '/sınav.webp'
   ];
 
   return (

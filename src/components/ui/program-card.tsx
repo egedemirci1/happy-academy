@@ -1,5 +1,6 @@
 'use client';
 
+import { memo } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './card';
 import { Badge } from './badge';
 import { Button } from './button';
@@ -22,7 +23,7 @@ const iconMap = {
   Target
 };
 
-export function ProgramCard({
+function ProgramCardComponent({
   title,
   description,
   badges,
@@ -73,3 +74,6 @@ export function ProgramCard({
     </div>
   );
 }
+
+// Memo ile export et - gereksiz re-render'ları önle
+export const ProgramCard = memo(ProgramCardComponent);

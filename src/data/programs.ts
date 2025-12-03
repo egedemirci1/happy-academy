@@ -32,7 +32,7 @@ export const programs: Program[] = [
     title: 'Yabancı Diller',
     description: 'İngilizce, Almanca, Fransızca, İspanyolca, Rusça, Felemenkçe. A1–C1 seviye, konuşma kulüpleri, Goethe/ÖSD/TELC, Aile Birleşimi.',
     badges: ['A1-C1', 'Konuşma Kulübü', 'Sertifika'],
-    link: '/yabanci-diller',
+    link: '/egitimler/yabanci-diller',
     icon: 'Globe'
   },
   {
@@ -40,7 +40,7 @@ export const programs: Program[] = [
     title: 'Sınav Hazırlık',
     description: 'LGS\'de konu anlatımı + soru çözümü + deneme analizi; YDT Team\'de 500 ders İngilizce, TYT desteği, mentör öğretmen ve takip sistemi.',
     badges: ['LGS', 'YDT', 'Mentörlük'],
-    link: '/sinav-hazirlik',
+    link: '/egitimler/lgs-hazirlik',
     icon: 'BookOpen'
   },
   {

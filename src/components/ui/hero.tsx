@@ -36,7 +36,7 @@ export function Hero({
               className="mb-8"
             >
               <Image
-                src="/logo-happy-academy.png"
+                src="/logo-happy-academy.webp"
                 alt="Happy Academy Konya"
                 width={200}
                 height={60}

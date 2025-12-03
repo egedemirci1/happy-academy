@@ -1,11 +1,12 @@
 'use client';
 
+import { memo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '../ui/button';
 import { Phone, Mail, MapPin, Instagram } from 'lucide-react';
 
-export function Footer() {
+function FooterComponent() {
   const currentYear = new Date().getFullYear();
 
   const programLinks = [
@@ -35,10 +36,11 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center space-x-2 mb-4">
               <Image
-                src="/logo-happy-academy.png"
+                src="/logo-happy-academy.webp"
                 alt="Happy Academy Konya"
                 width={150}
                 height={50}
+                quality={90}
                 className="h-10 w-auto"
               />
             </Link>
@@ -159,3 +161,6 @@ export function Footer() {
     </footer>
   );
 }
+
+// Memo ile export et
+export const Footer = memo(FooterComponent);

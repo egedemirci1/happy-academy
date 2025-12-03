@@ -10,11 +10,11 @@ export const metadata: Metadata = {
 
 export default function CerezPolitikasiPage() {
   return (
-    <div className="min-h-screen pt-20 sm:pt-24">
+    <div className="min-h-screen pt-16">
       <section className="section-padding bg-gradient-primary">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-6 font-montserrat break-words px-4">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 font-montserrat">
               Çerez Politikası
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-8">

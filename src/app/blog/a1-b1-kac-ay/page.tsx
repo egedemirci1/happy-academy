@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function A1B1KacAyPage() {
   return (
-    <div className="min-h-screen pt-20 sm:pt-24">
+    <div className="min-h-screen pt-16">
       <section className="section-padding bg-gradient-primary">
         <div className="container">
           <div className="max-w-4xl mx-auto">
@@ -21,7 +21,7 @@ export default function A1B1KacAyPage() {
               <ArrowLeft className="h-4 w-4" />
               Blog'a Dön
             </Link>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-6 font-montserrat break-words px-4">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 font-montserrat">
               A1'den B1'e Kaç Ayda Ulaşılır?
             </h1>
             <p className="text-xl text-gray-300 mb-8">

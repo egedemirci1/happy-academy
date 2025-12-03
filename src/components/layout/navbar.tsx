@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '../ui/button';
 import { Menu, X } from 'lucide-react';
 
-export function Navbar() {
+function NavbarComponent() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -42,10 +42,12 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
             <Image
-              src="/logo-happy-academy.png"
+              src="/logo-happy-academy.webp"
               alt="Happy Academy Konya"
               width={160}
               height={48}
+              priority
+              quality={90}
               className={`w-auto transition-all duration-300 ${
                 isScrolled ? 'h-8 sm:h-10' : 'h-10 sm:h-12 md:h-14'
               }`}
@@ -123,3 +125,6 @@ export function Navbar() {
     </nav>
   );
 }
+
+// Memo ile export et
+export const Navbar = memo(NavbarComponent);
