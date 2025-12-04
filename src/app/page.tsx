@@ -26,7 +26,7 @@ export default function Home() {
             className="mb-32 mt-8"
           />
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 -mt-8">
-            {/* Kurucu - Kader Koçyiğit */}
+            {/* İngilizce Öğretmeni - Züleyha Teacher */}
             <div className="text-center flex flex-col">
               <div className="bg-gray-100 rounded-xl p-4 sm:p-6 mb-4 flex-1 flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden min-h-[320px] sm:min-h-[480px]">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#f7b500] via-[#ffd700] to-[#f7b500]"></div>
@@ -36,18 +36,47 @@ export default function Home() {
                   <div className="flex-shrink-0">
                 <VideoPopup
                   videoSrc="/Eğitim Kadrosu-1.mp4"
-                  title="Kurucu - Kader Koçyiğit"
-                  description="Happy Academy'yi tanıtıyor"
+                  title="İngilizce Öğretmeni - Züleyha Teacher"
+                  description="İngilizce eğitimimizi ve öğretim yöntemlerimizi anlatıyor"
                 />
                   </div>
                   <div className="flex-1 flex flex-col justify-between">
                     <div className="flex-shrink-0 text-center mt-6">
-                      <h3 className="text-xl font-semibold mb-3 text-[#f7b500] h-8 flex items-center justify-center">Kurucu - Kader Koçyiğit</h3>
-                      <p className="text-gray-600 text-base mb-4">Happy Academy'nin kurucusu olarak eğitim felsefemizi ve öğrencilerimize sunduğumuz değerleri paylaşıyor.</p>
+                      <h3 className="text-xl font-semibold mb-3 text-[#f7b500] h-8 flex items-center justify-center">İngilizce Öğretmeni - Züleyha Teacher</h3>
+                      <p className="text-gray-600 text-base mb-4">İngilizce derslerimizde kullandığımız öğretim yöntemleri ve öğrencilerimize sunduğumuz eğitim kalitesi hakkında bilgi veriyor.</p>
                     </div>
                     <div className="text-center mt-4 flex-shrink-0">
                       <div className="flex items-center justify-center gap-2 text-sm font-medium">
-                        <span className="bg-[#f7b500] px-4 py-2 rounded-full text-black font-bold">Kurucu</span>
+                        <span className="bg-[#f7b500] px-4 py-2 rounded-full text-black font-bold">İngilizce Öğretmeni</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Matematik Öğretmeni - Gizem Hoca */}
+            <div className="text-center flex flex-col">
+              <div className="bg-gray-100 rounded-xl p-4 sm:p-6 mb-4 flex-1 flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden min-h-[320px] sm:min-h-[480px]">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#f7b500] via-[#ffd700] to-[#f7b500]"></div>
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#f7b500]/20 to-transparent rounded-bl-2xl"></div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-[#f7b500]/20 to-transparent rounded-tr-2xl"></div>
+                <div className="flex flex-col h-full">
+                  <div className="flex-shrink-0">
+                <VideoPopup
+                  videoSrc="/Eğitim_Kadrosu-3.mp4"
+                  title="Matematik Öğretmeni - Gizem Hoca"
+                  description="Matematik eğitimi hakkında bilgi veriyor"
+                />
+                  </div>
+                  <div className="flex-1 flex flex-col justify-between">
+                    <div className="flex-shrink-0 text-center mt-6">
+                      <h3 className="text-xl font-semibold mb-3 text-[#f7b500] h-8 flex items-center justify-center">Matematik Öğretmeni - Gizem Hoca</h3>
+                      <p className="text-gray-600 text-base mb-4">Matematik eğitimi ve öğretim yaklaşımımız hakkında değerli bilgiler paylaşıyor.</p>
+                    </div>
+                    <div className="text-center mt-4 flex-shrink-0">
+                      <div className="flex items-center justify-center gap-2 text-sm font-medium">
+                        <span className="bg-[#f7b500] px-4 py-2 rounded-full text-black font-bold">Matematik Öğretmeni</span>
                       </div>
                     </div>
                   </div>
@@ -77,35 +106,6 @@ export default function Home() {
                     <div className="text-center mt-4 flex-shrink-0">
                       <div className="flex items-center justify-center gap-2 text-sm font-medium">
                         <span className="bg-[#f7b500] px-4 py-2 rounded-full text-black font-bold">İngilizce Öğretmeni</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Matematik Öğretmeni - Gizem Yılmaz */}
-            <div className="text-center flex flex-col">
-              <div className="bg-gray-100 rounded-xl p-4 sm:p-6 mb-4 flex-1 flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 relative overflow-hidden min-h-[320px] sm:min-h-[480px]">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#f7b500] via-[#ffd700] to-[#f7b500]"></div>
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#f7b500]/20 to-transparent rounded-bl-2xl"></div>
-                <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-[#f7b500]/20 to-transparent rounded-tr-2xl"></div>
-                <div className="flex flex-col h-full">
-                  <div className="flex-shrink-0">
-                <VideoPopup
-                  videoSrc="/Eğitim_Kadrosu-3.mp4"
-                  title="Matematik Öğretmeni - Gizem Yılmaz"
-                  description="Matematik eğitimi hakkında bilgi veriyor"
-                />
-                  </div>
-                  <div className="flex-1 flex flex-col justify-between">
-                    <div className="flex-shrink-0 text-center mt-6">
-                      <h3 className="text-xl font-semibold mb-3 text-[#f7b500] h-8 flex items-center justify-center">Matematik Öğretmeni - Gizem Yılmaz</h3>
-                      <p className="text-gray-600 text-base mb-4">Matematik eğitimi ve öğretim yaklaşımımız hakkında değerli bilgiler paylaşıyor.</p>
-                    </div>
-                    <div className="text-center mt-4 flex-shrink-0">
-                      <div className="flex items-center justify-center gap-2 text-sm font-medium">
-                        <span className="bg-[#f7b500] px-4 py-2 rounded-full text-black font-bold">Matematik Öğretmeni</span>
                       </div>
                     </div>
                   </div>
@@ -184,23 +184,23 @@ export default function Home() {
             <div className="flex-1 max-w-2xl mx-auto lg:mx-0">
               <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl group hover:shadow-[#f7b500]/20 transition-all duration-500">
                 <VideoPopup
-                  videoSrc="/Happy-Academy-Tanıtım-Final.mp4"
-                  title="Happy Academy Tanıtım Videosu"
-                  description="Kurumumuzu daha yakından tanıyın"
+                  videoSrc="/Neden-Happy-Academy.mp4"
+                  title="Kurucu - Kader Koçyiğit"
+                  description="Happy Academy'nin vizyonunu ve eğitim felsefemizi anlatıyor"
                 />
               </div>
             </div>
             
             <div className="flex-1 lg:pl-8 text-center lg:text-left">
               <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 lg:mb-6">
-                Eğitimde <span className="text-[#f7b500] relative">
-                  Farkımız
+                <span className="text-[#f7b500] relative">
+                  Kurucumuzdan
                   <div className="absolute -bottom-1 left-0 w-full h-1 bg-[#f7b500]/30 rounded-full"></div>
                 </span>
               </h3>
               <p className="text-base sm:text-lg text-gray-600 mb-6 lg:mb-8 leading-relaxed px-4 lg:px-0">
-                Happy Academy olarak, öğrencilerimizin başarısı için sürekli kendimizi geliştiriyor, 
-                en modern eğitim tekniklerini kullanıyor ve her öğrencimize özel ilgi gösteriyoruz.
+                Happy Academy kurucusu Kader Koçyiğit, eğitim felsefemizi, öğrencilerimize sunduğumuz 
+                değerleri ve neden Happy Academy'yi tercih etmeniz gerektiğini anlatıyor.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6">
                 <div className="flex -space-x-3">

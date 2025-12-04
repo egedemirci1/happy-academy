@@ -16,9 +16,9 @@ export default function BlogPage() {
     : blogPosts.filter(post => post.category === selectedCategory);
 
   return (
-    <div className="min-h-screen pt-20 sm:pt-24 overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden">
       {/* Main Container */}
-      <div className="h-full bg-gradient-to-br from-orange-50 via-yellow-50 to-amber-50 relative">
+      <div className="h-full relative">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           {/* Floating Circles */}
@@ -64,19 +64,19 @@ export default function BlogPage() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 min-h-full flex flex-col">
+        <div className="relative z-10 min-h-full flex flex-col pt-20 sm:pt-24">
           {/* Header Section */}
-          <div className="flex-shrink-0 px-4 sm:px-6 py-4 sm:py-6">
-            <div className="max-w-7xl mx-auto">
+          <div className="flex-shrink-0">
+            <div className="container">
               <SectionTitle
                 title="Eğitim Blogu"
                 subtitle="Öğrenme yolculuğunuzda size rehberlik edecek içerikler"
                 icon={BookOpen}
                 iconSize="lg"
                 showIcon={true}
-                useAnimate={true}
-                titleColor="bg-gradient-to-r from-[#f7b500] to-[#e6a300] bg-clip-text text-transparent"
-                className="mb-8"
+                titleColor="text-[#f7b500]"
+                subtitleColor="text-gray-600"
+                className="mb-8 mt-4"
               />
 
               {/* Categories Filter */}

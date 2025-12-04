@@ -2,7 +2,7 @@
 
 import { SectionTitle } from '@/components/ui/section-title';
 import Link from 'next/link';
-import { BookOpen, Globe, Brain, Target, ArrowRight } from 'lucide-react';
+import { ArrowRight, BookOpen } from 'lucide-react';
 
 const educationPrograms = [
   {
@@ -116,160 +116,48 @@ const educationPrograms = [
 
 export default function EgitimlerPage() {
   return (
-    <div className="min-h-screen pt-20 sm:pt-24">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
-        {/* Rich Static Background */}
-        <div className="absolute inset-0 overflow-hidden">
-          {/* Enhanced Static Grid */}
-          <div className="absolute inset-0 opacity-15">
-            <div className="w-full h-full" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='16' height='16' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 16 0 L 0 0 0 16' fill='none' stroke='%23f7b500' stroke-width='1' opacity='0.4'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='80' height='80' fill='url(%23grid)'/%3E%3C/svg%3E")`,
-              backgroundRepeat: 'repeat'
-            }}></div>
-          </div>
-          
-          {/* Static Geometric Shapes */}
-          <div className="absolute top-20 left-20 w-40 h-40 border-2 border-[#f7b500]/25 rotate-45 pointer-events-none"></div>
-          <div className="absolute top-40 right-32 w-32 h-32 bg-[#f7b500]/15 rounded-full pointer-events-none"></div>
-          <div className="absolute bottom-32 left-16 w-48 h-48 border border-[#f7b500]/20 rounded-full pointer-events-none"></div>
-          <div className="absolute top-1/2 right-1/4 w-24 h-24 border-2 border-[#f7b500]/20 rotate-12 pointer-events-none"></div>
-          <div className="absolute bottom-1/3 right-1/3 w-36 h-36 bg-[#f7b500]/10 rounded-full pointer-events-none"></div>
-          
-          {/* Static Icons */}
-          <div className="absolute top-1/4 left-1/3 text-[#f7b500]/15 pointer-events-none">
-            <BookOpen className="w-20 h-20" />
-          </div>
-          <div className="absolute top-1/3 right-1/4 text-[#f7b500]/12 pointer-events-none">
-            <Globe className="w-24 h-24" />
-          </div>
-          <div className="absolute bottom-1/4 left-1/2 text-[#f7b500]/10 pointer-events-none">
-            <Brain className="w-28 h-28" />
-          </div>
-          <div className="absolute top-1/2 left-1/4 text-[#f7b500]/8 pointer-events-none">
-            <Target className="w-16 h-16" />
-          </div>
-          
-          {/* Multiple Gradient Orbs */}
-          <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-gradient-to-r from-[#f7b500]/12 to-transparent rounded-full blur-3xl pointer-events-none"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-60 h-60 bg-gradient-to-l from-[#f7b500]/15 to-transparent rounded-full blur-2xl pointer-events-none"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-gradient-to-br from-[#f7b500]/10 to-transparent rounded-full blur-xl pointer-events-none"></div>
-          <div className="absolute top-1/6 right-1/6 w-48 h-48 bg-gradient-to-tl from-[#f7b500]/8 to-transparent rounded-full blur-2xl pointer-events-none"></div>
-          <div className="absolute bottom-1/6 left-1/6 w-56 h-56 bg-gradient-to-br from-[#f7b500]/10 to-transparent rounded-full blur-2xl pointer-events-none"></div>
-          
-          {/* Static Particles */}
-          {[
-            { left: 15, top: 20, size: 'w-3 h-3' },
-            { left: 85, top: 30, size: 'w-2 h-2' },
-            { left: 25, top: 70, size: 'w-4 h-4' },
-            { left: 75, top: 80, size: 'w-2 h-2' },
-            { left: 45, top: 15, size: 'w-3 h-3' },
-            { left: 90, top: 60, size: 'w-2 h-2' },
-            { left: 10, top: 50, size: 'w-3 h-3' },
-            { left: 60, top: 90, size: 'w-2 h-2' },
-            { left: 35, top: 40, size: 'w-4 h-4' },
-            { left: 80, top: 10, size: 'w-2 h-2' },
-            { left: 20, top: 85, size: 'w-3 h-3' },
-            { left: 70, top: 25, size: 'w-2 h-2' },
-            { left: 50, top: 55, size: 'w-3 h-3' },
-            { left: 30, top: 10, size: 'w-2 h-2' },
-            { left: 95, top: 75, size: 'w-3 h-3' }
-          ].map((position, i) => (
-            <div
-              key={i}
-              className={`absolute ${position.size} bg-[#f7b500]/40 rounded-full pointer-events-none`}
-              style={{
-                left: `${position.left}%`,
-                top: `${position.top}%`,
-              }}
-            />
-          ))}
-        </div>
-        
-        {/* Content */}
-        <div className="container mx-auto px-4 py-16 relative z-10">
-          <div className="text-center max-w-5xl mx-auto">
-            <SectionTitle
-              title="Eğitimlerimiz"
-              subtitle="3 yaşından 80 yaşına kadar herkes için özel tasarlanmış, geleceğinizi şekillendiren eğitim deneyimi"
-              icon={BookOpen}
-              iconSize="lg"
-              showIcon={true}
-              titleColor="bg-gradient-to-r from-white via-[#f7b500] to-white bg-clip-text text-transparent"
-              subtitleColor="text-gray-300 text-xl md:text-2xl"
-              className="mb-8"
-            />
-            <div className="flex flex-wrap items-center justify-center gap-6 text-[#f7b500]">
-              <div className="flex items-center gap-2 bg-black/40 px-4 py-2 rounded-full">
-                <span className="text-2xl">🚀</span>
-                <span className="text-lg font-bold">İnovatif Metodlar</span>
-              </div>
-              <div className="flex items-center gap-2 bg-black/40 px-4 py-2 rounded-full">
-                <span className="text-2xl">🎯</span>
-                <span className="text-lg font-bold">Kişiye Özel Plan</span>
-              </div>
-              <div className="flex items-center gap-2 bg-black/40 px-4 py-2 rounded-full">
-                <span className="text-2xl">🏆</span>
-                <span className="text-lg font-bold">%100 Başarı Garantisi</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Scroll Down Arrow */}
-        <div className="absolute bottom-20 left-0 right-0 flex justify-center z-20">
-          <Link
-            href="#education-programs"
-            className="group flex flex-col items-center gap-3 text-white hover:text-[#f7b500] transition-colors duration-300"
-          >
-            <span className="text-sm font-medium">Eğitimlerimizi Görüntüleyin</span>
-            <div className="w-8 h-8 border-2 border-current rounded-full flex items-center justify-center group-hover:border-[#f7b500] transition-colors duration-300">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-              </svg>
-            </div>
-          </Link>
-        </div>
-      </section>
-
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
       {/* Education Programs - Compact Grid */}
-      <section id="education-programs" className="section-padding bg-gray-50">
+      <section className="pt-20 sm:pt-24 pb-24 md:pb-32">
         <div className="container">
           <SectionTitle
             title="Eğitim Programlarımız"
             subtitle="Her ihtiyaca uygun kapsamlı eğitim çözümleri"
-            className="mb-16"
-            titleColor="text-gray-800"
+            icon={BookOpen}
+            iconSize="lg"
+            showIcon={true}
+            titleColor="text-[#f7b500]"
             subtitleColor="text-gray-600"
+            className="mb-12 mt-4"
           />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {educationPrograms.map((program, index) => (
               <div
                 key={program.id}
                 className="group"
               >
-                <div className={`bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border-l-4 ${program.color.replace('from-', 'border-').replace(' to-', '')} relative overflow-hidden h-full flex flex-col`}>
+                <div className={`bg-white rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500 border-l-4 ${program.color.replace('from-', 'border-').replace(' to-', '')} relative overflow-hidden h-full flex flex-col`}>
                   {/* Background Pattern */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${program.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
                   
                   {/* Header */}
-                  <div className="relative z-10 mb-6">
-                    <div className="flex items-center gap-4 mb-4">
-                      <span className="text-4xl">{program.icon}</span>
-                      <h3 className="text-2xl font-bold text-gray-800 group-hover:text-[#f7b500] transition-colors duration-300">
+                  <div className="relative z-10 mb-4">
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="text-3xl">{program.icon}</span>
+                      <h3 className="text-xl font-bold text-gray-800 group-hover:text-[#f7b500] transition-colors duration-300">
                         {program.title}
                       </h3>
                     </div>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-gray-600 text-sm leading-relaxed">
                       {program.description}
                     </p>
                   </div>
                   
                   {/* Programs List */}
-                  <div className="relative z-10 mb-6 flex-1">
-                    <h4 className="text-sm font-semibold text-gray-700 mb-3">Programlar:</h4>
-                    <ul className="space-y-2">
+                  <div className="relative z-10 mb-4 flex-1">
+                    <h4 className="text-sm font-semibold text-gray-700 mb-2">Programlar:</h4>
+                    <ul className="space-y-1">
                       {program.programs.map((item, idx) => (
                         <li key={idx} className="flex items-center gap-2 text-sm text-gray-600">
                           <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${program.color}`}></div>
@@ -280,8 +168,8 @@ export default function EgitimlerPage() {
                   </div>
                   
                   {/* Features */}
-                  <div className="relative z-10 mb-6">
-                    <h4 className="text-sm font-semibold text-gray-700 mb-3 text-center">Özellikler:</h4>
+                  <div className="relative z-10 mb-4">
+                    <h4 className="text-sm font-semibold text-gray-700 mb-2 text-center">Özellikler:</h4>
                     <div className="flex flex-wrap gap-2 justify-center">
                       {program.features.map((feature, idx) => (
                         <span key={idx} className={`text-xs px-3 py-1 rounded-full bg-gradient-to-r ${program.color} text-white`}>
@@ -295,7 +183,7 @@ export default function EgitimlerPage() {
                   <div className="relative z-10 mt-auto">
                     <Link 
                       href={program.link}
-                      className={`group inline-flex items-center gap-2 bg-gradient-to-r ${program.color} text-white font-semibold px-6 py-3 rounded-full hover:shadow-lg transition-all duration-300 group-hover:scale-105 w-full justify-center`}
+                      className={`group inline-flex items-center gap-2 bg-gradient-to-r ${program.color} text-white font-semibold px-6 py-2.5 rounded-full hover:shadow-lg transition-all duration-300 group-hover:scale-105 w-full justify-center`}
                     >
                       <span>Detaylı Bilgi</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />

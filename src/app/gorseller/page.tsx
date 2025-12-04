@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom';
 import { SectionTitle } from '@/components/ui/section-title';
 import { VideoPopup } from '@/components/ui/video-popup';
 import { motion } from 'framer-motion';
-import { Camera, BookOpen, Sparkles, ChevronDown, X, Play } from 'lucide-react';
+import { Camera, BookOpen, Sparkles, X, Play } from 'lucide-react';
 import Image from 'next/image';
 
 export default function GorsellerPage() {
@@ -15,13 +15,6 @@ export default function GorsellerPage() {
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  const scrollToNext = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   const educationImages = [
     '/IMG_20250928_123029.webp',
@@ -39,7 +32,7 @@ export default function GorsellerPage() {
   ];
 
   return (
-    <div className="bg-gradient-to-br from-orange-50 via-yellow-50 to-amber-50">
+    <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
       {/* Animated Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -73,26 +66,18 @@ export default function GorsellerPage() {
       {/* Gallery Section */}
       <section id="gallery" className="min-h-screen pt-20 sm:pt-24 relative z-10 flex flex-col">
         <div className="container flex-1 flex flex-col justify-between py-4">
-          <motion.div
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-8 lg:mb-16"
-          >
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="p-3 bg-gradient-to-r from-[#f7b500] to-[#e6a300] rounded-full">
-                <Camera className="h-8 w-8 text-white" />
-              </div>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-montserrat">
-                <span className="bg-gradient-to-r from-[#f7b500] to-[#e6a300] bg-clip-text text-transparent">
-                  Görsellerimiz
-                </span>
-              </h1>
-            </div>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-              Happy Academy'deki eğitim ortamımızı ve öğrenci başarılarımızı keşfedin
-            </p>
-          </motion.div>
+          <div className="mb-8 lg:mb-16">
+            <SectionTitle
+              title="Görsellerimiz"
+              subtitle="Happy Academy'deki eğitim ortamımızı ve öğrenci başarılarımızı keşfedin"
+              icon={Camera}
+              iconSize="lg"
+              showIcon={true}
+              titleColor="text-[#f7b500]"
+              subtitleColor="text-gray-600"
+              className="mt-0"
+            />
+          </div>
           
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -178,48 +163,23 @@ export default function GorsellerPage() {
             document.body
           )}
         </div>
-        
-        {/* Scroll Arrow */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="flex justify-center pb-4"
-        >
-          <motion.button
-            onClick={() => scrollToNext('activities')}
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="p-3 bg-white/80 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-[#f7b500]/30 hover:border-[#f7b500]/50"
-          >
-            <ChevronDown className="h-6 w-6 text-[#f7b500]" />
-          </motion.button>
-        </motion.div>
       </section>
 
       {/* Ders İçi Videolar Section */}
       <section id="activities" className="min-h-screen relative z-10 flex flex-col pt-8">
         <div className="container flex-1 flex flex-col">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-center mb-8 lg:mb-12"
-          >
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <div className="p-3 bg-gradient-to-r from-[#f7b500] to-[#e6a300] rounded-full">
-                <Play className="h-8 w-8 text-white" />
-              </div>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 font-montserrat">
-                <span className="bg-gradient-to-r from-[#f7b500] to-[#e6a300] bg-clip-text text-transparent">
-                  Ders İçi Videolarımız
-                </span>
-              </h1>
-            </div>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-0 px-4">
-              Sınıflarımızda gerçekleşen derslerden örnekler ve eğitim sürecimizden kareler
-            </p>
-          </motion.div>
+          <div className="mb-8 lg:mb-12">
+            <SectionTitle
+              title="Ders İçi Videolarımız"
+              subtitle="Sınıflarımızda gerçekleşen derslerden örnekler ve eğitim sürecimizden kareler"
+              icon={Play}
+              iconSize="lg"
+              showIcon={true}
+              titleColor="text-[#f7b500]"
+              subtitleColor="text-gray-600"
+              className="mt-0"
+            />
+          </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
             {[
@@ -253,23 +213,6 @@ export default function GorsellerPage() {
             ))}
           </div>
         </div>
-        
-        {/* Final Scroll Arrow - Back to Top */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
-          className="flex justify-center pb-4"
-        >
-          <motion.button
-            onClick={() => scrollToNext('gallery')}
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="p-3 bg-white/80 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-[#f7b500]/30 hover:border-[#f7b500]/50"
-          >
-            <ChevronDown className="h-6 w-6 text-[#f7b500] rotate-180" />
-          </motion.button>
-        </motion.div>
       </section>
     </div>
   );
