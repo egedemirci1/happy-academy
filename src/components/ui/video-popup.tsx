@@ -172,6 +172,10 @@ function VideoPopupComponent({ videoSrc, thumbnailSrc, title, description }: Vid
               src={displayThumbnail} 
               alt={title}
               className="w-full h-full object-cover rounded-3xl"
+              style={{
+                transform: 'scale(1.15) translate(-8%, 10%)',
+                transformOrigin: 'center center'
+              }}
             />
           ) : (
             // Güzel placeholder - thumbnail yüklenene kadar
@@ -188,8 +192,16 @@ function VideoPopupComponent({ videoSrc, thumbnailSrc, title, description }: Vid
             </div>
           )}
           
-          {/* Dark overlay */}
+          {/* Dark overlay with vignette effect */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 rounded-3xl"></div>
+          {/* Vignette - dramatic depth effect */}
+          <div 
+            className="absolute inset-0 rounded-3xl pointer-events-none"
+            style={{
+              background: 'radial-gradient(ellipse at center, transparent 0%, transparent 40%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.6) 100%)',
+              boxShadow: 'inset 0 0 100px rgba(0,0,0,0.4), inset 0 0 50px rgba(0,0,0,0.3)'
+            }}
+          ></div>
           
           {/* Title at bottom with text */}
           <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 z-10">

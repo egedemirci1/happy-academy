@@ -36,6 +36,7 @@ export default function Home() {
                   <div className="flex-shrink-0">
                 <VideoPopup
                   videoSrc="/Eğitim Kadrosu-1.mp4"
+                  thumbnailSrc="/Züleyha-Thumbnail.webp"
                   title="İngilizce Öğretmeni - Züleyha Teacher"
                   description="İngilizce eğitimimizi ve öğretim yöntemlerimizi anlatıyor"
                 />
@@ -65,6 +66,7 @@ export default function Home() {
                   <div className="flex-shrink-0">
                 <VideoPopup
                   videoSrc="/Eğitim_Kadrosu-3.mp4"
+                  thumbnailSrc="/gizem_hoca_thumbnail.webp"
                   title="Matematik Öğretmeni - Gizem Hoca"
                   description="Matematik eğitimi hakkında bilgi veriyor"
                 />
@@ -94,6 +96,7 @@ export default function Home() {
                   <div className="flex-shrink-0">
                 <VideoPopup
                   videoSrc="/Eğitim Kadrosu-2.mp4"
+                  thumbnailSrc="/Cometsi.webp"
                   title="İngilizce Öğretmeni - Cometsi"
                   description="Derste neler yaptığımızı ve neden bu kursu tercih etmeniz gerektiğini anlatıyor"
                 />
@@ -185,6 +188,7 @@ export default function Home() {
               <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl group hover:shadow-[#f7b500]/20 transition-all duration-500">
                 <VideoPopup
                   videoSrc="/Neden-Happy-Academy.mp4"
+                  thumbnailSrc="/neden-happy-academy-thumbnail.webp"
                   title="Kurucu - Kader Koçyiğit"
                   description="Happy Academy'nin vizyonunu ve eğitim felsefemizi anlatıyor"
                 />
