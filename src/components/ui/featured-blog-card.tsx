@@ -58,7 +58,7 @@ export function FeaturedBlogCard({ post, categoryInfo }: FeaturedBlogCardProps) 
 
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mb-4">
-                {post.tags.slice(0, 3).map((tag, index) => (
+                {post.tags?.slice(0, 3).map((tag, index) => (
                   <span
                     key={index}
                     className="text-sm bg-gray-100 text-gray-600 px-3 py-1 rounded-full hover:bg-[#f7b500]/10 hover:text-[#f7b500] transition-colors duration-300"
