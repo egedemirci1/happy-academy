@@ -37,13 +37,13 @@ export default function Home() {
                 <VideoPopup
                   videoSrc="/Eğitim Kadrosu-1.mp4"
                   thumbnailSrc="/zuleyha-thumbnail.webp"
-                  title="İngilizce Öğretmeni - Züleyha Teacher"
+                  title="Züleyha Teacher"
                   description="İngilizce eğitimimizi ve öğretim yöntemlerimizi anlatıyor"
                 />
                   </div>
                   <div className="flex-1 flex flex-col justify-between">
                     <div className="flex-shrink-0 text-center mt-6">
-                      <h3 className="text-xl font-semibold mb-3 text-[#f7b500] h-8 flex items-center justify-center">İngilizce Öğretmeni - Züleyha Teacher</h3>
+                      <h3 className="text-xl font-semibold mb-3 text-[#f7b500] h-8 flex items-center justify-center">İngilizce Öğretmeni</h3>
                       <p className="text-gray-600 text-base mb-4">İngilizce derslerimizde kullandığımız öğretim yöntemleri ve öğrencilerimize sunduğumuz eğitim kalitesi hakkında bilgi veriyor.</p>
                     </div>
                     <div className="text-center mt-4 flex-shrink-0">
@@ -67,13 +67,13 @@ export default function Home() {
                 <VideoPopup
                   videoSrc="/Eğitim_Kadrosu-3.mp4"
                   thumbnailSrc="/gizem_hoca_thumbnail.webp"
-                  title="Matematik Öğretmeni - Gizem Hoca"
+                  title="Gizem Hoca"
                   description="Matematik eğitimi hakkında bilgi veriyor"
                 />
                   </div>
                   <div className="flex-1 flex flex-col justify-between">
                     <div className="flex-shrink-0 text-center mt-6">
-                      <h3 className="text-xl font-semibold mb-3 text-[#f7b500] h-8 flex items-center justify-center">Matematik Öğretmeni - Gizem Hoca</h3>
+                      <h3 className="text-xl font-semibold mb-3 text-[#f7b500] h-8 flex items-center justify-center">Matematik Öğretmeni</h3>
                       <p className="text-gray-600 text-base mb-4">Matematik eğitimi ve öğretim yaklaşımımız hakkında değerli bilgiler paylaşıyor.</p>
                     </div>
                     <div className="text-center mt-4 flex-shrink-0">
@@ -97,13 +97,13 @@ export default function Home() {
                 <VideoPopup
                   videoSrc="/Eğitim Kadrosu-2.mp4"
                   thumbnailSrc="/Cometsi.webp"
-                  title="İngilizce Öğretmeni - Cometsi"
+                  title="Cometsi"
                   description="Derste neler yaptığımızı ve neden bu kursu tercih etmeniz gerektiğini anlatıyor"
                 />
                   </div>
                   <div className="flex-1 flex flex-col justify-between">
                     <div className="flex-shrink-0 text-center mt-6">
-                      <h3 className="text-xl font-semibold mb-3 text-[#f7b500] h-8 flex items-center justify-center">İngilizce Öğretmeni - Cometsi</h3>
+                      <h3 className="text-xl font-semibold mb-3 text-[#f7b500] h-8 flex items-center justify-center">İngilizce Öğretmeni</h3>
                       <p className="text-gray-600 text-base mb-4">Derste neler yaptığımızı ve neden bu kursu tercih etmeniz gerektiğini detaylı bir şekilde açıklıyor.</p>
                     </div>
                     <div className="text-center mt-4 flex-shrink-0">
