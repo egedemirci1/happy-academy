@@ -36,7 +36,7 @@ export default function Home() {
                   <div className="flex-shrink-0">
                 <VideoPopup
                   videoSrc="/Eğitim Kadrosu-1.mp4"
-                  thumbnailSrc="/Züleyha-Thumbnail.webp"
+                  thumbnailSrc="/zuleyha-thumbnail.webp"
                   title="İngilizce Öğretmeni - Züleyha Teacher"
                   description="İngilizce eğitimimizi ve öğretim yöntemlerimizi anlatıyor"
                 />
