@@ -183,11 +183,11 @@ export default function GorsellerPage() {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
             {[
-              { src: '/video1.mp4', title: 'Ders İçi Video 1', description: 'Eğitim sürecimizden bir kare' },
-              { src: '/video3.mp4', title: 'Ders İçi Video 3', description: 'Eğitim sürecimizden bir kare' },
-              { src: '/video4.mp4', title: 'Ders İçi Video 4', description: 'Eğitim sürecimizden bir kare' },
-              { src: '/video5.mp4', title: 'Ders İçi Video 5', description: 'Eğitim sürecimizden bir kare' },
-              { src: '/video6.mp4', title: 'Ders İçi Video 6', description: 'Eğitim sürecimizden bir kare' }
+              { src: '/video1.mp4', thumbnail: '/video1-thumbnail.webp', title: 'Ders İçi Video 1', description: 'Eğitim sürecimizden bir kare' },
+              { src: '/video3.mp4', thumbnail: '/video3-thumbnail.webp', title: 'Ders İçi Video 2', description: 'Eğitim sürecimizden bir kare' },
+              { src: '/video4.mp4', thumbnail: '/video4-thumbnail.webp', title: 'Ders İçi Video 3', description: 'Eğitim sürecimizden bir kare' },
+              { src: '/video5.mp4', thumbnail: '/video5-thumbnail.webp', title: 'Ders İçi Video 4', description: 'Eğitim sürecimizden bir kare' },
+              { src: '/video6.mp4', thumbnail: '/video6-thumbnail.webp', title: 'Ders İçi Video 5', description: 'Eğitim sürecimizden bir kare' }
             ].map((video, index) => (
               <motion.div
                 key={index}
@@ -204,6 +204,7 @@ export default function GorsellerPage() {
                 <div className="bg-white/80 backdrop-blur-sm rounded-2xl h-40 lg:h-48 shadow-lg hover:shadow-2xl transition-all duration-300 border border-[#f7b500]/20 hover:border-[#f7b500]/40 overflow-hidden relative">
                   <VideoPopup
                     videoSrc={video.src}
+                    thumbnailSrc={video.thumbnail}
                     title={video.title}
                     description={video.description}
                   />
