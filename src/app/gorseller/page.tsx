@@ -184,7 +184,6 @@ export default function GorsellerPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
             {[
               { src: '/video1.mp4', title: 'Ders İçi Video 1', description: 'Eğitim sürecimizden bir kare' },
-              { src: '/video2.mp4', title: 'Ders İçi Video 2', description: 'Eğitim sürecimizden bir kare' },
               { src: '/video3.mp4', title: 'Ders İçi Video 3', description: 'Eğitim sürecimizden bir kare' },
               { src: '/video4.mp4', title: 'Ders İçi Video 4', description: 'Eğitim sürecimizden bir kare' },
               { src: '/video5.mp4', title: 'Ders İçi Video 5', description: 'Eğitim sürecimizden bir kare' },
